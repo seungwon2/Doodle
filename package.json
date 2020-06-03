@@ -1,0 +1,24 @@
+{
+  "name": "react-typescript-11th",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@types/styled-components": "^5.1.0",
+    "moment": "^2.26.0",
+    "next": "9.4.2",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "styled-components": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.5",
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "typescript": "^3.9.3"
+  }
+}
