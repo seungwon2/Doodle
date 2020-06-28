@@ -69,7 +69,7 @@ export default class Timeline extends App {
       <>
         <GlobalStyle />
         <Head>
-          <title>react-typescript-11th</title>
+          <title>Doodle</title>
         </Head>
         <BestWrapper>
           <Grey />
