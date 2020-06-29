@@ -3,6 +3,7 @@ import App from "next/app";
 import Head from "next/head";
 
 import styled, { createGlobalStyle } from "styled-components";
+import 'antd/dist/antd.css';
 
 const GlobalStyle = createGlobalStyle`
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
