@@ -1,14 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import Link from 'next/link';
 
-export default function Logo() {
+
+export default function HomeLogoActive() {
   return (
       <Wrapper>
-          <Link href="/">  
-          <LogoImage src='/logo.png'/>
-          </Link>
-       
+          <LogoImage src='/homeActive.png'/>
       </Wrapper>
   );
 }

@@ -1,17 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import MypageLogo from '../atoms/mypageLogo';
 import Link from 'next/link';
+import HomeLogoActive from '../atoms/homeActive';
 
-export default function Mypage() {
+export default function ActiveMain() {
   return (
       <Wrapper>
-         <Link href="/mypage">
-           <a>
-          <MypageLogo/>
-          <Label>마이페이지</Label>
+        <Link href="/">
+        <a>
+          <HomeLogoActive/>
+          <Label>홈</Label>
           </a>
-          </Link>
+        </Link>
       </Wrapper>
   );
 }

@@ -1,11 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
+import OrderLogo from '../atoms/orderLogo'
 
 export default function Make() {
   return (
       <Wrapper>
-          {/* 이미지 */}
+         <Link href="/order/step1" as="/order/step1">
+           <a>
+          <OrderLogo/>
           <Label>만들기</Label>
+          </a>
+          </Link>
       </Wrapper>
   );
 }
@@ -22,4 +28,5 @@ const Label = styled.label`
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: black;
 `;

@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import MypageLogo from '../atoms/mypageLogo';
 import Link from 'next/link';
+import MypageLogoActive from '../atoms/mypageActive';
 
-export default function Mypage() {
+export default function ActiveMypage() {
   return (
       <Wrapper>
          <Link href="/mypage">
            <a>
-          <MypageLogo/>
+          <MypageLogoActive/>
           <Label>마이페이지</Label>
           </a>
           </Link>

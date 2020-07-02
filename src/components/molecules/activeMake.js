@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import MypageLogo from '../atoms/mypageLogo';
 import Link from 'next/link';
+import OrderLogoActive from '../atoms/orderActive';
 
-export default function Mypage() {
+export default function ActiveMake() {
   return (
       <Wrapper>
-         <Link href="/mypage">
+         <Link href="/order/step1" as="/order/step1">
            <a>
-          <MypageLogo/>
-          <Label>마이페이지</Label>
+          <OrderLogoActive/>
+          <Label>만들기</Label>
           </a>
           </Link>
       </Wrapper>
