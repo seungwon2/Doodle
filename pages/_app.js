@@ -4,6 +4,7 @@ import Head from "next/head";
 
 import styled, { createGlobalStyle } from "styled-components";
 import 'antd/dist/antd.css';
+import 'antd/dist/custom.css';
 
 const GlobalStyle = createGlobalStyle`
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);

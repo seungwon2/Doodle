@@ -1,14 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import Link from 'next/link';
+import OrderLogoActive from '../atoms/orderLogoActive'
 
-export default function Logo() {
+
+export default function OrderLogoActive() {
   return (
       <Wrapper>
-          <Link href="/">  
-          <LogoImage src='/logo.png'/>
-          </Link>
-       
+        <OrderLogoActive/>
+          <LogoImage src='/orderActive.png'/>
       </Wrapper>
   );
 }

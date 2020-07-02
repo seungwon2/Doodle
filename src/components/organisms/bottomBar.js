@@ -1,24 +1,36 @@
 import React from 'react';
 import styled from 'styled-components';
-import Home1 from '../molecules/home.js';
+import Link from 'next/link';
+
+import Main from '../molecules/home.js';
 import Make from '../molecules/make.js';
 import Mypage from '../molecules/mypage.js';
+
 
 export default function BottomBar() {
   return (
       <Wrapper>
-          <Home1/>
+        <Bar>
+          <Main/>
           <Make/>
           <Mypage/>
+        </Bar>
       </Wrapper>
   );
 }
+
 const Wrapper = styled.div`
-  position: fixed;
-  width: 55%;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+const Bar = styled.div`
+  width: 100%;
   height: 6rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   bottom: 0;
-`;
+`

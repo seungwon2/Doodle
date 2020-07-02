@@ -1,11 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
+import MypageLogo from '../atoms/mypageLogo';
+import Link from 'next/link';
 
 export default function Mypage() {
   return (
       <Wrapper>
-          {/* 이미지 */}
+         <Link href="/mypage">
+           <a>
+          <MypageLogo/>
           <Label>마이페이지</Label>
+          </a>
+          </Link>
       </Wrapper>
   );
 }
@@ -22,4 +28,5 @@ const Label = styled.label`
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: black;
 `;

@@ -1,11 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
+import HomeLogo from '../atoms/homeLogo';
+import Link from 'next/link';
 
-export default function Home1() {
+export default function Main() {
   return (
       <Wrapper>
-          {/* 이미지 */}
+        <Link href="/">
+        <a>
+          <HomeLogo/>
           <Label>홈</Label>
+          </a>
+        </Link>
       </Wrapper>
   );
 }
@@ -22,4 +28,5 @@ const Label = styled.label`
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: black;
 `;

@@ -1,17 +1,17 @@
 import React, {useState, useEffect} from "react";
 import styled from 'styled-components';
-import {  Modal, Form, Input, Button, Select } from 'antd';
+import {  Modal, Input, Button} from 'antd';
 import DaumPostcode from "react-daum-postcode";
 
-import ReceiverText from '../src/components/atoms/receiverText';
-import PhoneNumText from '../src/components/atoms/phoneNumText';
-import AddressText from '../src/components/atoms/addressText';
-import ShipInfoText from '../src/components/atoms/shipInfoText';
-import OrderInfoText from '../src/components/atoms/orderInfoText';
-import OrderText from '../src/components/atoms/orderText';
-import EmailText from '../src/components/atoms/emailText';
+import ReceiverText from '../../src/components/atoms/receiverText';
+import PhoneNumText from '../../src/components/atoms/phoneNumText';
+import AddressText from '../../src/components/atoms/addressText';
+import ShipInfoText from '../../src/components/atoms/shipInfoText';
+import OrderInfoText from '../../src/components/atoms/orderInfoText';
+import OrderText from '../../src/components/atoms/orderText';
+import EmailText from '../../src/components/atoms/emailText';
 
-export default function Info2() {
+export default function Info() {
   
 const [isVisible, setIsVisible] = useState(false);
 const [form, setForm] = useState({ receiver: "", rPhoneNum: "", order: "", oPhoneNum:"", email: "" });
@@ -47,7 +47,6 @@ const handleFormChange = (e) => {
   console.log(form);
 };
 const handleFillContent = (e) => {
-    console.log("Dddd");
     setForm({ ...form,
       order : form.receiver, 
       oPhoneNum : form.rPhoneNum,  

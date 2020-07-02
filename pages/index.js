@@ -16,7 +16,6 @@ export default function Home() {
       <Logo/>
       <MainBanner></MainBanner>
       <PhotoReview></PhotoReview>
-      <DatePicker/>
       <BottomBar/>
     </Wrapper>
   );
