@@ -9,11 +9,12 @@ export default function AddressText() {
   );
 }
 const Wrapper = styled.div`
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  align-items: right;
-  margin-left: 20%;
+width: 100%;
+height: fit-content;
+display: flex;
+flex-direction: column;
+align-items: right;
+margin-left: 20%;
 `;
 const Label = styled.label`
   1.2rem;

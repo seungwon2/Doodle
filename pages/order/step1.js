@@ -56,7 +56,7 @@ let profile_preview = null;
                    id="doodle"
                   />
         </FileBox>
-        <NextButton link="/order/step2"/>
+        <NextButton link="/order/step2" buttonName="다음으로"/>
         </Wrapper>
       );
     }
