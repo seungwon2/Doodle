@@ -1,19 +1,14 @@
 import React, {useState, useEffect} from "react";
 import styled from 'styled-components';
-import {  Modal, Input, Button} from 'antd';
+import {  Modal, Button} from 'antd';
 import DaumPostcode from "react-daum-postcode";
 import Link from 'next/link';
 
-import ReceiverText from '../../src/components/atoms/receiverText';
-import PhoneNumText from '../../src/components/atoms/phoneNumText';
-import AddressText from '../../src/components/atoms/addressText';
-import ShipInfoText from '../../src/components/atoms/shipInfoText';
-import OrderInfoText from '../../src/components/atoms/orderInfoText';
-import OrderText from '../../src/components/atoms/orderText';
-import EmailText from '../../src/components/atoms/emailText';
 import Header from '../../src/components/organisms/header';
 import NextButton from "../../src/components/molecules/nextButton";
 import StepIcon1 from "../../src/components/atoms/stepIcon1";
+import BoldText from "../../src/components/atoms/boldText";
+import NormalText from "../../src/components/atoms/normalText";
 
 
 export default function Step3() {
@@ -65,18 +60,20 @@ const handleFillContent = (e) => {
         <Title>
            Step3<br/>
            배송지와 고객 정보
-          </Title>
-        <ShipInfoText/>
+        </Title>
         <Row>
-        <ReceiverText/>
-        <Input name="receiver" textholder="이름" value={form.receiver} placeholder="이름" onChange={handleFormChange}/>
+        <BoldText text="배송지 정보"/>
         </Row>
         <Row>
-        <PhoneNumText/>
+        <NormalText text="받으시는 분"/>
+        <Input name="receiver" textholder="이름" value={form.receiver} placeholder="이름" onChange={handleFormChange} width="50vh"/>
+        </Row>
+        <Row>
+        <NormalText text="연락처"/>
         <Input name="rPhoneNum" value={form.rPhoneNum} onChange={handleFormChange} placeholder="'-' 없이 번호만 입력"/>
         </Row>
         <Row>
-        <AddressText/>
+        <NormalText text="주소"/>
         <Input placeholder="우편번호" value={postCode}/> <Button onClick={showModal}>찾기</Button>
         <Modal
           title="우편번호 찾기"
@@ -87,25 +84,25 @@ const handleFillContent = (e) => {
         <DaumPostcode onComplete={handleData} />
         </Modal>
         </Row>
+        <AddressRow>
+        <AddressInput placeholder="기본주소" value={baseAddress}/>
+        </AddressRow>
+        <AddressRow>
+        <AddressInput placeholder="상세주소" value={detailAddress} onChange={handleFormChange}/>
+        </AddressRow>
         <Row>
-        <Input placeholder="기본주소" value={baseAddress}/>
+        <BoldText text="주문자 정보"/><Button onClick={handleFillContent}>위와 동일하게 채우기</Button>
         </Row>
         <Row>
-        <Input placeholder="상세주소" value={detailAddress} onChange={handleFormChange}/>
-        </Row>
-        <Row>
-        <OrderInfoText/><Button onClick={handleFillContent}>위와 동일하게 채우기</Button>
-        </Row>
-        <Row>
-        <OrderText/>
+        <NormalText text="주문자"/>
         <Input name="order" placeholder="이름" value={form.order} onChange={handleFormChange} placeholder="'-' 없이 번호만 입력"/>
         </Row>
         <Row>
-        <PhoneNumText/>
+        <NormalText text="연락처"/>
         <Input name="oPhoneNum" value={form.oPhoneNum} onChange={handleFormChange}/>
         </Row>
         <Row>
-        <EmailText/>
+        <NormalText text="이메일"/>
         <Input placeholder="이메일" name="email" value={form.email} onChange={handleFormChange}/>
         </Row>
         <NextButton link='/order/step4' buttonName="결제하기"/>
@@ -114,35 +111,67 @@ const handleFillContent = (e) => {
 }
 const Wrapper = styled.div`
   width: 100%;
-  height: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
-
 `
 const Row = styled.div`
   display: flex;
-  justify-content: center;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+`;
+const AddressRow = styled.div`
+  display: flex;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  justify-content: flex-end;
 `;
 const Title = styled.label`
-color: rgb(69,69,69);
-font-size: 1.563rem;
-padding-left: 2vw;
-width: 100%;
+  color: rgb(69,69,69);
+  font-size: 1.563rem;
+  padding-left: 2vw;
+  width: 100%;
 `;
-const BuyButton = styled.button`
-    display: flex;
-    justify-content: center;
-    color: rgb(255, 255, 255);
-    width: 60%;
-    height: 8vh;
-    margin: auto;
-    font-size: 1.25rem;
-    line-height: normal;
-    background-color: rgb(255, 144, 69);
-    border: 0px;
-    box-shadow: 4pt 4pt 6pt 0pt rgba (0, 0, 0, 0.25);
-    border-radius: 0.375rem;
-    transition: background-color 0.2s;
-    align-items: center;
+const Input = styled.input`
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-variant: tabular-nums;
+    list-style: none;
+    font-feature-settings: 'tnum', "tnum";
+    width: 50vw;
+    min-width: 0;
+    padding: 4px 11px;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 14px;
+    line-height: 1.5715;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    transition: all 0.3s;
+`;
+
+const AddressInput = styled.input`
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-variant: tabular-nums;
+    list-style: none;
+    font-feature-settings: 'tnum', "tnum";
+    width: 25vw;
+    min-width: 0;
+    padding: 4px 11px;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 14px;
+    line-height: 1.5715;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    transition: all 0.3s;
 `;
