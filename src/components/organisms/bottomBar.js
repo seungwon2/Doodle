@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Link from 'next/link';
 
 import Main from '../molecules/home.js';
 import Make from '../molecules/make.js';
@@ -56,7 +55,7 @@ const Wrapper = styled.div`
 `;
 const Bar = styled.div`
   width: 100%;
-  height: 6rem;
+  height: 13vh;
   display: flex;
   flex-direction: row;
   align-items: center;

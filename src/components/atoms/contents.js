@@ -3,13 +3,14 @@ import styled from 'styled-components';
 import Header from '../../src/components/organisms/header';
 
 
-export default function Step2() {
+export default function Contents({contents}) {
   return (
       <Wrapper>
-          <Header title="제작하기"/>
+          <Contents>{contents}</Contents>
       </Wrapper>
   );
 }
 const Wrapper = styled.div`
-
+    width:100%;
 `;
+

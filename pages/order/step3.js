@@ -10,8 +10,9 @@ import ShipInfoText from '../../src/components/atoms/shipInfoText';
 import OrderInfoText from '../../src/components/atoms/orderInfoText';
 import OrderText from '../../src/components/atoms/orderText';
 import EmailText from '../../src/components/atoms/emailText';
+import Header from "../../src/components/organisms/header";
 
-export default function Info() {
+export default function Step3() {
   
 const [isVisible, setIsVisible] = useState(false);
 const [form, setForm] = useState({ receiver: "", rPhoneNum: "", order: "", oPhoneNum:"", email: "" });
@@ -55,6 +56,7 @@ const handleFillContent = (e) => {
 };
   return (
       <Wrapper>
+        <Header title="제작하기"/>
         <ShipInfoText/>
         <Row>
         <ReceiverText/>
