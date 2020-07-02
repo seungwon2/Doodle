@@ -5,18 +5,46 @@ import Link from 'next/link';
 import Main from '../molecules/home.js';
 import Make from '../molecules/make.js';
 import Mypage from '../molecules/mypage.js';
+import ActiveMain from '../molecules/activeHome.js';
+import ActiveMake from '../molecules/activeMake.js';
+import ActiveMypage from '../molecules/activeMypage.js';
 
 
-export default function BottomBar() {
-  return (
+export default function BottomBar({active}) {
+  if (active==="home"){
+    return (
       <Wrapper>
         <Bar>
-          <Main/>
+          <ActiveMain/>
           <Make/>
           <Mypage/>
         </Bar>
       </Wrapper>
   );
+  }
+  else if (active==="make"){
+    return (
+      <Wrapper>
+        <Bar>
+          <Main/>
+          <ActiveMake/>
+          <Mypage/>
+        </Bar>
+      </Wrapper>
+  );
+  }
+  else {
+    return (
+      <Wrapper>
+        <Bar>
+          <Main/>
+          <Make/>
+          <ActiveMypage/>
+        </Bar>
+      </Wrapper>
+  );
+  }
+  
 }
 
 const Wrapper = styled.div`
@@ -33,4 +61,5 @@ const Bar = styled.div`
   flex-direction: row;
   align-items: center;
   bottom: 0;
+  box-shadow: 0px -5px 20px 0px rgb(0 0 0, 0.11) inset;
 `

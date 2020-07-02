@@ -1,20 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function OrderLogoActive() {
+
+export default function LeftArrow() {
   return (
       <Wrapper>
-          <LogoImage src='/makeActive.png'/>
+          <IconImage src='/leftArrow.png' width="20%"/>
       </Wrapper>
   );
 }
 const Wrapper = styled.div`
-  width: 100%;
+  width: 20%;
   height: fit-content;
   display: flex;
-  flex-direction: column;
   align-items: center;
 `;
-const LogoImage = styled.img`
-  width: 20%;
+const IconImage = styled.img`
 `;

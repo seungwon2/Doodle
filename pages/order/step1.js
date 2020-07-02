@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import axios from 'axios';
 import { useRouter } from 'next/router';
+import BottomBar from "../../src/components/organisms/bottomBar";
+import Header from "../../src/components/organisms/header";
 
 export default function Order() {
   const [ImgURL, setImgURL] = useState('');
@@ -35,12 +37,14 @@ let profile_preview = null;
     }
   return (
     <Wrapper>
+      <Header title="제작하기"/>
       <Thumbnail>{profile_preview}</Thumbnail>
       <InputFile type="file" 
                  name="doodle" 
                  onChange={onChangeDoodle}/>
       <DoodleButton onClick={onClickButton}>사진 전송</DoodleButton>
       <PhotoCheck></PhotoCheck>
+      <BottomBar active="make"/>
     </Wrapper>
   );
 }

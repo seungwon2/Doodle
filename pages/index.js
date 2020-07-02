@@ -16,7 +16,7 @@ export default function Home() {
       <Logo/>
       <MainBanner></MainBanner>
       <PhotoReview></PhotoReview>
-      <BottomBar/>
+      <BottomBar active="home"/>
     </Wrapper>
   );
 }
