@@ -34,18 +34,33 @@ export default function Order() {
  const [redesign, setRedesign] = useState(0);
  const [amount, setAmount] = useState(0);
 
-
  const handleNext = () => {
   setStep(step+1);
   console.log(step);
 };
  
  const hajeongShit = () => {
-   const body = { r_phone_num:form.rPhoneNum, doodle:Doodle, post_code:postCode, base_address:baseAddress, redesign, amount, receiver:form.receiver, o_phone_num:form.oPhoneNum, order:form.order, email:form.email, detail_address:form.detailAddress };
+   const FormData = require('form-data');
+   const form_data = new FormData();
+   form_data.append('r_phone_num',form.rPhoneNum);
+   form_data.append('doodle',Doodle);
+   form_data.append('post_code',postCode);
+   form_data.append('base_address',baseAddress);
+   form_data.append('redesign',redesign);
+   form_data.append('amount',amount);
+   form_data.append('receiver',form.receiver);
+   form_data.append('o_phone_num',form.oPhoneNum);
+   form_data.append('order',form.order);
+   form_data.append('email',form.email);
+   form_data.append('detail_address',form.detailAddress);
+
+   console.log(Doodle);
+  // const body = { r_phone_num:form.rPhoneNum, doodle:Doodle, post_code:postCode, base_address:baseAddress, redesign, amount, receiver:form.receiver, o_phone_num:form.oPhoneNum, order:form.order, email:form.email, detail_address:form.detailAddress };
    console.log('hi');
-   console.log(body);
-  axios.post('http://ec2-15-164-172-128.ap-northeast-2.compute.amazonaws.com/api/produce/', body )
+   console.log(form_data);
+   axios.post('http://ec2-15-164-172-128.ap-northeast-2.compute.amazonaws.com/api/produce/', form_data )
       .then(function (response) {
+        
         console.log(response);
         console.log("전송 성공");
       })
