@@ -2,12 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 
-export default function NextButton({link}) {
+export default function NextButton({link, buttonName}) {
   return (
       <Wrapper>
           <Link href={link}>
           <a>
-          <Button>다음으로</Button>
+          <Button>{buttonName}</Button>
           </a>
           </Link>
       </Wrapper>

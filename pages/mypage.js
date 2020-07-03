@@ -7,6 +7,7 @@ import OrderText from '../src/components/atoms/orderText';
 import PhoneNumText from '../src/components/atoms/phoneNumText';
 import FAQ from '../src/components/organisms/FAQ';
 import Logo from '../src/components/atoms/logo';
+import NormalText from '../src/components/atoms/normalText';
 
 export default function Mypage() {
     const [form, setForm] = useState({ name:"", phoneNum:"" });
@@ -29,11 +30,11 @@ export default function Mypage() {
             title="마이페이지"
             subTitle="홈"/>
           <Row>
-          <OrderText/>
+          <NormalText text="이름"/>
           <Input placeholder="이름" value={form.name} name="name"/>
           </Row>
           <Row>
-          <PhoneNumText value={form.phoneNum} name="phoneNum"/>
+          <NormalText text="번호" value={form.phoneNum} name="phoneNum"/>
           <Input/>
           </Row>
           <Button onClick={handleOnClick}>조회하기</Button>

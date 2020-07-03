@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function ReceiverText() {
+export default function NormalText({text}) {
   return (
       <Wrapper>
-          <Label>받으시는 분</Label>
+          <Label>{text}</Label>
       </Wrapper>
   );
 }
@@ -14,8 +14,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: right;
-  margin-left: 20%;
 `;
 const Label = styled.label`
-  1.2rem;
+  font-size: 1rem;
   `

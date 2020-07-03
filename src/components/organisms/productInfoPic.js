@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function OrderInfoText() {
+export default function ProductInfoPic() {
   return (
       <Wrapper>
-          <Label>주문자</Label>
+          상품 상세 소개 이미지 자리
       </Wrapper>
   );
 }
@@ -13,10 +13,6 @@ const Wrapper = styled.div`
   height: fit-content;
   display: flex;
   flex-direction: column;
-  align-items: right;
-  margin-left: 20%;
+  align-items: center;
+  padding: 100px;
 `;
-const Label = styled.label`
-  1.2rem;
-  font-weight:bold;
-  `

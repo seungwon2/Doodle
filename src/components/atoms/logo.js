@@ -5,10 +5,7 @@ import Link from 'next/link';
 export default function Logo() {
   return (
       <Wrapper>
-          <Link href="/">  
           <LogoImage src='/logo.png'/>
-          </Link>
-       
       </Wrapper>
   );
 }
@@ -18,7 +15,9 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
 `;
 const LogoImage = styled.img`
-  width: 20%;
+  width: 26%;
 `;

@@ -5,6 +5,9 @@ import Link from 'next/link';
 import LeftArrow from '../atoms/leftArrow';
 
 export default function Header({title}) {
+  const goBack = () => {
+    history.goBack();
+  };
   return (
       <Wrapper>
           <LeftArrow/>

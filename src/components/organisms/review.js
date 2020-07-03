@@ -2,13 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import BoldText from '../atoms/boldText';
 
-export default function PhotoReview() {
+
+export default function Review() {
   return (
       <Wrapper>
-          <Row>
-            <BoldText text="포토 후기"/>
+          <Row>          
+            <BoldText text="리뷰"/>
           </Row>
-        
+
+
       </Wrapper>
   );
 }
@@ -17,8 +19,10 @@ const Wrapper = styled.div`
   height: fit-content;
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 const Row = styled.div`
-  margin-left: 10%;
-  align-item: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `;

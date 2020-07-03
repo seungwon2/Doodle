@@ -1,20 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function AddressText() {
+export default function BoldText({text}) {
   return (
       <Wrapper>
-          <Label>주소</Label>
+          <Label>{text}</Label>
       </Wrapper>
   );
 }
 const Wrapper = styled.div`
+  width: 100%;
   height: fit-content;
   display: flex;
   flex-direction: column;
   align-items: right;
-  margin-left: 20%;
 `;
 const Label = styled.label`
-  1.2rem;
-  `
+  font-size: 1.188rem;
+  font-weight:bold;
+  `  
