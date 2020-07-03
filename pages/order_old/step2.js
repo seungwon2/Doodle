@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import Header from '../../src/components/organisms/header';
 import StepIcon1 from "../../src/components/atoms/stepIcon1";
 import NextButton from '../../src/components/molecules/nextButton';
+import OrderTitle from "../../src/components/atoms/orderTitle";
+import OrderExp from "../../src/components/atoms/orderExp";
 
 
 export default function Step2({ImgURL}) {
@@ -13,14 +15,12 @@ export default function Step2({ImgURL}) {
       <Wrapper>
           <Header title="제작하기"/>
           <StepIcon1/>
-          <Title>
-           Step2<br/>
-           리디자인 단계 설문
-          </Title>
-          <Contents>
-           작업에 들어가기 전, 예시를 참고하여 선호하는<br/>
-           낙서의 리디자인 정도를 선택해주세요.
-          </Contents>
+          <OrderTitle step="2"
+                  text="리디자인 단계 설문"
+           />
+          <OrderExp text="작업에 들어가기 전, 예시를 참고하여 선호하는"/>
+          <OrderExp text=" 낙서의 리디자인 정도를 선택해주세요."/>
+    
           <Thumbnail>{profile_preview}</Thumbnail>
 
           <NextButton link="/order/step3" buttonName="다음으로"/>
@@ -30,19 +30,7 @@ export default function Step2({ImgURL}) {
 const Wrapper = styled.div`
 
 `;
-const Title = styled.label`
-  color: rgb(69,69,69);
-  font-size: 1.563rem;
-  padding-left: 2vw;
-  width: 100%;
-`;
-const Contents = styled.label`
-  color: rgb(69,69,69);
-  font-size: 1.188rem;
-  padding-top: 9vh;
-  padding-left: 2vw;
-  width: 100%;
-`;
+
 const Thumbnail = styled.div`
  backgroundColor: #efefef;
  height: 30vh;

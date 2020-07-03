@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import BoldText from '../atoms/boldText';
 
-
 export default function Review() {
   return (
       <Wrapper>
