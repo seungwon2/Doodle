@@ -74,7 +74,7 @@ const handleFillContent = (e) => {
         </Row>
         <Row>
         <NormalText text="주소"/>
-        <Input placeholder="우편번호" value={postCode}/> <Button onClick={showModal}>찾기</Button>
+        <PostCodeInput placeholder="우편번호" value={postCode}/> <FindButton onClick={showModal}>찾기</FindButton>
         <Modal
           title="우편번호 찾기"
           visible={isVisible}
@@ -91,7 +91,7 @@ const handleFillContent = (e) => {
         <AddressInput placeholder="상세주소" value={detailAddress} onChange={handleFormChange}/>
         </AddressRow>
         <Row>
-        <BoldText text="주문자 정보"/><Button onClick={handleFillContent}>위와 동일하게 채우기</Button>
+        <BoldText text="주문자 정보"/><AutoButton onClick={handleFillContent}>위와 동일하게 채우기</AutoButton>
         </Row>
         <Row>
         <NormalText text="주문자"/>
@@ -143,7 +143,7 @@ const Input = styled.input`
     font-variant: tabular-nums;
     list-style: none;
     font-feature-settings: 'tnum', "tnum";
-    width: 50vw;
+    width: 114%;
     min-width: 0;
     padding: 4px 11px;
     color: rgba(0, 0, 0, 0.65);
@@ -163,7 +163,7 @@ const AddressInput = styled.input`
     font-variant: tabular-nums;
     list-style: none;
     font-feature-settings: 'tnum', "tnum";
-    width: 25vw;
+    width: 55%;
     min-width: 0;
     padding: 4px 11px;
     color: rgba(0, 0, 0, 0.65);
@@ -174,4 +174,72 @@ const AddressInput = styled.input`
     border: 1px solid #d9d9d9;
     border-radius: 2px;
     transition: all 0.3s;
+`;
+
+const AutoButton = styled.button`
+ line-height: 1.5715;
+ position: relative;
+ display: inline-block;
+ font-weight: 400;
+ white-space: nowrap;
+ text-align: center;
+ background-image: none;
+ border: 0px;
+ cursor: pointer;
+ transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+ touch-action: manipulation;
+ height: 32px;
+ padding: 4px 15px;
+ font-size: 0.75rem;
+ border-radius: 2px;
+ color: rgba(0, 0, 0, 0.65);
+ background-color: #fff;
+ border-color: #d9d9d9;
+`;
+
+const PostCodeInput = styled.input`
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+ font-variant: tabular-nums;
+ list-style: none;
+ font-feature-settings: 'tnum', "tnum";
+ width: 80%;
+ margin-right: 2%;
+ min-width: 0;
+ padding: 4px 11px;
+ color: rgba(0, 0, 0, 0.65);
+ font-size: 14px;
+ line-height: 1.5715;
+ background-color: #fff;
+ background-image: none;
+ border: 1px solid #d9d9d9;
+ border-radius: 2px;
+ transition: all 0.3s;
+`;
+const FindButton = styled.button`
+    line-height: 1.5715;
+    position: relative;
+    display: inline-block;
+    font-weight: 400;
+    white-space: nowrap;
+    text-align: center;
+    background-image: none;
+    border: 1px solid transparent;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
+    height: 32px;
+    padding: 4px 15px;
+    font-size: 0.9rem;
+    border-radius: 2px;
+    color: rgba(0, 0, 0, 0.65);
+    background: #fff;
+    border-color: #d9d9d9;
+    width: 20%;
 `;

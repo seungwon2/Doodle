@@ -14,8 +14,8 @@ export default function Home() {
   return (
     <Wrapper>
       <Logo/>
-      <MainBanner></MainBanner>
-      <PhotoReview></PhotoReview>
+      <MainBanner/>
+      <PhotoReview/>
       <BottomBar active="home"/>
     </Wrapper>
   );
