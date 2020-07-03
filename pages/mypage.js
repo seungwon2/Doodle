@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import { Input, Button, PageHeader } from 'antd';
 import axios from 'axios';
 
-import OrderText from '../src/components/atoms/orderText';
-import PhoneNumText from '../src/components/atoms/phoneNumText';
 import FAQ from '../src/components/organisms/FAQ';
 import Logo from '../src/components/atoms/logo';
 import NormalText from '../src/components/atoms/normalText';

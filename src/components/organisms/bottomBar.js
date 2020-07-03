@@ -13,6 +13,7 @@ export default function BottomBar({active}) {
   if (active==="home"){
     return (
       <Wrapper>
+        <Phantom/>
         <Bar>
           <ActiveMain/>
           <Make/>
@@ -24,6 +25,7 @@ export default function BottomBar({active}) {
   else if (active==="make"){
     return (
       <Wrapper>
+        <Phantom/>
         <Bar>
           <Main/>
           <ActiveMake/>
@@ -35,6 +37,7 @@ export default function BottomBar({active}) {
   else {
     return (
       <Wrapper>
+        <Phantom/>
         <Bar>
           <Main/>
           <Make/>
@@ -52,13 +55,25 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
 `;
 const Bar = styled.div`
-  width: 100%;
+  max-width: 100%;
   height: 13vh;
   display: flex;
   flex-direction: row;
   align-items: center;
   bottom: 0;
-  box-shadow: 0px -5px 20px 0px rgb(0 0 0, 0.11) inset;
+  box-shadow: 0px, -5px, 20px, 0px, rgb(0 0 0, 0.11);
+  position: fixed;
+  flex-shrink: 0;
+  background-color: white;
+  padding-left:13%;
+  padding-right:13%;
 `
+const Phantom = styled.div`
+  display: block;
+  padding: 20px;
+  height: 14vh;
+  width: 100%;
+`;
