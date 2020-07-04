@@ -9,12 +9,12 @@ import NextButton from "../../src/components/molecules/nextButton";
 import StepIcon1 from "../../src/components/atoms/stepIcon1";
 import BoldText from "../../src/components/atoms/boldText";
 import NormalText from "../../src/components/atoms/normalText";
-
+import OrderTitle from "../../src/components/atoms/orderTitle";
 
 export default function Step3() {
   
 const [isVisible, setIsVisible] = useState(false);
-const [form, setForm] = useState({ receiver: "", rPhoneNum: "", order: "", oPhoneNum:"", email: "" });
+const [form, setForm] = useState({ receiver: "", rPhoneNum: "", order: "", oPhoneNum:"", email: "", postCode:"", baseAddress:"", detailAddress:"" });
 const [postCode, setPostCode] = useState();
 const [baseAddress, setBaseAddress] = useState();
 const [detailAddress, setDetailAddress] = useState();
@@ -57,10 +57,9 @@ const handleFillContent = (e) => {
       <Wrapper>
         <Header title="제작하기"/>
         <StepIcon1/>
-        <Title>
-           Step3<br/>
-           배송지와 고객 정보
-        </Title>
+        <OrderTitle step="3"
+                  text="배송지와 고객 정보"
+           />
         <Row>
         <BoldText text="배송지 정보"/>
         </Row>
@@ -129,12 +128,6 @@ const AddressRow = styled.div`
   margin-top: 1vh;
   margin-bottom: 1vh;
   justify-content: flex-end;
-`;
-const Title = styled.label`
-  color: rgb(69,69,69);
-  font-size: 1.563rem;
-  padding-left: 2vw;
-  width: 100%;
 `;
 const Input = styled.input`
     box-sizing: border-box;

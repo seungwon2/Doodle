@@ -1,15 +1,11 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 
-export default function NextButton({link, buttonName}) {
+export default function NextButton({ buttonName, handleNext }) {
   return (
-      <Wrapper>
-          <Link href={link}>
-          <a>
+      <Wrapper onClick={handleNext}>
           <Button>{buttonName}</Button>
-          </a>
-          </Link>
       </Wrapper>
   );
 }

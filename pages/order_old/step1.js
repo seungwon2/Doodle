@@ -6,6 +6,8 @@ import BottomBar from "../../src/components/organisms/bottomBar";
 import Header from "../../src/components/organisms/header";
 import StepIcon1 from "../../src/components/atoms/stepIcon1";
 import NextButton from "../../src/components/molecules/nextButton";
+import OrderTitle from "../../src/components/atoms/orderTitle";
+import OrderExp from "../../src/components/atoms/orderExp";
 
 export default function Step1() {
   const [ImgURL, setImgURL] = useState('');
@@ -40,13 +42,10 @@ let profile_preview = null;
         <Wrapper>
           <Header title="제작하기"/>
           <StepIcon1/>
-          <Title>
-          Step1<br/>
-          우리아이 낙서 사진 업로드
-          </Title>
-          <Contents>
-          아래의 낙서로 리디자인이 진행됩니다.
-        </Contents>
+          <OrderTitle step="1"
+                  text="우리아이 낙서 사진 업로드"
+           />
+          <OrderExp text=" 아래의 낙서로 리디자인이 진행됩니다."/>
         <Thumbnail>{profile_preview}</Thumbnail>
         <FileBox>
         <ButtonChoose for="doodle">다시 선택하기</ButtonChoose>
@@ -65,14 +64,11 @@ let profile_preview = null;
       <Wrapper>
         <Header title="제작하기"/>
         <StepIcon1/>
-        <Title>
-          Step1<br/>
-          우리아이 낙서 사진 업로드
-        </Title>
-        <Contents>
-          머그컵에 리디자인 되어 그려질<br/>
-          아이의 소중한 낙서를 업로드 해주세요.
-        </Contents>
+        <OrderTitle step="1"
+                  text="우리아이 낙서 사진 업로드"
+           />
+        <OrderExp text="머그컵에 리디자인 되어 그려질"/>
+        <OrderExp text="아이의 소중한 낙서를 업로드 해주세요."/>
         <Thumbnail/>
         <FileBox>
         <ButtonName for="doodle">사진 업로드</ButtonName>
@@ -110,24 +106,6 @@ const InputFile = styled.input`
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
-`;
-
-const DoodleButton = styled.button`
-  height: 3.75rem;
-`;
-const Title = styled.label`
-  color: rgb(69,69,69);
-  font-size: 1.563rem;
-  padding-left: 2vw;
-  width: 100%;
-`;
-
-const Contents = styled.label`
-  color: rgb(69,69,69);
-  font-size: 1.188rem;
-  padding-top: 9vh;
-  padding-left: 2vw;
-  width: 100%;
 `;
 
 const FileBox = styled.div`

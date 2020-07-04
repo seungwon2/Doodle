@@ -6,7 +6,7 @@ import OrderLogo from '../atoms/orderLogo'
 export default function Make() {
   return (
       <Wrapper>
-         <Link href="/order/step1" as="/order/step1">
+         <Link href="/order/step1" as="/order">
            <a>
           <OrderLogo/>
           <Label>만들기</Label>

@@ -29,7 +29,7 @@ const callback = (key) => {
   );
 }
 const Wrapper = styled.div`
-  width: 100%;
+  min-width: 100%;
   height: fit-content;
   display: flex;
   flex-direction: column;

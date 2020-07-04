@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import BoldText from '../atoms/boldText';
 
-
 export default function Review() {
   return (
       <Wrapper>
@@ -25,4 +24,5 @@ const Row = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom:100px;
 `;

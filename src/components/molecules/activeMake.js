@@ -6,7 +6,7 @@ import OrderLogoActive from '../atoms/orderActive';
 export default function ActiveMake() {
   return (
       <Wrapper>
-         <Link href="/order/step1" as="/order/step1">
+         <Link href="/order/step1" as="/order">
            <a>
           <OrderLogoActive/>
           <Label>만들기</Label>
