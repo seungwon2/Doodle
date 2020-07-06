@@ -14,12 +14,13 @@ import ProductInfo from "../src/components/organisms/productInfo";
 import ProductInfoPic from "../src/components/organisms/productInfoPic";
 import Review from "../src/components/organisms/review";
 import Header from '../src/components/organisms/header';
-import StepIcon1 from "../src/components/atoms/stepIcon1";
+import StepIcon from "../src/components/atoms/stepIcon";
 import OrderTitle from "../src/components/atoms/orderTitle";
 import OrderExp from "../src/components/atoms/orderExp";
 import BoldText from "../src/components/atoms/boldText"
 import NormalText from "../src/components/atoms/normalText";
-import ConfirmButton from '../src/components/molecules/confirmButton';
+import GreyButton from '../src/components/molecules/greyButton';
+import OrangeButton from "../src/components/molecules/orangeButton.js";
 
 export default function Order() {
  const [ImgURL, setImgURL] = useState(null);
@@ -137,7 +138,7 @@ const handleFillContent = (e) => {
               {ImgURL && (
         <>
         <Header title="제작하기"/>
-          <StepIcon1/>
+          <StepIcon imgPath="/step/step1.png"/>
           <OrderTitle step="1"
                   text="우리아이 낙서 사진 업로드"
            />
@@ -154,7 +155,7 @@ const handleFillContent = (e) => {
         <NextButton buttonName="다음으로" handleNext={handleNext}/></>)}
         {ImgURL===null && (<>
         <Header title="제작하기"/>
-        <StepIcon1/>
+        <StepIcon imgPath="/step/step1.png"/>
         <OrderTitle step="1"
                   text="우리아이 낙서 사진 업로드"
            />
@@ -175,7 +176,7 @@ const handleFillContent = (e) => {
       {step===2 && ( 
       <Wrapper>
           <Header title="제작하기"/>
-          <StepIcon1/>
+          <StepIcon imgPath="/step/step2.png"/>
           <OrderTitle step="2"
                   text="리디자인 단계 설문"
            />
@@ -189,7 +190,7 @@ const handleFillContent = (e) => {
       {step===3 && ( 
         <Wrapper>
         <Header title="제작하기"/>
-        <StepIcon1/>
+        <StepIcon imgPath="/step/step3.png"/>
         <OrderTitle step="3"
                   text="배송지와 고객 정보"
            />
@@ -242,7 +243,7 @@ const handleFillContent = (e) => {
       {step===4 && ( 
       <Wrapper>
         <Header title="제작하기"/>
-        <StepIcon1/>
+        <StepIcon imgPath="/step/step4.png"/>
         <OrderTitle step="4"
                   text="결제하기"
            />
@@ -256,8 +257,8 @@ const handleFillContent = (e) => {
             </Text>
         </Card>
         </CardArea>
-        <ConfirmButton link="/mypage" buttonName="주문 내역 확인"/>
-        <NextButton buttonName="홈으로"/>
+        <GreyButton link="/mypage" buttonName="주문 내역 확인"/>
+        <OrangeButton link="/" buttonName="홈으로"/>
       </Wrapper>)}
   </div>
   )

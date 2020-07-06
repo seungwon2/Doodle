@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 
-export default function ConfirmButton({link, buttonName}) {
+export default function GreyButton({link, buttonName}) {
   return (
       <Wrapper>
           <Link href={link}>
