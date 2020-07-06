@@ -1,33 +1,45 @@
-import React from 'react';
-import styled from 'styled-components';
-import HomeLogo from '../atoms/homeLogo';
-import Link from 'next/link';
+/** @format */
 
-export default function Main() {
-  return (
-      <Wrapper>
-        <Link href="/">
-        <a>
-          <HomeLogo/>
-          <Label>홈</Label>
-          </a>
-        </Link>
-      </Wrapper>
-  );
+import React from "react";
+import styled from "styled-components";
+import Link from "next/link";
+import HomeIcon from "../atoms/svgFolder/home";
+export default function Main({ active }) {
+	return (
+		<Wrapper>
+			<Link href='/'>
+				<a>
+					{active === "home" && (
+						<>
+							<HomeIcon color='#ff9045' />
+						</>
+					)}
+					{active != "home" && (
+						<>
+							<HomeIcon color='#666' />
+						</>
+					)}
+
+					<Label>홈</Label>
+				</a>
+			</Link>
+		</Wrapper>
+	);
 }
 const Wrapper = styled.div`
-  width: 100%;
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	width: 100%;
+	height: fit-content;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
 `;
 const Label = styled.label`
-  width: 100%;
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: black;
-  font-size: 0.8125rem;
+	width: 100%;
+	height: fit-content;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: rgb(112, 112, 112);
+	font-size: 1.3rem;
 `;

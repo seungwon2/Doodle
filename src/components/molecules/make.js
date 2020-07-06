@@ -1,32 +1,46 @@
-import React from 'react';
-import styled from 'styled-components';
-import Link from 'next/link';
-import OrderLogo from '../atoms/orderLogo'
+/** @format */
 
-export default function Make() {
-  return (
-      <Wrapper>
-         <Link href="/order/step1" as="/order">
-           <a>
-          <OrderLogo/>
-          <Label>만들기</Label>
-          </a>
-          </Link>
-      </Wrapper>
-  );
+import React from "react";
+import styled from "styled-components";
+import Link from "next/link";
+import OrderIcon from "../atoms/svgFolder/make";
+import OrderIconActive from "../atoms/orderIconActive";
+
+export default function Make({ active }) {
+	return (
+		<Wrapper>
+			<Link href='/order' as='/order'>
+				<a>
+					{active === "make" && (
+						<>
+							<OrderIconActive />
+						</>
+					)}
+					{active != "make" && (
+						<>
+							<OrderIcon />
+						</>
+					)}
+					<Label>제작하기</Label>
+				</a>
+			</Link>
+		</Wrapper>
+	);
 }
 const Wrapper = styled.div`
-  width: 100%;
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	width: 100%;
+	height: fit-content;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
 `;
 const Label = styled.label`
-  width: 100%;
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: black;
+	width: 100%;
+	height: fit-content;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: rgb(112, 112, 112);
+	font-size: 1.3rem;
 `;
