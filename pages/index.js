@@ -19,7 +19,7 @@ export default function Home() {
 			<MainBanner />
 			<PhotoReview />
 			<Phantom />
-			<BottomBar />
+			<BottomBar active='home' />
 		</Wrapper>
 	);
 }

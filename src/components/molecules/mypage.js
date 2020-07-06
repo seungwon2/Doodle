@@ -5,12 +5,22 @@ import styled from "styled-components";
 import Link from "next/link";
 import MypageIcon from "../atoms/svgFolder/mypage";
 
-export default function Mypage() {
+export default function Mypage({ active }) {
 	return (
 		<Wrapper>
 			<Link href='/mypage'>
 				<a>
-					<MypageIcon width='1.8rem' height='1.8rem' />
+					{active === "mypage" && (
+						<>
+							<MypageIcon color='#ff9045' />
+						</>
+					)}
+					{active != "mypage" && (
+						<>
+							<MypageIcon color='#666' />
+						</>
+					)}
+
 					<Label>마이페이지</Label>
 				</a>
 			</Link>
@@ -31,6 +41,6 @@ const Label = styled.label`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	color: black;
-	font-size: 0.8125rem;
+	color: rgb(112, 112, 112);
+	font-size: 1.3rem;
 `;

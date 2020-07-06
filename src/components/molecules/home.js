@@ -4,12 +4,22 @@ import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import HomeIcon from "../atoms/svgFolder/home";
-export default function Main() {
+export default function Main({ active }) {
 	return (
 		<Wrapper>
 			<Link href='/'>
 				<a>
-					<HomeIcon width='1.8rem' height='1.8rem' />
+					{active === "home" && (
+						<>
+							<HomeIcon color='#ff9045' />
+						</>
+					)}
+					{active != "home" && (
+						<>
+							<HomeIcon color='#666' />
+						</>
+					)}
+
 					<Label>홈</Label>
 				</a>
 			</Link>
@@ -30,6 +40,6 @@ const Label = styled.label`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	color: black;
-	font-size: 0.8125rem;
+	color: rgb(112, 112, 112);
+	font-size: 1.3rem;
 `;

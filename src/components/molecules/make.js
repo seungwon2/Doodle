@@ -4,13 +4,24 @@ import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import OrderIcon from "../atoms/svgFolder/make";
-export default function Make() {
+import OrderIconActive from "../atoms/orderIconActive";
+
+export default function Make({ active }) {
 	return (
 		<Wrapper>
 			<Link href='/order' as='/order'>
 				<a>
-					<OrderIcon />
-					<Label>만들기</Label>
+					{active === "make" && (
+						<>
+							<OrderIconActive />
+						</>
+					)}
+					{active != "make" && (
+						<>
+							<OrderIcon />
+						</>
+					)}
+					<Label>제작하기</Label>
 				</a>
 			</Link>
 		</Wrapper>
@@ -30,6 +41,6 @@ const Label = styled.label`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	color: black;
-	font-size: 0.8125rem;
+	color: rgb(112, 112, 112);
+	font-size: 1.3rem;
 `;

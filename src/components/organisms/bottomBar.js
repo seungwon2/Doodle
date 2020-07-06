@@ -7,12 +7,12 @@ import Main from "../molecules/home.js";
 import Make from "../molecules/make.js";
 import Mypage from "../molecules/mypage.js";
 
-export default function BottomBar() {
+export default function BottomBar({ active }) {
 	return (
 		<Wrapper>
-			<Main />
-			<Make />
-			<Mypage />
+			<Main active={active} />
+			<Make active={active} />
+			<Mypage active={active} />
 		</Wrapper>
 	);
 }

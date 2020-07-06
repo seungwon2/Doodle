@@ -137,7 +137,7 @@ export default function Order() {
 					<Review />
 					<NextButton buttonName='다음으로' handleNext={handleNext} />
 					<Phantom />
-					<BottomBar />
+					<BottomBar active='make' />
 				</Wrapper>
 			)}
 			{step === 1 && (

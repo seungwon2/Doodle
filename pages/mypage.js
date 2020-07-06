@@ -10,6 +10,8 @@ import NormalText from "../src/components/atoms/normalText";
 import Header from "../src/components/organisms/header";
 import BoldText from "../src/components/atoms/boldText";
 import Grey from "../src/components/atoms/grey";
+import BottomBar from "../src/components/organisms/bottomBar";
+import Phantom from "../src/components/organisms/phantom";
 
 export default function Mypage() {
 	const [form, setForm] = useState({ name: "", phoneNum: "" });
@@ -67,6 +69,8 @@ export default function Mypage() {
 			</ButtonRow>
 			<Grey />
 			<FAQ />
+			<Phantom />
+			<BottomBar active='mypage' />
 		</Wrapper>
 	);
 }
