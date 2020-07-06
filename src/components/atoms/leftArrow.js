@@ -1,19 +1,16 @@
-import React from 'react';
-import styled from 'styled-components';
+/** @format */
 
+import React from "react";
+import styled from "styled-components";
 
 export default function LeftArrow() {
-  return (
-      <Wrapper>
-          <IconImage src='/leftArrow.png'/>
-      </Wrapper>
-  );
+	return (
+		<div>
+			<IconImage src='/leftArrow.png' />
+		</div>
+	);
 }
-const Wrapper = styled.div`
-  height: 1.25rem;
-  display: flex;
-  align-items: center;
-`;
+
 const IconImage = styled.img`
-  height: 1.25rem;
+	height: 1.25rem;
 `;
