@@ -16,7 +16,7 @@ export default function ActiveMain() {
   );
 }
 const Wrapper = styled.div`
-  width: 100%;
+  width: fit-content;
   height: fit-content;
   display: flex;
   flex-direction: column;

@@ -17,5 +17,5 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 const LogoImage = styled.img`
-  width: 20%;
+width: 2.15rem;
 `;
