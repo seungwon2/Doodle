@@ -22,7 +22,7 @@ import NormalText from "../src/components/atoms/normalText";
 import ConfirmButton from '../src/components/molecules/confirmButton';
 
 export default function Order() {
- const [ImgURL, setImgURL] = useState('');
+ const [ImgURL, setImgURL] = useState(null);
  const [Doodle, setDoodle] = useState('');
  const [isVisible, setIsVisible] = useState(false);
  const [form, setForm] = useState({ receiver: "", rPhoneNum: "", order: "", oPhoneNum:"", email: "" , detailAddress: ""});
@@ -63,6 +63,7 @@ export default function Order() {
         
         console.log(response);
         console.log("전송 성공");
+        handleNext();
       })
       .catch(function (error) {
         console.log(error.response);
@@ -125,6 +126,7 @@ const handleFillContent = (e) => {
       <Logo/>
       <ProductSlide />
       <ProductInfo />
+      <NextButton buttonName="다음으로" handleNext={handleNext}/>
       <ProductInfoPic />
       <Review/>
       <NextButton buttonName="다음으로" handleNext={handleNext}/>
@@ -150,7 +152,7 @@ const handleFillContent = (e) => {
                   />
         </FileBox>
         <NextButton buttonName="다음으로" handleNext={handleNext}/></>)}
-        
+        {ImgURL===null && (<>
         <Header title="제작하기"/>
         <StepIcon1/>
         <OrderTitle step="1"
@@ -167,7 +169,7 @@ const handleFillContent = (e) => {
                    id="doodle"
                   />
         </FileBox>
-        <BottomBar active="make"/>
+        <BottomBar active="make"/></>)}
           </Wrapper>
           )}
       {step===2 && ( 

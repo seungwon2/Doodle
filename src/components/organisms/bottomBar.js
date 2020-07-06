@@ -10,44 +10,25 @@ import ActiveMypage from '../molecules/activeMypage.js';
 
 
 export default function BottomBar({active}) {
-  if (active==="home"){
-    return (
-      <Wrapper>
-        <Phantom/>
-        <Bar>
-          <ActiveMain/>
+  return(<NewWrapper>
+    <ActiveMain/>
           <Make/>
           <Mypage/>
-        </Bar>
-      </Wrapper>
-  );
-  }
-  else if (active==="make"){
-    return (
-      <Wrapper>
-        <Phantom/>
-        <Bar>
-          <Main/>
-          <ActiveMake/>
-          <Mypage/>
-        </Bar>
-      </Wrapper>
-  );
-  }
-  else {
-    return (
-      <Wrapper>
-        <Phantom/>
-        <Bar>
-          <Main/>
-          <Make/>
-          <ActiveMypage/>
-        </Bar>
-      </Wrapper>
-  );
-  }
-  
+  </NewWrapper>)
 }
+
+const NewWrapper = styled.div`
+  max-width:36rem;
+  width:100%;
+  padding: 1.38rem 3.6rem 1.8rem 3.6rem;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:space-between;
+  position:fixed;
+  bottom : 0px;
+  background-color:white;
+`;
 
 const Wrapper = styled.div`
   width: 100%;

@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import Logo from '../atoms/svgFolder/make';
 
 export default function OrderLogo() {
   return (
       <Wrapper>
-          <LogoImage src='/make.png'/>
+          <Logo width="40%" height="fit content" color="yellow"/>
       </Wrapper>
   );
 }
@@ -15,7 +15,4 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-const LogoImage = styled.img`
-  width: 20%;
 `;
