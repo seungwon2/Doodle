@@ -3,7 +3,6 @@
 import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
-import OrderLogo from "../atoms/orderLogo";
 import OrderIcon from "../atoms/svgFolder/make";
 export default function Make() {
 	return (

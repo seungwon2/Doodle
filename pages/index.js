@@ -10,6 +10,7 @@ import BottomBar from "../src/components/organisms/bottomBar.js";
 import Logo from "../src/components/atoms/logo.js";
 import MainBanner from "../src/components/molecules/mainbanner.js";
 import PhotoReview from "../src/components/organisms/photoReview.js";
+import Phantom from "../src/components/organisms/phantom.js";
 
 export default function Home() {
 	return (
@@ -17,6 +18,7 @@ export default function Home() {
 			<Logo />
 			<MainBanner />
 			<PhotoReview />
+			<Phantom />
 			<BottomBar />
 		</Wrapper>
 	);

@@ -23,6 +23,7 @@ import BoldText from "../src/components/atoms/boldText";
 import NormalText from "../src/components/atoms/normalText";
 import GreyButton from "../src/components/molecules/greyButton";
 import OrangeButton from "../src/components/molecules/orangeButton.js";
+import Phantom from "../src/components/organisms/phantom.js";
 
 export default function Order() {
 	const [ImgURL, setImgURL] = useState(null);
@@ -132,10 +133,10 @@ export default function Order() {
 					<Logo />
 					<ProductSlide />
 					<ProductInfo />
-					<NextButton buttonName='다음으로' handleNext={handleNext} />
 					<ProductInfoPic />
 					<Review />
 					<NextButton buttonName='다음으로' handleNext={handleNext} />
+					<Phantom />
 					<BottomBar />
 				</Wrapper>
 			)}
@@ -177,6 +178,7 @@ export default function Order() {
 									id='doodle'
 								/>
 							</FileBox>
+							<Phantom />
 							<BottomBar active='make' />
 						</>
 					)}
@@ -344,7 +346,7 @@ const ButtonName = styled.label`
 	background-color: rgb(255, 144, 69);
 	cursor: pointer;
 	border: 0px;
-	box-shadow: 4pt 4pt 6pt 0pt rgba (0, 0, 0, 0.25);
+	box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 6px 0 rgba(0, 0, 0, 0.19);
 	border-radius: 0.375rem;
 	transition: background-color 0.2s;
 	align-items: center;
@@ -362,7 +364,7 @@ const ButtonChoose = styled.label`
 	background-color: rgb(246, 247, 247);
 	cursor: pointer;
 	border: 0px;
-	box-shadow: 4pt 4pt 6pt 0pt rgba (0, 0, 0, 0.25);
+	box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 6px 0 rgba(0, 0, 0, 0.19);
 	border-radius: 0.375rem;
 	transition: background-color 0.2s;
 	align-items: center;
