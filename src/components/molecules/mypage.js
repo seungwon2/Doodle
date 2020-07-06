@@ -32,4 +32,5 @@ const Label = styled.label`
 	flex-direction: column;
 	align-items: center;
 	color: black;
+	font-size: 0.8125rem;
 `;

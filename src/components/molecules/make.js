@@ -9,7 +9,7 @@ export default function Make() {
 		<Wrapper>
 			<Link href='/order' as='/order'>
 				<a>
-					<OrderIcon width='1.8rem' height='1.8rem' />
+					<OrderIcon />
 					<Label>만들기</Label>
 				</a>
 			</Link>
@@ -31,4 +31,5 @@ const Label = styled.label`
 	flex-direction: column;
 	align-items: center;
 	color: black;
+	font-size: 0.8125rem;
 `;
