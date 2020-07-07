@@ -39,7 +39,7 @@ export default function Mypage() {
 	};
 	return (
 		<Wrapper>
-			<Header title='마이페이지' />
+			<Header title='마이페이지' link='/' />
 			<Grey />
 			<Row>
 				<BoldText text='주문 조회하기' />
