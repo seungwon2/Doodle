@@ -5,14 +5,12 @@ import styled from "styled-components";
 import Link from "next/link";
 
 import LeftArrow from "../atoms/leftArrow";
+import StepArrow from "../atoms/stepArrow";
 
-export default function Header({ title, link }) {
-	const goBack = () => {
-		history.goBack();
-	};
+export default function OrderHeader({ title, step, setStep }) {
 	return (
 		<Wrapper>
-			<LeftArrow link={link} />
+			<StepArrow step={step} setStep={setStep} />
 			<Title>{title}</Title>
 			<Link href='/'>
 				<a>

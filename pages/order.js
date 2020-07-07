@@ -24,6 +24,7 @@ import NormalText from "../src/components/atoms/normalText";
 import GreyButton from "../src/components/molecules/greyButton";
 import OrangeButton from "../src/components/molecules/orangeButton.js";
 import Phantom from "../src/components/organisms/phantom.js";
+import OrderHeader from "../src/components/organisms/orderHeader.js";
 
 export default function Order() {
 	const [ImgURL, setImgURL] = useState(null);
@@ -144,7 +145,7 @@ export default function Order() {
 				<Wrapper>
 					{ImgURL && (
 						<>
-							<Header title='제작하기' />
+							<OrderHeader title='제작하기' step={step} setStep={setStep} />
 							<StepIcon imgPath='/step/step1.png' />
 							<OrderTitle step='1' text='우리아이 낙서 사진 업로드' />
 							<OrderExp text=' 아래의 낙서로 리디자인이 진행됩니다.' />
@@ -163,7 +164,8 @@ export default function Order() {
 					)}
 					{ImgURL === null && (
 						<>
-							<Header title='제작하기' />
+							<OrderHeader title='제작하기' step={step} setStep={setStep} />
+
 							<StepIcon imgPath='/step/step1.png' />
 							<OrderTitle step='1' text='우리아이 낙서 사진 업로드' />
 							<OrderExp text='머그컵에 리디자인 되어 그려질' />
@@ -186,7 +188,7 @@ export default function Order() {
 			)}
 			{step === 2 && (
 				<Wrapper>
-					<Header title='제작하기' />
+					<OrderHeader title='제작하기' step={step} setStep={setStep} />
 					<StepIcon imgPath='/step/step2.png' />
 					<OrderTitle step='2' text='리디자인 단계 설문' />
 					<OrderExp text='작업에 들어가기 전, 예시를 참고하여 선호하는' />
@@ -199,7 +201,7 @@ export default function Order() {
 			)}
 			{step === 3 && (
 				<Wrapper>
-					<Header title='제작하기' />
+					<OrderHeader title='제작하기' step={step} setStep={setStep} />
 					<StepIcon imgPath='/step/step3.png' />
 					<OrderTitle step='3' text='배송지와 고객 정보' />
 					<Row>
@@ -286,7 +288,7 @@ export default function Order() {
 			)}
 			{step === 4 && (
 				<Wrapper>
-					<Header title='제작하기' />
+					<OrderHeader title='제작하기' step={step} setStep={setStep} />
 					<StepIcon imgPath='/step/step4.png' />
 					<OrderTitle step='4' text='결제하기' />
 					<OrderExp text='입금 완료시, 카톡으로 확인 메시지가' />

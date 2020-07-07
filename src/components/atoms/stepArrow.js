@@ -4,14 +4,13 @@ import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
 
-export default function LeftArrow({ link }) {
+export default function StepArrow({ step, setStep }) {
+	const handleStepBack = () => {
+		setStep(step - 1);
+	};
 	return (
 		<div>
-			<Link href={link}>
-				<a>
-					<IconImage src='/leftArrow.png' />
-				</a>
-			</Link>
+			<IconImage onClick={handleStepBack} src='/leftArrow.png' />
 		</div>
 	);
 }
