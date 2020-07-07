@@ -4,13 +4,14 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { useRouter } from "next/router";
-import { DatePicker } from "antd";
+import { DatePicker, Slider } from "antd";
 
 import BottomBar from "../src/components/organisms/bottomBar.js";
 import Logo from "../src/components/atoms/logo.js";
 import MainBanner from "../src/components/molecules/mainbanner.js";
 import PhotoReview from "../src/components/organisms/photoReview.js";
 import Phantom from "../src/components/organisms/phantom.js";
+import SlideShow from "../src/components/organisms/slide";
 
 export default function Home() {
 	return (
@@ -18,6 +19,7 @@ export default function Home() {
 			<Logo />
 			<MainBanner />
 			<PhotoReview />
+			{/* <SlideShow /> */}
 			<Phantom />
 			<BottomBar active='home' />
 		</Wrapper>
