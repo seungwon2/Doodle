@@ -8,8 +8,6 @@ import axios from "axios";
 
 import BottomBar from "../src/components/organisms/bottomBar.js";
 import Logo from "../src/components/atoms/logo.js";
-import MainBanner from "../src/components/molecules/mainbanner.js";
-import PhotoReview from "../src/components/organisms/photoReview.js";
 import NextButton from "../src/components/molecules/nextButton.js";
 import ProductSlide from "../src/components/organisms/productSlide";
 import ProductInfo from "../src/components/organisms/productInfo";
@@ -27,6 +25,7 @@ import OrderHeader from "../src/components/organisms/orderHeader.js";
 import Grey from "../src/components/atoms/grey.js";
 import PayInfo from "../src/components/organisms/payInfo.js";
 import OrderAmountCheck from "../src/components/organisms/orderAmountCheck.js";
+import FinalPayCheck from "../src/components/organisms/finalPaycheck.js";
 
 export default function Order() {
 	const [ImgURL, setImgURL] = useState(null);
@@ -43,7 +42,6 @@ export default function Order() {
 	const [postCode, setPostCode] = useState();
 	const [baseAddress, setBaseAddress] = useState();
 	const [step, setStep] = useState(0);
-	const [cost, setCost] = useState(0);
 	const [redesign, setRedesign] = useState(0);
 	const [amount, setAmount] = useState(0);
 
@@ -70,7 +68,6 @@ export default function Order() {
 		console.log(Doodle);
 		console.log("hi");
 		console.log(amount);
-		console.log(cost);
 		console.log(form_data);
 
 		axios
@@ -298,6 +295,8 @@ export default function Order() {
 						/>
 					</Row>
 					<Grey />
+					<FinalPayCheck amount={amount} />
+					<Grey />
 					<PayInfo />
 					<NextButton buttonName='다음으로' handleNext={hajeongShit} />
 				</Wrapper>
@@ -313,7 +312,7 @@ export default function Order() {
 						<Card style={{ width: 300 }}>
 							<Text>
 								<p>신한 110-468-600859 (두들)</p>
-								<p>{cost}원</p>
+								<p>{amount * 14},000원</p>
 							</Text>
 						</Card>
 					</CardArea>
