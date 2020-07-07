@@ -1,9 +1,12 @@
+/** @format */
+
 import React from "react";
 import App from "next/app";
 import Head from "next/head";
 
 import styled, { createGlobalStyle } from "styled-components";
-import 'antd/dist/antd.css';
+import "antd/dist/antd.css";
+import "react-flickity-component/src/flickity.css";
 
 const GlobalStyle = createGlobalStyle`
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
@@ -64,42 +67,42 @@ html,
 `;
 
 export default class Timeline extends App {
-  render() {
-    const { Component, pageProps } = this.props;
-    return (
-      <>
-        <GlobalStyle />
-        <Head>
-          <title>Doodle</title>
-        </Head>
-        <BestWrapper>
-          <Grey />
-          <Wrapper>
-            <Component {...pageProps} />
-          </Wrapper>
-          <Grey />
-        </BestWrapper>
-      </>
-    );
-  }
+	render() {
+		const { Component, pageProps } = this.props;
+		return (
+			<>
+				<GlobalStyle />
+				<Head>
+					<title>Doodle</title>
+				</Head>
+				<BestWrapper>
+					<Grey />
+					<Wrapper>
+						<Component {...pageProps} />
+					</Wrapper>
+					<Grey />
+				</BestWrapper>
+			</>
+		);
+	}
 }
 
 const Wrapper = styled.div`
-  width: 100%;
-  max-width: 37.5rem;
-  min-height: 100%;
-  background-color: white;
-  position: relatvie;
+	width: 100%;
+	max-width: 37.5rem;
+	min-height: 100%;
+	background-color: white;
+	position: relatvie;
 `;
 
 const Grey = styled.div`
-  flex: 1;
-  background-color: #ccc;
-  z-index: 100;
+	flex: 1;
+	background-color: #ccc;
+	z-index: 100;
 `;
 
 const BestWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  min-height: 100%;
+	display: flex;
+	flex-direction: row;
+	min-height: 100%;
 `;

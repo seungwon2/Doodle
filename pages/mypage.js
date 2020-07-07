@@ -14,11 +14,12 @@ import BottomBar from "../src/components/organisms/bottomBar";
 import Phantom from "../src/components/organisms/phantom";
 
 export default function Mypage() {
-	const [form, setForm] = useState({ name: "", phoneNum: "" });
+	const [form, setForm] = useState({ order: "", o_phone_num: "" });
 	const handleOnClick = (e) => {
 		axios
-			.post(
-				"http://ec2-15-164-172-128.ap-northeast-2.compute.amazonaws.com/api/user/",
+			.get(
+				"http://ec2-15-164-172-128.ap-northeast-2.compute.amazonaws.com/api/produce/" +
+					`name=${form.order}&o_phone_num=${form.o_phone_num}`,
 				form
 			)
 			.then(function (response) {
@@ -48,9 +49,8 @@ export default function Mypage() {
 				<NormalText text='주문자 명' />
 				<Input
 					placeholder='이름'
-					name='name'
-					value={form.name}
-					name='name'
+					name='order'
+					value={form.order}
 					onChange={handleFormChange}
 				/>
 			</Row>
@@ -58,9 +58,8 @@ export default function Mypage() {
 				<NormalText text='연락처' />
 				<Input
 					placeholder="'-' 빼고 입력"
-					name='phoneNum'
-					value={form.phoneNum}
-					name='phoneNum'
+					name='o_phone_num'
+					value={form.o_phone_num}
 					onChange={handleFormChange}
 				/>
 			</Row>

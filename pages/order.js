@@ -15,7 +15,6 @@ import ProductSlide from "../src/components/organisms/productSlide";
 import ProductInfo from "../src/components/organisms/productInfo";
 import ProductInfoPic from "../src/components/organisms/productInfoPic";
 import Review from "../src/components/organisms/review";
-import Header from "../src/components/organisms/header";
 import StepIcon from "../src/components/atoms/stepIcon";
 import OrderTitle from "../src/components/atoms/orderTitle";
 import OrderExp from "../src/components/atoms/orderExp";
@@ -25,6 +24,9 @@ import GreyButton from "../src/components/molecules/greyButton";
 import OrangeButton from "../src/components/molecules/orangeButton.js";
 import Phantom from "../src/components/organisms/phantom.js";
 import OrderHeader from "../src/components/organisms/orderHeader.js";
+import Grey from "../src/components/atoms/grey.js";
+import PayInfo from "../src/components/organisms/payInfo.js";
+import OrderAmountCheck from "../src/components/organisms/orderAmountCheck.js";
 
 export default function Order() {
 	const [ImgURL, setImgURL] = useState(null);
@@ -67,7 +69,10 @@ export default function Order() {
 
 		console.log(Doodle);
 		console.log("hi");
+		console.log(amount);
+		console.log(cost);
 		console.log(form_data);
+
 		axios
 			.post(
 				"http://ec2-15-164-172-128.ap-northeast-2.compute.amazonaws.com/api/produce/",
@@ -134,6 +139,7 @@ export default function Order() {
 					<Logo />
 					<ProductSlide />
 					<ProductInfo />
+					<Grey />
 					<ProductInfoPic />
 					<Review />
 					<NextButton buttonName='다음으로' handleNext={handleNext} />
@@ -204,6 +210,13 @@ export default function Order() {
 					<OrderHeader title='제작하기' step={step} setStep={setStep} />
 					<StepIcon imgPath='/step/step3.png' />
 					<OrderTitle step='3' text='배송지와 고객 정보' />
+					<OrderAmountCheck
+						redesign={redesign}
+						amount={amount}
+						setAmount={setAmount}
+						ImgURL={ImgURL}
+					/>
+					<Grey />
 					<Row>
 						<BoldText text='배송지 정보' />
 					</Row>
@@ -250,6 +263,7 @@ export default function Order() {
 							onChange={handleFormChange}
 						/>
 					</AddressRow>
+					<Grey />
 					<Row>
 						<BoldText text='주문자 정보' />
 						<AutoButton onClick={handleFillContent}>
@@ -283,6 +297,8 @@ export default function Order() {
 							onChange={handleFormChange}
 						/>
 					</Row>
+					<Grey />
+					<PayInfo />
 					<NextButton buttonName='다음으로' handleNext={hajeongShit} />
 				</Wrapper>
 			)}
