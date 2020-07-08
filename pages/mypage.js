@@ -19,12 +19,13 @@ export default function Mypage() {
 		axios
 			.get(
 				"http://ec2-15-164-172-128.ap-northeast-2.compute.amazonaws.com/api/produce/" +
-					`name=${form.order}&o_phone_num=${form.o_phone_num}`,
+					`?order=${form.order}&o_phone_num=${form.o_phone_num}`,
 				form
 			)
 			.then(function (response) {
 				console.log(response);
 				console.log("전송 성공");
+				console.log(response.data.doodle);
 			})
 			.catch(function (error) {
 				console.log(error.response);
