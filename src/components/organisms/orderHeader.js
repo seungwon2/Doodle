@@ -39,10 +39,10 @@ const Wrapper = styled.div`
 	justify-content: space-between;
 `;
 const Title = styled.label`
-	font-size: 1.25rem;
+	font-size: 2rem;
 	color: rgb(69, 69, 69);
 `;
 const Home = styled.label`
-	font-size: 1.25rem;
+	font-size: 2rem;
 	color: rgb(69, 69, 69);
 `;

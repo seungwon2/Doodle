@@ -51,7 +51,7 @@ export default function Order() {
 		console.log(step);
 	};
 
-	const hajeongShit = () => {
+	const handleSubmit = () => {
 		const FormData = require("form-data");
 		const form_data = new FormData();
 		form_data.append("r_phone_num", form.rPhoneNum);
@@ -299,7 +299,7 @@ export default function Order() {
 					<FinalPayCheck amount={amount} />
 					<Grey />
 					<PayInfo />
-					<NextButton buttonName='다음으로' handleNext={hajeongShit} />
+					<NextButton buttonName='다음으로' handleNext={handleSubmit} />
 				</Wrapper>
 			)}
 			{step === 4 && (
@@ -359,7 +359,7 @@ const ButtonName = styled.label`
 	width: 60%;
 	height: 8vh;
 	margin: auto;
-	font-size: 1.25rem;
+	font-size: 1.6rem;
 	line-height: normal;
 	background-color: rgb(255, 144, 69);
 	cursor: pointer;
@@ -377,7 +377,7 @@ const ButtonChoose = styled.label`
 	width: 60%;
 	height: 8vh;
 	margin: auto;
-	font-size: 1.25rem;
+	font-size: 1.6rem;
 	line-height: normal;
 	background-color: rgb(246, 247, 247);
 	cursor: pointer;

@@ -15,6 +15,18 @@ import Phantom from "../src/components/organisms/phantom";
 
 export default function Mypage() {
 	const [form, setForm] = useState({ order: "", o_phone_num: "" });
+	const [search, setSearch] = useState(false);
+	const [userData, setUserData] = useState({
+		redesign: "",
+		amount: "",
+		receiver: "",
+		phoneNum: "",
+		postCode: "",
+		baseAddress: "",
+		detailAddress: "",
+		doodle: "",
+	});
+	const [data, setData] = useState();
 	const handleOnClick = (e) => {
 		axios
 			.get(
@@ -24,8 +36,23 @@ export default function Mypage() {
 			)
 			.then(function (response) {
 				console.log(response);
+				setSearch(true);
 				console.log("전송 성공");
-				console.log(response.data.doodle);
+				console.log(response.data[1].id);
+				console.log(response.data[0].redesign);
+				setData(response.data[0].redesign);
+				console.log(data);
+				setUserData({
+					...userData,
+					redesign: response.data[0].redesign,
+					amount: response.data[0].amount,
+					receiver: response.data[0].receiver,
+					phoneNum: response.data[0].r_phone_num,
+					postCode: response.data[0].post_code,
+					baseAddress: response.data[0].base_address,
+					detailAddress: response.data[0].detail_address,
+					doodle: response.data[0].doodle,
+				});
 			})
 			.catch(function (error) {
 				console.log(error.response);
@@ -43,30 +70,35 @@ export default function Mypage() {
 		<Wrapper>
 			<Header title='마이페이지' link='/' />
 			<Grey />
-			<Row>
-				<BoldText text='주문 조회하기' />
-			</Row>
-			<Row>
-				<NormalText text='주문자 명' />
-				<Input
-					placeholder='이름'
-					name='order'
-					value={form.order}
-					onChange={handleFormChange}
-				/>
-			</Row>
-			<Row>
-				<NormalText text='연락처' />
-				<Input
-					placeholder="'-' 빼고 입력"
-					name='o_phone_num'
-					value={form.o_phone_num}
-					onChange={handleFormChange}
-				/>
-			</Row>
-			<ButtonRow>
-				<Button onClick={handleOnClick}>조회하기</Button>
-			</ButtonRow>
+			{!search && (
+				<>
+					<Row>
+						<BoldText text='주문 조회하기' />
+					</Row>
+					<Row>
+						<NormalText text='주문자 명' />
+						<Input
+							placeholder='이름'
+							name='order'
+							value={form.order}
+							onChange={handleFormChange}
+						/>
+					</Row>
+					<Row>
+						<NormalText text='연락처' />
+						<Input
+							placeholder="'-' 빼고 입력"
+							name='o_phone_num'
+							value={form.o_phone_num}
+							onChange={handleFormChange}
+						/>
+					</Row>
+					<ButtonRow>
+						<Button onClick={handleOnClick}>조회하기</Button>
+					</ButtonRow>
+				</>
+			)}
+			{search && <>으악</>}
 			<Grey />
 			<FAQ />
 			<Phantom />

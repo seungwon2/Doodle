@@ -15,7 +15,6 @@ export default function Home() {
 			<Logo />
 			<MainBanner />
 			<PhotoReview />
-
 			<Phantom />
 			<BottomBar active='home' />
 		</Wrapper>
