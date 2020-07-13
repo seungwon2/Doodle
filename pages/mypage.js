@@ -27,6 +27,7 @@ export default function Mypage() {
 			)
 			.then((res) => {
 				console.log(res);
+				setSearch(true);
 				return res.data[0];
 			})
 			.catch((err) => console.log(err));
@@ -72,11 +73,17 @@ export default function Mypage() {
 					<ButtonRow>
 						<Button onClick={handleOnClick}>조회하기</Button>
 					</ButtonRow>
+					<Grey />
+					<FAQ />
 				</>
 			)}
-			{search && <>으악</>}
-			<Grey />
-			<FAQ />
+			{search && (
+				<>
+					{userData.receiver}
+					<img src={userData.doodle} />
+				</>
+			)}
+
 			<Phantom />
 			<BottomBar active='mypage' />
 		</Wrapper>
