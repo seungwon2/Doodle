@@ -16,49 +16,25 @@ import Phantom from "../src/components/organisms/phantom";
 export default function Mypage() {
 	const [form, setForm] = useState({ order: "", o_phone_num: "" });
 	const [search, setSearch] = useState(false);
-	const [userData, setUserData] = useState({
-		redesign: "",
-		amount: "",
-		receiver: "",
-		phoneNum: "",
-		postCode: "",
-		baseAddress: "",
-		detailAddress: "",
-		doodle: "",
-	});
-	const [data, setData] = useState();
-	const handleOnClick = (e) => {
-		axios
+	const [userData, setUserData] = useState(null);
+
+	const handleOnClick = async () => {
+		const data = await axios
 			.get(
 				"http://ec2-15-164-172-128.ap-northeast-2.compute.amazonaws.com/api/produce/" +
 					`?order=${form.order}&o_phone_num=${form.o_phone_num}`,
 				form
 			)
-			.then(function (response) {
-				console.log(response);
-				setSearch(true);
-				console.log("전송 성공");
-				console.log(response.data[1].id);
-				console.log(response.data[0].redesign);
-				setData(response.data[0].redesign);
-				console.log(data);
-				setUserData({
-					...userData,
-					redesign: response.data[0].redesign,
-					amount: response.data[0].amount,
-					receiver: response.data[0].receiver,
-					phoneNum: response.data[0].r_phone_num,
-					postCode: response.data[0].post_code,
-					baseAddress: response.data[0].base_address,
-					detailAddress: response.data[0].detail_address,
-					doodle: response.data[0].doodle,
-				});
+			.then((res) => {
+				console.log(res);
+				return res.data[0];
 			})
-			.catch(function (error) {
-				console.log(error.response);
-				console.log("전송 실패");
-			});
+			.catch((err) => console.log(err));
+		setUserData(data);
+		console.log("유저데이터:");
+		console.log(userData);
 	};
+
 	const handleFormChange = (e) => {
 		setForm({
 			...form,
