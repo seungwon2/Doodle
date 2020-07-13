@@ -26,7 +26,7 @@ const Button = styled.button`
 	width: 60%;
 	height: 8vh;
 	margin: auto;
-	font-size: 1.25rem;
+	font-size: 1.6rem;
 	line-height: normal;
 	background-color: rgb(246, 247, 247);
 	cursor: pointer;

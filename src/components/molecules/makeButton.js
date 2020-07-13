@@ -1,29 +1,28 @@
 /** @format */
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 
-export default function OrangeButton({ link, buttonName }) {
+export default function MakeButton({ buttonName, handleNext }) {
 	return (
-		<Wrapper>
-			<Link href={link}>
-				<a>
-					<Button>{buttonName}</Button>
-				</a>
-			</Link>
+		<Wrapper onClick={handleNext}>
+			<Button>{buttonName}</Button>
 		</Wrapper>
 	);
 }
 const Wrapper = styled.div`
 	width: 100%;
+	box-shadow: 4px 4px 6px 0px rgba (0, 0, 0, 0.25);
+	display: flex;
+	align-items: center;
+	justify-content: center;
 `;
 
 const Button = styled.button`
-	display: flex;
-	justify-content: center;
+	z-index: 4;
 	color: rgb(255, 255, 255);
-	width: 60%;
+	width: 30rem;
 	height: 8vh;
 	margin: auto;
 	font-size: 1.6rem;
@@ -34,5 +33,7 @@ const Button = styled.button`
 	border-radius: 0.375rem;
 	transition: background-color 0.2s;
 	align-items: center;
-	margin-bottom: 4rem;
+	margin-bottom: -2vh;
+	position: fixed;
+	bottom: 13rem;
 `;

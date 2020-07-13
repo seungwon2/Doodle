@@ -20,4 +20,5 @@ const Wrapper = styled.div`
 const MainButton = styled.button`
 	width: 6rem;
 	height: 3rem;
+	font-size: 1.6rem;
 `;
