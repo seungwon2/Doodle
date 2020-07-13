@@ -11,11 +11,13 @@ export default function PhotoReview() {
 			<Row>
 				<BoldText text='포토 후기' />
 			</Row>
-			<Row>
-				<Card hoverable style={{ width: 240 }}>
-					<img alt='example' src='/example.png' height='30px' />
-				</Card>
-			</Row>
+			<CardArea>
+				<Row>
+					<Card hoverable style={{ width: 240 }}>
+						<img alt='example' src='/example.png' height='30px' />
+					</Card>
+				</Row>
+			</CardArea>
 		</Wrapper>
 	);
 }
@@ -28,4 +30,8 @@ const Wrapper = styled.div`
 const Row = styled.div`
 	margin-left: 10%;
 	align-item: left;
+`;
+const CardArea = styled.div`
+	display: flex;
+	justify-content: ;
 `;

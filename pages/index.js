@@ -2,14 +2,12 @@
 
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import axios from "axios";
 
 import BottomBar from "../src/components/organisms/bottomBar.js";
 import Logo from "../src/components/atoms/logo.js";
 import MainBanner from "../src/components/molecules/mainbanner.js";
 import PhotoReview from "../src/components/organisms/photoReview.js";
 import Phantom from "../src/components/organisms/phantom.js";
-import Slider from "../src/components/organisms/slider";
 
 export default function Home() {
 	return (
@@ -17,13 +15,7 @@ export default function Home() {
 			<Logo />
 			<MainBanner />
 			<PhotoReview />
-			{/* <SlideShow /> */}
-			<Slider
-				initial={10}
-				max={25}
-				formatFn={(number) => number.toFixed(2)}
-				onChange={(value) => console.log(value)}
-			/>
+
 			<Phantom />
 			<BottomBar active='home' />
 		</Wrapper>

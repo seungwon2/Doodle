@@ -26,6 +26,7 @@ import Grey from "../src/components/atoms/grey.js";
 import PayInfo from "../src/components/organisms/payInfo.js";
 import OrderAmountCheck from "../src/components/organisms/orderAmountCheck.js";
 import FinalPayCheck from "../src/components/organisms/finalPaycheck.js";
+import MakeButton from "../src/components/molecules/makeButton.js";
 
 export default function Order() {
 	const [ImgURL, setImgURL] = useState(null);
@@ -139,7 +140,7 @@ export default function Order() {
 					<Grey />
 					<ProductInfoPic />
 					<Review />
-					<NextButton buttonName='다음으로' handleNext={handleNext} />
+					<MakeButton buttonName='낙서머그 제작하기' handleNext={handleNext} />
 					<Phantom />
 					<BottomBar active='make' />
 				</Wrapper>
