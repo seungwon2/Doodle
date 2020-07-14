@@ -36,12 +36,13 @@ const Wrapper = styled.div`
 	width: 100%;
 	height: 7vh;
 	justify-content: space-between;
+	align-items: baseline;
 `;
 const Title = styled.label`
-	font-size: 1.25rem;
+	font-size: 1.7rem;
 	color: rgb(69, 69, 69);
 `;
 const Home = styled.label`
-	font-size: 1.25rem;
+	font-size: 1.7rem;
 	color: rgb(69, 69, 69);
 `;

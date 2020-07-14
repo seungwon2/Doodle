@@ -83,23 +83,22 @@ export default function Mypage() {
 						<Text>{userData.order}님의 주문정보</Text>
 					</Row>
 					<OrderInfoArea>
-						<img src={userData.doodle} />
+						<InfoColumn>
+							<img src={userData.doodle} />
+						</InfoColumn>
 						<InfoArea>
-							<InfoRow>
+							<InfoColumn>
 								<NormalText text='제품명' />
-								<UserInfoText>우리아이 낙서 머그</UserInfoText>
-							</InfoRow>
-							<InfoRow>
 								<NormalText text='리디자인 단계' />
-								<UserInfoText>{userData.redesign}단계</UserInfoText>
-							</InfoRow>
-							<InfoRow>
 								<NormalText text='수량' />
+							</InfoColumn>
+							<InfoColumn>
+								<UserInfoText>우리아이 낙서 머그</UserInfoText>
+								<UserInfoText>{userData.redesign}단계</UserInfoText>
 								<UserInfoText>{userData.amount}개</UserInfoText>
-							</InfoRow>
+							</InfoColumn>
 						</InfoArea>
 					</OrderInfoArea>
-					{userData.receiver}
 					<Grey />
 					<Row>
 						<Text>배송지 정보</Text>
@@ -107,18 +106,16 @@ export default function Mypage() {
 					<InfoArea>
 						<InfoRow>
 							<NormalText text='수령인' />
-							<UserInfoText>{userData.receiver}</UserInfoText>
-						</InfoRow>
-						<InfoRow>
 							<NormalText text='연락처' />
-							<UserInfoText>{userData.r_phone_num}</UserInfoText>
+							<NormalText text='배송지' />
 						</InfoRow>
 						<InfoRow>
-							<NormalText text='배송지' />
+							<UserInfoText>{userData.receiver}</UserInfoText>
+							<UserInfoText>{userData.r_phone_num}</UserInfoText>
 							<UserInfoText>
-								({userData.post_code}) {userData.base_address}{" "}
-								{userData.detail_address}
+								({userData.post_code}) {userData.base_address}
 							</UserInfoText>
+							<UserInfoText> {userData.detail_address}</UserInfoText>
 						</InfoRow>
 					</InfoArea>
 				</>
@@ -174,24 +171,31 @@ const Button = styled.button`
 `;
 const Text = styled.label`
 	font-size: 1.7rem;
-	font-weight: bold;
+	font-weight: 500;
 	color: rgb(69, 69, 69);
 `;
 const InfoArea = styled.div`
 	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: flex-start;
 `;
 const UserInfoText = styled.label`
 	font-size: 1.3rem;
 `;
 const OrderInfoArea = styled.div`
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	flex-direction: row;
+	justify-content: space-around;
 `;
 const InfoRow = styled.div`
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: center;
+	align-items: flex-start;
+`;
+const InfoColumn = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
 `;

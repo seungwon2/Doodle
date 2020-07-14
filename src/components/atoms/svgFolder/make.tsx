@@ -6,10 +6,7 @@ function SvgComponent(props) {
 	return (
 		<svg width={31.045} height={30.585} viewBox='0 0 31.045 30.585' {...props}>
 			<defs>
-				<style>
-					{" "}
-					{".prefix__cls-2{fill:#ff9045;stroke:#ff9045;stroke-width:.4px}"}
-				</style>
+				<style>{".prefix__cls-1{fill:{props.color}}"}</style>
 			</defs>
 			<g
 				id='prefix__\uADF8\uB8F9_32'

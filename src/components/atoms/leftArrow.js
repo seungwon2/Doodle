@@ -18,4 +18,5 @@ export default function LeftArrow({ link }) {
 
 const IconImage = styled.img`
 	height: 1.25rem;
+	margin-bottom: 0.8vh;
 `;

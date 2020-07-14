@@ -17,4 +17,5 @@ export default function StepArrow({ step, setStep }) {
 
 const IconImage = styled.img`
 	height: 1.25rem;
+	margin-bottom: 0.8vh;
 `;
