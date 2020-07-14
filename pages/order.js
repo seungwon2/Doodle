@@ -77,9 +77,9 @@ export default function Order() {
 				form_data
 			)
 			.then(function (response) {
+				setStep(step + 1);
 				console.log(response);
 				console.log("전송 성공");
-				handleNext();
 			})
 			.catch(function (error) {
 				console.log(error.response);
@@ -153,6 +153,7 @@ export default function Order() {
 							<StepIcon imgPath='/step/step1.png' />
 							<OrderTitle step='1' text='우리아이 낙서 사진 업로드' />
 							<OrderExp text=' 아래의 낙서로 리디자인이 진행됩니다.' />
+							<OrderPhantom />
 							<img className='preview' src={ImgURL} width='80%'></img>
 							<FileBox>
 								<ButtonChoose for='doodle'>다시 선택하기</ButtonChoose>
@@ -197,9 +198,14 @@ export default function Order() {
 					<OrderTitle step='2' text='리디자인 단계 설문' />
 					<OrderExp text='작업에 들어가기 전, 예시를 참고하여 선호하는' />
 					<OrderExp text=' 낙서의 리디자인 정도를 선택해주세요.' />
-
-					<img className='preview' src={ImgURL} width='80%'></img>
-
+					<OrderPhantom />
+					<img className='preview' src={ImgURL} width='80%' />
+					<OrderPhantom />
+					<RedesignButtonArea>
+						<RedesignButton />
+						<RedesignButton />
+						<RedesignButton />
+					</RedesignButtonArea>
 					<NextButton buttonName='다음으로' handleNext={handleNext} />
 				</Wrapper>
 			)}
@@ -356,8 +362,8 @@ const ButtonName = styled.label`
 	display: flex;
 	justify-content: center;
 	color: rgb(255, 255, 255);
-	width: 60%;
-	height: 8vh;
+	width: 30rem;
+	height: 10vh;
 	margin: auto;
 	font-size: 1.6rem;
 	line-height: normal;
@@ -374,8 +380,8 @@ const ButtonChoose = styled.label`
 	display: flex;
 	justify-content: center;
 	color: rgb(69, 69, 69);
-	width: 60%;
-	height: 8vh;
+	width: 30rem;
+	height: 10vh;
 	margin: auto;
 	font-size: 1.6rem;
 	line-height: normal;
@@ -529,3 +535,11 @@ const Text = styled.label`
 const CardArea = styled.div`
 	margin-top: 10vh;
 `;
+const OrderPhantom = styled.div`
+	margin-bottom: 10vh;
+`;
+
+const RedesignButtonArea = styled.div`
+	display: flex;
+`;
+const RedesignButton = styled.button``;

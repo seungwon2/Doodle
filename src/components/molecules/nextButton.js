@@ -21,8 +21,8 @@ const Button = styled.button`
 	display: flex;
 	justify-content: center;
 	color: rgb(255, 255, 255);
-	width: 60%;
-	height: 8vh;
+	width: 30rem;
+	height: 10vh;
 	margin: auto;
 	font-size: 1.6rem;
 	line-height: normal;

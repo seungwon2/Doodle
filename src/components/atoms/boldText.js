@@ -19,6 +19,6 @@ const Wrapper = styled.div`
 `;
 const Label = styled.label`
 	font-size: 1.7rem;
-	font-weight: bold;
+	font-weight: 500;
 	color: rgb(69, 69, 69);
 `;

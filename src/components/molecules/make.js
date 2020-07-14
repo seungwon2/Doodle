@@ -34,6 +34,7 @@ const Wrapper = styled.div`
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
+	margin-top: 2.7vh;
 `;
 const Label = styled.label`
 	width: 100%;
@@ -43,4 +44,6 @@ const Label = styled.label`
 	align-items: center;
 	color: rgb(112, 112, 112);
 	font-size: 1.3rem;
+	text-align: center;
+	margin-top: 0.7vh;
 `;

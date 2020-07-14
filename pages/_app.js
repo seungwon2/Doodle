@@ -96,7 +96,7 @@ const Wrapper = styled.div`
 
 const Grey = styled.div`
 	flex: 1;
-	background-color: #ccc;
+	background-color: #fff;
 	z-index: 100;
 `;
 
