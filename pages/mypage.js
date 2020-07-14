@@ -27,11 +27,11 @@ export default function Mypage() {
 			)
 			.then((res) => {
 				console.log(res);
-				setSearch(true);
 				return res.data[0];
 			})
 			.catch((err) => console.log(err));
 		setUserData(data);
+		setSearch(true);
 		console.log("유저데이터:");
 		console.log(userData);
 	};
@@ -79,8 +79,48 @@ export default function Mypage() {
 			)}
 			{search && (
 				<>
+					<Row>
+						<Text>{userData.order}님의 주문정보</Text>
+					</Row>
+					<OrderInfoArea>
+						<img src={userData.doodle} />
+						<InfoArea>
+							<InfoRow>
+								<NormalText text='제품명' />
+								<UserInfoText>우리아이 낙서 머그</UserInfoText>
+							</InfoRow>
+							<InfoRow>
+								<NormalText text='리디자인 단계' />
+								<UserInfoText>{userData.redesign}단계</UserInfoText>
+							</InfoRow>
+							<InfoRow>
+								<NormalText text='수량' />
+								<UserInfoText>{userData.amount}개</UserInfoText>
+							</InfoRow>
+						</InfoArea>
+					</OrderInfoArea>
 					{userData.receiver}
-					<img src={userData.doodle} />
+					<Grey />
+					<Row>
+						<Text>배송지 정보</Text>
+					</Row>
+					<InfoArea>
+						<InfoRow>
+							<NormalText text='수령인' />
+							<UserInfoText>{userData.receiver}</UserInfoText>
+						</InfoRow>
+						<InfoRow>
+							<NormalText text='연락처' />
+							<UserInfoText>{userData.r_phone_num}</UserInfoText>
+						</InfoRow>
+						<InfoRow>
+							<NormalText text='배송지' />
+							<UserInfoText>
+								({userData.post_code}) {userData.base_address}{" "}
+								{userData.detail_address}
+							</UserInfoText>
+						</InfoRow>
+					</InfoArea>
 				</>
 			)}
 
@@ -131,4 +171,27 @@ const Button = styled.button`
 	background: #fff;
 	border-color: #d9d9d9;
 	width: 20%;
+`;
+const Text = styled.label`
+	font-size: 1.7rem;
+	font-weight: bold;
+	color: rgb(69, 69, 69);
+`;
+const InfoArea = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+`;
+const UserInfoText = styled.label`
+	font-size: 1.3rem;
+`;
+const OrderInfoArea = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+`;
+const InfoRow = styled.div`
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 `;
