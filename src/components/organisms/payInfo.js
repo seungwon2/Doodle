@@ -18,7 +18,11 @@ export default function PayInfo() {
 		</Wrapper>
 	);
 }
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+	width: 83%;
+`;
 const Content = styled.div`
 	text-align: center;
+	margin-top: 4vh;
+	margin-bottom: 4vh;
 `;

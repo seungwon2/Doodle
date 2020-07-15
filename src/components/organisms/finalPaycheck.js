@@ -13,6 +13,7 @@ export default function FinalPayCheck({ amount }) {
 			<Box>
 				<Row>
 					<NormalText text='우리아이 낙서 머그' />
+
 					<CostLabel>{amount * 20},000원</CostLabel>
 				</Row>
 				<Row>
@@ -31,19 +32,34 @@ export default function FinalPayCheck({ amount }) {
 		</Wrapper>
 	);
 }
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+	width: 83%;
+`;
 const Content = styled.div`
 	text-align: center;
 `;
 const Text = styled.label`
-	font-size: 1rem;
+	font-size: 1.5rem;
+	width: 100%;
+	height: fit-content;
+	display: flex;
+	flex-direction: column;
+	align-items: right;
 `;
 const CostLabel = styled.label`
-	font-size: 0.9rem;
+	font-size: 1.3rem;
+	width: 100%;
+	text-align: right;
 `;
 const Cost = styled.label`
-	font-size: 0.9rem;
+	font-size: 1.3rem;
 	font-weight: bold;
+	width: 100%;
+	text-align: right;
 `;
 const Box = styled.div``;
-const Row = styled.div``;
+const Row = styled.div`
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+`;

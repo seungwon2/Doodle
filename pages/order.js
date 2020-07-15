@@ -45,7 +45,7 @@ export default function Order() {
 	const [step, setStep] = useState(0);
 	const [redesign, setRedesign] = useState(0);
 	const [amount, setAmount] = useState(0);
-
+	const [redesignExample, setRedesignExample] = useState();
 	const handleNext = () => {
 		setStep(step + 1);
 		console.log(step);
@@ -72,10 +72,7 @@ export default function Order() {
 		console.log(form_data);
 
 		axios
-			.post(
-				"http://ec2-15-164-172-128.ap-northeast-2.compute.amazonaws.com/api/produce/",
-				form_data
-			)
+			.post("https://www.doodlehj.com/api/produce/", form_data)
 			.then(function (response) {
 				setStep(step + 1);
 				console.log(response);
@@ -94,6 +91,7 @@ export default function Order() {
 		reader.onloadend = () => {
 			setDoodle(file);
 			setImgURL(reader.result);
+			setRedesignExample(reader.result);
 		};
 		reader.readAsDataURL(file);
 	};
@@ -130,6 +128,22 @@ export default function Order() {
 		setForm({ ...form, order: form.receiver, oPhoneNum: form.rPhoneNum });
 		console.log(form);
 	};
+	const handleRedesginChange = (e) => {
+		if (e.target.name === "redesign1") {
+			console.log("1단계");
+			setRedesignExample(ImgURL);
+			setRedesign(1);
+			console.log(ImgURL);
+		} else if (e.target.name === "redesign2") {
+			setRedesignExample("/redesign2.png");
+			setRedesign(2);
+			console.log("2단계");
+		} else {
+			console.log("3단계");
+			setRedesignExample("/redesign3.png");
+			setRedesign(3);
+		}
+	};
 	return (
 		<div>
 			{step === 0 && (
@@ -139,7 +153,7 @@ export default function Order() {
 					<ProductInfo />
 					<Grey />
 					<ProductInfoPic />
-					<Review />
+					{/* <Review /> */}
 					<MakeButton buttonName='낙서머그 제작하기' handleNext={handleNext} />
 					<Phantom />
 					<BottomBar active='make' />
@@ -199,12 +213,18 @@ export default function Order() {
 					<OrderExp text='작업에 들어가기 전, 예시를 참고하여 선호하는' />
 					<OrderExp text=' 낙서의 리디자인 정도를 선택해주세요.' />
 					<OrderPhantom />
-					<img className='preview' src={ImgURL} width='80%' />
+					<img className='preview' src={redesignExample} width='80%' />
 					<OrderPhantom />
 					<RedesignButtonArea>
-						<RedesignButton />
-						<RedesignButton />
-						<RedesignButton />
+						<RedesignButton name='redesign1' onClick={handleRedesginChange}>
+							1단계
+						</RedesignButton>
+						<RedesignButton name='redesign2' onClick={handleRedesginChange}>
+							2단계
+						</RedesignButton>
+						<RedesignButton name='redesign3' onClick={handleRedesginChange}>
+							3단계
+						</RedesignButton>
 					</RedesignButtonArea>
 					<NextButton buttonName='다음으로' handleNext={handleNext} />
 				</Wrapper>
@@ -225,7 +245,7 @@ export default function Order() {
 						<BoldText text='배송지 정보' />
 					</Row>
 					<Row>
-						<NormalText text='받으시는 분' />
+						<UserText>받으시는 분</UserText>
 						<Input
 							name='receiver'
 							textholder='이름'
@@ -236,7 +256,7 @@ export default function Order() {
 						/>
 					</Row>
 					<Row>
-						<NormalText text='연락처' />
+						<UserText>연락처</UserText>
 						<Input
 							name='rPhoneNum'
 							value={form.rPhoneNum}
@@ -245,7 +265,7 @@ export default function Order() {
 						/>
 					</Row>
 					<Row>
-						<NormalText text='주소' />
+						<UserText>주소</UserText>
 						<PostCodeInput placeholder='우편번호' value={postCode} />{" "}
 						<FindButton onClick={showModal}>찾기</FindButton>
 						<Modal
@@ -275,25 +295,29 @@ export default function Order() {
 						</AutoButton>
 					</Row>
 					<Row>
-						<NormalText text='주문자' />
+						<UserText>주문자</UserText>
+
 						<Input
 							name='order'
 							placeholder='이름'
 							value={form.order}
 							onChange={handleFormChange}
-							placeholder="'-' 없이 번호만 입력"
+							placeholder='이름'
 						/>
 					</Row>
 					<Row>
-						<NormalText text='연락처' />
+						<UserText>연락처</UserText>
+
 						<Input
 							name='oPhoneNum'
 							value={form.oPhoneNum}
 							onChange={handleFormChange}
+							placeholder="'-' 없이 번호만 입력"
 						/>
 					</Row>
 					<Row>
-						<NormalText text='이메일' />
+						<UserText>이메일</UserText>
+
 						<Input
 							placeholder='이메일'
 							name='email'
@@ -305,7 +329,7 @@ export default function Order() {
 					<FinalPayCheck amount={amount} />
 					<Grey />
 					<PayInfo />
-					<NextButton buttonName='다음으로' handleNext={handleSubmit} />
+					<NextButton buttonName='결제하기' handleNext={handleSubmit} />
 				</Wrapper>
 			)}
 			{step === 4 && (
@@ -409,14 +433,16 @@ const Row = styled.div`
 	margin-right: 5%;
 	margin-top: 1vh;
 	margin-bottom: 1vh;
+	width: 83%;
 `;
 const AddressRow = styled.div`
 	display: flex;
 	margin-left: 5%;
-	margin-right: 5%;
+	margin-right: 22%;
 	margin-top: 1vh;
 	margin-bottom: 1vh;
 	justify-content: flex-end;
+	width: 100%;
 `;
 const Input = styled.input`
 	box-sizing: border-box;
@@ -439,13 +465,10 @@ const Input = styled.input`
 `;
 
 const AddressInput = styled.input`
-	box-sizing: border-box;
-	margin: 0;
 	padding: 0;
 	font-variant: tabular-nums;
 	list-style: none;
-	font-feature-settings: "tnum", "tnum";
-	width: 55%;
+	width: 46%;
 	min-width: 0;
 	padding: 4px 11px;
 	color: rgba(0, 0, 0, 0.65);
@@ -456,6 +479,7 @@ const AddressInput = styled.input`
 	border: 1px solid #d9d9d9;
 	border-radius: 2px;
 	transition: all 0.3s;
+	marign-right: 22%;
 `;
 
 const AutoButton = styled.button`
@@ -541,5 +565,35 @@ const OrderPhantom = styled.div`
 
 const RedesignButtonArea = styled.div`
 	display: flex;
+	width: 83%;
+	justify-content: space-around;
 `;
-const RedesignButton = styled.button``;
+const RedesignButton = styled.button`
+	height: 3vh;
+	color: rgb(255, 255, 255);
+	width: 7rem;
+	height: 6vh;
+	margin: auto;
+	font-size: 1rem;
+	line-height: normal;
+	background-color: rgb(255, 144, 69);
+	border: 0px;
+	box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 6px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 0.375rem;
+	transition: background-color 0.2s;
+	align-items: center;
+	margin-bottom: 5vh;
+`;
+
+const ProductInfoArea = styled.div`
+	display: flex;
+	flex-direction: row;
+`;
+const UserText = styled.label`
+	font-size: 1.5rem;
+	width: 100%;
+	height: fit-content;
+	display: flex;
+	flex-direction: column;
+	align-items: right;
+`;
