@@ -16,7 +16,12 @@ export default function FAQ() {
 	};
 	return (
 		<Wrapper>
-			<Collapse defaultActiveKey={["1"]} onChange={callback} width='100%'>
+			<Collapse
+				defaultActiveKey={["1"]}
+				onChange={callback}
+				width='100%'
+				ghost
+				expandIconPosition='right'>
 				<Panel header='문의하기' key='1'>
 					<p>{text}</p>
 				</Panel>
