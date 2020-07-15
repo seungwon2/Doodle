@@ -22,7 +22,7 @@ const Wrapper = styled.div`
 const Label = styled.label`
 	color: rgb(69, 69, 69);
 	font-size: 2.3rem;
-	padding-left: 5vw;
+	padding-left: 5vh;
 	width: 100%;
 	font-weight: bold;
 	margin-top: -1.4vh;

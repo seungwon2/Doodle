@@ -21,7 +21,7 @@ export default function Mypage() {
 	const handleOnClick = async () => {
 		const data = await axios
 			.get(
-				"http://ec2-15-164-172-128.ap-northeast-2.compute.amazonaws.com/api/produce/" +
+				"https://www.doodlehj.com/api/produce/" +
 					`?order=${form.order}&o_phone_num=${form.o_phone_num}`,
 				form
 			)

@@ -72,10 +72,7 @@ export default function Order() {
 		console.log(form_data);
 
 		axios
-			.post(
-				"http://ec2-15-164-172-128.ap-northeast-2.compute.amazonaws.com/api/produce/",
-				form_data
-			)
+			.post("https://www.doodlehj.com/api/produce/", form_data)
 			.then(function (response) {
 				setStep(step + 1);
 				console.log(response);
@@ -248,7 +245,7 @@ export default function Order() {
 						<BoldText text='배송지 정보' />
 					</Row>
 					<Row>
-						<NormalText text='받으시는 분' />
+						<UserText>받으시는 분</UserText>
 						<Input
 							name='receiver'
 							textholder='이름'
@@ -259,7 +256,7 @@ export default function Order() {
 						/>
 					</Row>
 					<Row>
-						<NormalText text='연락처' />
+						<UserText>연락처</UserText>
 						<Input
 							name='rPhoneNum'
 							value={form.rPhoneNum}
@@ -268,7 +265,7 @@ export default function Order() {
 						/>
 					</Row>
 					<Row>
-						<NormalText text='주소' />
+						<UserText>주소</UserText>
 						<PostCodeInput placeholder='우편번호' value={postCode} />{" "}
 						<FindButton onClick={showModal}>찾기</FindButton>
 						<Modal
@@ -298,7 +295,8 @@ export default function Order() {
 						</AutoButton>
 					</Row>
 					<Row>
-						<NormalText text='주문자' />
+						<UserText>주문자</UserText>
+
 						<Input
 							name='order'
 							placeholder='이름'
@@ -308,7 +306,8 @@ export default function Order() {
 						/>
 					</Row>
 					<Row>
-						<NormalText text='연락처' />
+						<UserText>연락처</UserText>
+
 						<Input
 							name='oPhoneNum'
 							value={form.oPhoneNum}
@@ -317,7 +316,8 @@ export default function Order() {
 						/>
 					</Row>
 					<Row>
-						<NormalText text='이메일' />
+						<UserText>이메일</UserText>
+
 						<Input
 							placeholder='이메일'
 							name='email'
@@ -438,10 +438,11 @@ const Row = styled.div`
 const AddressRow = styled.div`
 	display: flex;
 	margin-left: 5%;
-	margin-right: 5%;
+	margin-right: 22%;
 	margin-top: 1vh;
 	margin-bottom: 1vh;
 	justify-content: flex-end;
+	width: 100%;
 `;
 const Input = styled.input`
 	box-sizing: border-box;
@@ -464,13 +465,10 @@ const Input = styled.input`
 `;
 
 const AddressInput = styled.input`
-	box-sizing: border-box;
-	margin: 0;
 	padding: 0;
 	font-variant: tabular-nums;
 	list-style: none;
-	font-feature-settings: "tnum", "tnum";
-	width: 55%;
+	width: 46%;
 	min-width: 0;
 	padding: 4px 11px;
 	color: rgba(0, 0, 0, 0.65);
@@ -481,6 +479,7 @@ const AddressInput = styled.input`
 	border: 1px solid #d9d9d9;
 	border-radius: 2px;
 	transition: all 0.3s;
+	marign-right: 22%;
 `;
 
 const AutoButton = styled.button`
@@ -566,12 +565,35 @@ const OrderPhantom = styled.div`
 
 const RedesignButtonArea = styled.div`
 	display: flex;
+	width: 83%;
+	justify-content: space-around;
 `;
 const RedesignButton = styled.button`
 	height: 3vh;
+	color: rgb(255, 255, 255);
+	width: 7rem;
+	height: 6vh;
+	margin: auto;
+	font-size: 1rem;
+	line-height: normal;
+	background-color: rgb(255, 144, 69);
+	border: 0px;
+	box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 6px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 0.375rem;
+	transition: background-color 0.2s;
+	align-items: center;
+	margin-bottom: 5vh;
 `;
 
 const ProductInfoArea = styled.div`
 	display: flex;
 	flex-direction: row;
+`;
+const UserText = styled.label`
+	font-size: 1.5rem;
+	width: 100%;
+	height: fit-content;
+	display: flex;
+	flex-direction: column;
+	align-items: right;
 `;

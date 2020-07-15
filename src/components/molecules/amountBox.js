@@ -31,6 +31,7 @@ const RightButton = styled.button`
 	color: rgb(122, 122, 122);
 	padding: 0.8rem;
 	border-left-width: 0px;
+	font-size: 1.3rem;
 `;
 
 const Leftbutton = styled.button`
@@ -39,6 +40,17 @@ const Leftbutton = styled.button`
 	color: rgb(122, 122, 122);
 	padding: 0.8rem;
 	border-right-width: 0px;
+	font-size: 1.3rem;
 `;
 
-const Amount = styled.label``;
+const Amount = styled.label`
+	border-top: 0.3px solid rgb(122, 122, 122);
+	border-bottom: 0.3px solid rgb(122, 122, 122);
+	border-left: 0px;
+	border-right: 0px;
+	padding: 0.8rem;
+	margin-bottom: 0;
+	padding-left: 4rem;
+	padding-right: 4rem;
+	font-size: 1.3rem;
+`;

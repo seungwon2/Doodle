@@ -26,7 +26,7 @@ export default function OrderAmountCheck({
 				</Content>
 			</ProductProfileArea>
 			<Row>
-				<NormalText text='수량' />
+				<AmountText>수량</AmountText>
 				<AmountBox amount={amount} setAmount={setAmount} />
 			</Row>
 		</Wrapper>
@@ -47,10 +47,22 @@ const ProductPic = styled.div`
 	height: 100%;
 `;
 const Row = styled.div`
+	margin-top: 3vh;
 	display: flex;
 	flex-direction: row;
+	align-items: center;
 `;
 const ProductProfileArea = styled.div`
 	display: flex;
 	flex-direction: row;
+	margin-top: 5vh;
+	margin-bottom: 5vh;
+`;
+const AmountText = styled.label`
+	font-size: 1.3rem;
+	width: 100%;
+	height: fit-content;
+	display: flex;
+	flex-direction: column;
+	align-items: right;
 `;
