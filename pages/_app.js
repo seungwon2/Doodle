@@ -6,6 +6,7 @@ import Head from "next/head";
 
 import styled, { createGlobalStyle } from "styled-components";
 import "antd/dist/antd.css";
+import Doodle from "../src/components/atoms/doodle";
 
 const GlobalStyle = createGlobalStyle`
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
@@ -75,7 +76,7 @@ export default class Timeline extends App {
 					<title>Doodle</title>
 				</Head>
 				<BestWrapper>
-					<Grey />
+					<Doodle />
 					<Wrapper>
 						<Component {...pageProps} />
 					</Wrapper>

@@ -45,7 +45,7 @@ export default function Order() {
 	const [step, setStep] = useState(0);
 	const [redesign, setRedesign] = useState(0);
 	const [amount, setAmount] = useState(0);
-
+	const [redesignExample, setRedesignExample] = useState();
 	const handleNext = () => {
 		setStep(step + 1);
 		console.log(step);
@@ -94,6 +94,7 @@ export default function Order() {
 		reader.onloadend = () => {
 			setDoodle(file);
 			setImgURL(reader.result);
+			setRedesignExample(reader.result);
 		};
 		reader.readAsDataURL(file);
 	};
@@ -130,6 +131,22 @@ export default function Order() {
 		setForm({ ...form, order: form.receiver, oPhoneNum: form.rPhoneNum });
 		console.log(form);
 	};
+	const handleRedesginChange = (e) => {
+		if (e.target.name === "redesign1") {
+			console.log("1단계");
+			setRedesignExample(ImgURL);
+			setRedesign(1);
+			console.log(ImgURL);
+		} else if (e.target.name === "redesign2") {
+			setRedesignExample("/redesign2.png");
+			setRedesign(2);
+			console.log("2단계");
+		} else {
+			console.log("3단계");
+			setRedesignExample("/redesign3.png");
+			setRedesign(3);
+		}
+	};
 	return (
 		<div>
 			{step === 0 && (
@@ -139,7 +156,7 @@ export default function Order() {
 					<ProductInfo />
 					<Grey />
 					<ProductInfoPic />
-					<Review />
+					{/* <Review /> */}
 					<MakeButton buttonName='낙서머그 제작하기' handleNext={handleNext} />
 					<Phantom />
 					<BottomBar active='make' />
@@ -199,12 +216,18 @@ export default function Order() {
 					<OrderExp text='작업에 들어가기 전, 예시를 참고하여 선호하는' />
 					<OrderExp text=' 낙서의 리디자인 정도를 선택해주세요.' />
 					<OrderPhantom />
-					<img className='preview' src={ImgURL} width='80%' />
+					<img className='preview' src={redesignExample} width='80%' />
 					<OrderPhantom />
 					<RedesignButtonArea>
-						<RedesignButton />
-						<RedesignButton />
-						<RedesignButton />
+						<RedesignButton name='redesign1' onClick={handleRedesginChange}>
+							1단계
+						</RedesignButton>
+						<RedesignButton name='redesign2' onClick={handleRedesginChange}>
+							2단계
+						</RedesignButton>
+						<RedesignButton name='redesign3' onClick={handleRedesginChange}>
+							3단계
+						</RedesignButton>
 					</RedesignButtonArea>
 					<NextButton buttonName='다음으로' handleNext={handleNext} />
 				</Wrapper>
@@ -281,7 +304,7 @@ export default function Order() {
 							placeholder='이름'
 							value={form.order}
 							onChange={handleFormChange}
-							placeholder="'-' 없이 번호만 입력"
+							placeholder='이름'
 						/>
 					</Row>
 					<Row>
@@ -290,6 +313,7 @@ export default function Order() {
 							name='oPhoneNum'
 							value={form.oPhoneNum}
 							onChange={handleFormChange}
+							placeholder="'-' 없이 번호만 입력"
 						/>
 					</Row>
 					<Row>
@@ -305,7 +329,7 @@ export default function Order() {
 					<FinalPayCheck amount={amount} />
 					<Grey />
 					<PayInfo />
-					<NextButton buttonName='다음으로' handleNext={handleSubmit} />
+					<NextButton buttonName='결제하기' handleNext={handleSubmit} />
 				</Wrapper>
 			)}
 			{step === 4 && (
@@ -409,6 +433,7 @@ const Row = styled.div`
 	margin-right: 5%;
 	margin-top: 1vh;
 	margin-bottom: 1vh;
+	width: 83%;
 `;
 const AddressRow = styled.div`
 	display: flex;
@@ -542,4 +567,11 @@ const OrderPhantom = styled.div`
 const RedesignButtonArea = styled.div`
 	display: flex;
 `;
-const RedesignButton = styled.button``;
+const RedesignButton = styled.button`
+	height: 3vh;
+`;
+
+const ProductInfoArea = styled.div`
+	display: flex;
+	flex-direction: row;
+`;

@@ -10,18 +10,18 @@ export default function PhotoReview() {
 		<Wrapper>
 			<Text>포토 후기</Text>
 			<Row>
-				<img src='/photoreview1.png' width='30%' height='30%' />
+				<img src='/photoreview4.png' width='30%' height='30%' />
 
-				<img src='/photoreview2.png' width='30%' height='30%' />
+				<img src='/photoreview5.png' width='30%' height='30%' />
 
-				<img src='/photoreview3.png' width='30%' height='30%' />
+				<img src='/photoreview6.png' width='30%' height='30%' />
 			</Row>
 			<Row>
 				<img src='/photoreview4.png' width='30%' height='30%' />
 
 				<img src='/photoreview5.png' width='30%' height='30%' />
 
-				<img src='/photoreview3.png' width='30%' height='30%' />
+				<img src='/photoreview6.png' width='30%' height='30%' />
 			</Row>
 		</Wrapper>
 	);
