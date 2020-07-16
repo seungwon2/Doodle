@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Modal, Card } from "antd";
+import { Modal, Card, Steps, Divider } from "antd";
 import DaumPostcode from "react-daum-postcode";
 import axios from "axios";
 
@@ -27,6 +27,7 @@ import PayInfo from "../src/components/organisms/payInfo.js";
 import OrderAmountCheck from "../src/components/organisms/orderAmountCheck.js";
 import FinalPayCheck from "../src/components/organisms/finalPaycheck.js";
 import MakeButton from "../src/components/molecules/makeButton.js";
+import Step from "../src/components/molecules/step.js";
 
 export default function Order() {
 	const [ImgURL, setImgURL] = useState(null);
@@ -215,17 +216,7 @@ export default function Order() {
 					<OrderPhantom />
 					<img className='preview' src={redesignExample} width='80%' />
 					<OrderPhantom />
-					<RedesignButtonArea>
-						<RedesignButton name='redesign1' onClick={handleRedesginChange}>
-							1단계
-						</RedesignButton>
-						<RedesignButton name='redesign2' onClick={handleRedesginChange}>
-							2단계
-						</RedesignButton>
-						<RedesignButton name='redesign3' onClick={handleRedesginChange}>
-							3단계
-						</RedesignButton>
-					</RedesignButtonArea>
+					<Step redesign={redesign} setRedesign={setRedesign} />
 					<NextButton buttonName='다음으로' handleNext={handleNext} />
 				</Wrapper>
 			)}
