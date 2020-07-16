@@ -6,6 +6,7 @@ import Head from "next/head";
 
 import styled, { createGlobalStyle } from "styled-components";
 import "antd/dist/antd.css";
+
 import Doodle from "../src/components/atoms/doodle";
 
 const GlobalStyle = createGlobalStyle`

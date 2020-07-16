@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Steps, Divider } from "antd";
-
 export default function Step({ redesign, setRedesign }) {
 	const { Step } = Steps;
 	const [current, setCurrent] = useState(0);

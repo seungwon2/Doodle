@@ -1,41 +1,38 @@
 {
-  "name": "react-typescript-11th",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "@types/styled-components": "^5.1.0",
-    "antd": "^4.4.0",
-    "axios": "^0.19.2",
-    "flickity": "^2.2.1",
-    "form-data": "^3.0.0",
-    "moment": "^2.26.0",
-    "next": "9.4.2",
-    "react": "16.13.1",
-    "react-daum-postcode": "^1.9.0",
-    "react-dom": "16.13.1",
-    "react-file-upload-mobile": "^1.0.2",
-    "react-flickity-component": "^3.5.0",
-    "react-responsive-carousel": "^3.2.9",
-    "react-slideshow-image": "^2.0.1",
-    "styled-components": "^5.1.0",
-    "yarn": "^1.22.4"
-  },
-  "devDependencies": {
-    "@types/node": "^14.0.5",
-    "@types/react": "^16.9.35",
-    "@types/react-dom": "^16.9.8",
-    "@zeit/next-css": "^1.0.1",
-    "@zeit/next-less": "^1.0.1",
-    "babel-plugin-import": "^1.13.0",
-    "babel-plugin-module-resolver": "^4.0.0",
-    "next-compose-plugins": "^2.2.0",
-    "prettier": "2.0.5",
-    "react-app-rewire-less": "^2.1.3",
-    "typescript": "^3.9.3"
-  }
+	"name": "react-typescript-11th",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start"
+	},
+	"dependencies": {
+		"@types/styled-components": "^5.1.0",
+		"antd": "^4.4.0",
+		"axios": "^0.19.2",
+		"form-data": "^3.0.0",
+		"less": "^3.12.0",
+		"moment": "^2.26.0",
+		"next": "9.4.2",
+		"react": "16.13.1",
+		"react-daum-postcode": "^1.9.0",
+		"react-dom": "16.13.1",
+		"react-file-upload-mobile": "^1.0.2",
+		"styled-components": "^5.1.0",
+		"yarn": "^1.22.4"
+	},
+	"devDependencies": {
+		"@types/node": "^14.0.5",
+		"@types/react": "^16.9.35",
+		"@types/react-dom": "^16.9.8",
+		"@zeit/next-css": "^1.0.1",
+		"@zeit/next-less": "^1.0.1",
+		"babel-plugin-import": "^1.13.0",
+		"babel-plugin-module-resolver": "^4.0.0",
+		"next-compose-plugins": "^2.2.0",
+		"prettier": "2.0.5",
+		"react-app-rewire-less": "^2.1.3",
+		"typescript": "^3.9.3"
+	}
 }
