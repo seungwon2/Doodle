@@ -45,7 +45,7 @@ export default function Order() {
 	const [baseAddress, setBaseAddress] = useState();
 	const [step, setStep] = useState(0);
 	const [redesign, setRedesign] = useState(0);
-	const [amount, setAmount] = useState(0);
+	const [amount, setAmount] = useState(1);
 	const [redesignExample, setRedesignExample] = useState();
 	const handleNext = () => {
 		setStep(step + 1);

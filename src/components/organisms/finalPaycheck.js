@@ -18,11 +18,11 @@ export default function FinalPayCheck({ amount }) {
 				</Row>
 				<Row>
 					<NormalText text='할인 이벤트' />
-					<CostLabel>- {amount * 6},000원</CostLabel>
+					<CostLabel>{amount * -3},000원</CostLabel>
 				</Row>
 				<Row>
-					<NormalText text='배송비' />
-					<CostLabel>0원</CostLabel>
+					<NormalText text='배송비 무료 이벤트' />
+					<CostLabel>{amount * -3},000원</CostLabel>
 				</Row>
 				<Row>
 					<Text>최종 결제 금액</Text>
