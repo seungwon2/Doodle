@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Modal, Card } from "antd";
+import { Modal, Card, Steps, Divider } from "antd";
 import DaumPostcode from "react-daum-postcode";
 import axios from "axios";
 
