@@ -8,7 +8,7 @@ export default function Step({ redesign, setRedesign }) {
 	const [current, setCurrent] = useState(0);
 	const onClick = (key) => {
 		console.log("onChange:", redesign);
-		setRedesign(key);
+		setRedesign(key + 1);
 		setCurrent(key);
 	};
 	return (

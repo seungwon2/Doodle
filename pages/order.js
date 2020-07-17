@@ -28,6 +28,7 @@ import OrderAmountCheck from "../src/components/organisms/orderAmountCheck.js";
 import FinalPayCheck from "../src/components/organisms/finalPaycheck.js";
 import MakeButton from "../src/components/molecules/makeButton.js";
 import Step from "../src/components/molecules/step.js";
+import Notice from "../src/components/organisms/notice.js";
 
 export default function Order() {
 	const [ImgURL, setImgURL] = useState(null);
@@ -45,7 +46,7 @@ export default function Order() {
 	const [baseAddress, setBaseAddress] = useState();
 	const [step, setStep] = useState(0);
 	const [redesign, setRedesign] = useState(0);
-	const [amount, setAmount] = useState(0);
+	const [amount, setAmount] = useState(1);
 	const [redesignExample, setRedesignExample] = useState();
 	const handleNext = () => {
 		setStep(step + 1);
@@ -190,7 +191,7 @@ export default function Order() {
 							<OrderTitle step='1' text='우리아이 낙서 사진 업로드' />
 							<OrderExp text='머그컵에 리디자인 되어 그려질' />
 							<OrderExp text='아이의 소중한 낙서를 업로드 해주세요.' />
-							<Thumbnail />
+							<Notice />
 							<FileBox>
 								<ButtonName for='doodle'>사진 업로드</ButtonName>
 								<InputFile
@@ -411,13 +412,6 @@ const ButtonChoose = styled.label`
 	margin-bottom: 2vh;
 `;
 
-const Thumbnail = styled.div`
-	backgroundcolor: #efefef;
-	height: 30vh;
-	padding-top: 8vh;
-	padding-bottom: 8vh;
-`;
-
 const Row = styled.div`
 	display: flex;
 	margin-left: 5%;
@@ -549,6 +543,8 @@ const Text = styled.label`
 `;
 const CardArea = styled.div`
 	margin-top: 10vh;
+	z-index: 5;
+	box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 6px 0 rgba(0, 0, 0, 0.19);
 `;
 const OrderPhantom = styled.div`
 	margin-bottom: 10vh;
