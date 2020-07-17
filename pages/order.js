@@ -29,6 +29,7 @@ import FinalPayCheck from "../src/components/organisms/finalPaycheck.js";
 import MakeButton from "../src/components/molecules/makeButton.js";
 import Step from "../src/components/molecules/step.js";
 import Notice from "../src/components/organisms/notice.js";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 export default function Order() {
 	const [ImgURL, setImgURL] = useState(null);
@@ -48,6 +49,8 @@ export default function Order() {
 	const [redesign, setRedesign] = useState(0);
 	const [amount, setAmount] = useState(1);
 	const [redesignExample, setRedesignExample] = useState();
+	const [copy, setCopy] = useState(false);
+
 	const handleNext = () => {
 		setStep(step + 1);
 		console.log(step);
@@ -130,21 +133,24 @@ export default function Order() {
 		setForm({ ...form, order: form.receiver, oPhoneNum: form.rPhoneNum });
 		console.log(form);
 	};
-	const handleRedesginChange = (e) => {
-		if (e.target.name === "redesign1") {
-			console.log("1단계");
-			setRedesignExample(ImgURL);
-			setRedesign(1);
-			console.log(ImgURL);
-		} else if (e.target.name === "redesign2") {
-			setRedesignExample("/redesign2.png");
-			setRedesign(2);
-			console.log("2단계");
-		} else {
-			console.log("3단계");
-			setRedesignExample("/redesign3.png");
-			setRedesign(3);
-		}
+	// const handleRedesginChange = (e) => {
+	// 	if (e.target.name === "redesign1") {
+	// 		console.log("1단계");
+	// 		setRedesignExample(ImgURL);
+	// 		setRedesign(1);
+	// 		console.log(ImgURL);
+	// 	} else if (e.target.name === "redesign2") {
+	// 		setRedesignExample("/redesign2.png");
+	// 		setRedesign(2);
+	// 		console.log("2단계");
+	// 	} else {
+	// 		console.log("3단계");
+	// 		setRedesignExample("/redesign3.png");
+	// 		setRedesign(3);
+	// 	}
+	// };
+	const handleCopy = () => {
+		setCopy(true);
 	};
 	return (
 		<div>
@@ -152,6 +158,9 @@ export default function Order() {
 				<Wrapper>
 					<Logo />
 					<ProductSlide />
+					<CopyToClipboard text='신한 110468600859' onCopy={handleCopy}>
+						<button>Copy</button>
+					</CopyToClipboard>
 					<ProductInfo />
 					<Grey />
 					<ProductInfoPic />
@@ -339,6 +348,11 @@ export default function Order() {
 							</Text>
 						</Card>
 					</CardArea>
+					<CopyToClipboard
+						text='신한 110468600859'
+						onCopy={() => setCopy(true)}>
+						<button>Copy</button>
+					</CopyToClipboard>
 					<GreyButton link='/mypage' buttonName='주문 내역 확인' />
 					<OrangeButton link='/' buttonName='홈으로' />
 				</Wrapper>
