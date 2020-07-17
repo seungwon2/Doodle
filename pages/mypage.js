@@ -82,23 +82,31 @@ export default function Mypage() {
 					<Row>
 						<Text>{userData.order}님의 주문정보</Text>
 					</Row>
-					<OrderInfoArea>
+					<OrderInfoCard>
 						<InfoColumn>
-							<img src={userData.doodle} />
+							<img src={userData.doodle} width='100%' height='100%' />
 						</InfoColumn>
 						<InfoArea>
-							<InfoColumn>
+							<TextColumn>
 								<NormalText text='제품명' />
-								<NormalText text='리디자인 단계' />
+								<UserInfoText>
+									<br />
+									리디자인
+									<br />
+									단계
+								</UserInfoText>
 								<NormalText text='수량' />
-							</InfoColumn>
-							<InfoColumn>
-								<UserInfoText>우리아이 낙서 머그</UserInfoText>
+							</TextColumn>
+							<TextColumn>
+								<UserInfoText>
+									우리아이 <br />
+									낙서머그
+								</UserInfoText>
 								<UserInfoText>{userData.redesign}단계</UserInfoText>
 								<UserInfoText>{userData.amount}개</UserInfoText>
-							</InfoColumn>
+							</TextColumn>
 						</InfoArea>
-					</OrderInfoArea>
+					</OrderInfoCard>
 					<Grey />
 					<Row>
 						<Text>배송지 정보</Text>
@@ -179,14 +187,17 @@ const InfoArea = styled.div`
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: flex-start;
+	width: 100%;
 `;
 const UserInfoText = styled.label`
 	font-size: 1.3rem;
 `;
-const OrderInfoArea = styled.div`
+const OrderInfoCard = styled.div`
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
+	margin-left: 5vh;
+	margin-right: 5vh;
+	width: 100%;
 `;
 const InfoRow = styled.div`
 	display: flex;
@@ -198,4 +209,15 @@ const InfoColumn = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
+	width: 35%;
+	height: 100%;
+	align-items: flex-start;
+`;
+const TextColumn = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	width: 35%;
+	height: 100%;
+	align-items: flex-start;
 `;
