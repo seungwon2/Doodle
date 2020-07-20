@@ -4,7 +4,11 @@ import * as React from "react";
 
 function SvgComponent(props) {
 	return (
-		<svg width={22.801} height={24.246} viewBox='0 0 22.801 24.246' {...props}>
+		<svg
+			width={props.width}
+			height={props.height}
+			viewBox='0 0 23.518 25.601'
+			{...props}>
 			<defs>
 				<style>{".prefix__cls-1{fill:#ff9045}"}</style>
 			</defs>

@@ -12,12 +12,12 @@ export default function Mypage({ active }) {
 				<a>
 					{active === "mypage" && (
 						<>
-							<MypageIcon color='#ff9045' />
+							<MypageIcon color='#ff9045' width='4vh' height='4vh' />
 						</>
 					)}
 					{active != "mypage" && (
 						<>
-							<MypageIcon color='#666' />
+							<MypageIcon color='#666' width='4vh' height='4vh' />
 						</>
 					)}
 
@@ -35,6 +35,7 @@ const Wrapper = styled.div`
 	align-items: center;
 	text-align: center;
 	margin-top: 3.2vh;
+	z-index: 3;
 `;
 const Label = styled.label`
 	width: 100%;

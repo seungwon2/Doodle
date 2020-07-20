@@ -158,9 +158,6 @@ export default function Order() {
 				<Wrapper>
 					<Logo />
 					<ProductSlide />
-					<CopyToClipboard text='신한 110468600859' onCopy={handleCopy}>
-						<button>Copy</button>
-					</CopyToClipboard>
 					<ProductInfo />
 					<Grey />
 					<ProductInfoPic />
