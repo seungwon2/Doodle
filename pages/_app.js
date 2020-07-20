@@ -861,6 +861,21 @@ html,
             right: -2px;
             left: auto;
           }
+          .ant-collapse-ghost {
+            background-color: transparent;
+            border: 0;
+            width: 100%;
+        }
+        .ant-collapse > .ant-collapse-item > .ant-collapse-header {
+          position: relative;
+          padding: 12px 16px;
+          padding-left: 40px;
+          color: rgba(0, 0, 0, 0.85);
+          line-height: 1.5715;
+          cursor: pointer;
+          transition: all 0.3s;
+          font-size: 1.7rem;
+      }
 `;
 
 export default class Timeline extends App {
