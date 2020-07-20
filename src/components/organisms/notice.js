@@ -14,7 +14,7 @@ export default function Notice() {
 			<Text>
 				-&nbsp;여러 도안으로 단체주문시 <br />
 				&nbsp;&nbsp;&nbsp;카카오톡 채널(ID:doodle_official), <br />
-				&nbsp;&nbsp;&nbsp;doodle.offical20@gamail.com로 문의바랍니다.
+				&nbsp;&nbsp;&nbsp;doodle.offical20@gmail.com로 문의바랍니다.
 			</Text>
 			{/* <Text>
 				머그컵에 리디자인 될 <br />
