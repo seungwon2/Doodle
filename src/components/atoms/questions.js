@@ -4,14 +4,8 @@ import React from "react";
 import styled from "styled-components";
 
 export default function Questions() {
-	const text = `
-  A dog is a type of domesticated animal.
-  Known for its loyalty and faithfulness,
-  it can be found as a welcome guest in many households across the world.
-`;
-
 	return (
-		<Wrapper>
+		<>
 			<Grey />
 			<QuestionCard>
 				<Question>1. 주문하면 언제 받을 수 있나요?</Question>
@@ -33,7 +27,6 @@ export default function Questions() {
 					doodle.official20@gmail.com으로 연락주시면 빠르게 도움드리겠습니다.
 				</Answer>
 			</QuestionCard>
-
 			<Grey />
 			<QuestionCard>
 				<Question>4. 대량제작 관련 문의</Question>
@@ -42,31 +35,29 @@ export default function Questions() {
 					doodle.official20@gmail.com으로 연락주시면 빠르게 도움드리겠습니다 :)
 				</Answer>
 			</QuestionCard>
-		</Wrapper>
+		</>
 	);
 }
 const QuestionCard = styled.div`
 	display: flex;
 	flex-direction: column;
+	margin-left: 3vh;
+	margin-right: 3vh;
 `;
 const Grey = styled.div`
 	background-color: rgb(239, 239, 239);
-	width: 100%;
+	width: 39rem;
 	margin: 0;
 	height: 1px;
 `;
 const Question = styled.div`
-	font-size: 1.2rem;
+	font-size: 1.3rem;
 	font-weight: 500;
 	margin-top: 4vh;
 `;
 const Answer = styled.div`
 	background-color: rgb(247, 247, 247);
-	font-size: 1.2rem;
+	font-size: 1.3rem;
 	margin: 4vh;
 	padding: 2vh;
-`;
-const Wrapper = styled.div`
-	margin-left: 3vh;
-	margin-right: 3vh;
 `;
