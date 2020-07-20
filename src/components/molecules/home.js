@@ -11,15 +11,14 @@ export default function Main({ active }) {
 				<a>
 					{active === "home" && (
 						<>
-							<HomeIcon color='#ff9045' />
+							<HomeIcon color='#ff9045' width='4vh' height='4vh' />
 						</>
 					)}
 					{active != "home" && (
 						<>
-							<HomeIcon color='#666' />
+							<HomeIcon color='#666' width='4vh' height='4vh' />
 						</>
 					)}
-
 					<Label>홈</Label>
 				</a>
 			</Link>
@@ -34,6 +33,7 @@ const Wrapper = styled.div`
 	align-items: center;
 	text-align: center;
 	margin-top: 3.2vh;
+	z-index: 3;
 `;
 const Label = styled.label`
 	width: 100%;
@@ -46,4 +46,3 @@ const Label = styled.label`
 	text-align: center;
 	margin-top: 0.7vh;
 `;
-const Icon = styled.div``;

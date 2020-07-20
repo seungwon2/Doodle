@@ -53,7 +53,7 @@ export default function Mypage() {
 						<BoldText text='주문 조회하기' />
 					</Row>
 					<Row>
-						<NormalText text='주문자 명' />
+						<NormalText text='주문자명' />
 						<Input
 							placeholder='이름'
 							name='order'

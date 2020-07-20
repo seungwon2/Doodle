@@ -4,7 +4,6 @@ import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import OrderIcon from "../atoms/svgFolder/make";
-import OrderIconActive from "../atoms/orderIconActive";
 
 export default function Make({ active }) {
 	return (
@@ -13,12 +12,12 @@ export default function Make({ active }) {
 				<a>
 					{active === "make" && (
 						<>
-							<OrderIconActive />
+							<OrderIcon width='4.6vh' height='4.4vh' color='#ff9045' />
 						</>
 					)}
 					{active != "make" && (
 						<>
-							<OrderIcon />
+							<OrderIcon width='4.6vh' height='4.4vh' color='#666' />
 						</>
 					)}
 					<Label>제작하기</Label>
@@ -35,6 +34,7 @@ const Wrapper = styled.div`
 	align-items: center;
 	text-align: center;
 	margin-top: 2.7vh;
+	z-index: 3;
 `;
 const Label = styled.label`
 	width: 100%;
