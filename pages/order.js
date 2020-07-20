@@ -73,7 +73,6 @@ export default function Order() {
 	};
 	const handleNext = () => {
 		setStep(step + 1);
-		console.log(step);
 	};
 
 	const handleSubmit = () => {
@@ -91,22 +90,13 @@ export default function Order() {
 		form_data.append("email", form.email);
 		form_data.append("detail_address", form.detailAddress);
 
-		console.log(Doodle);
-		console.log("hi");
-		console.log(amount);
-		console.log(form_data);
-
 		axios
 			.post("https://www.doodlehj.com/api/produce/", form_data)
 			.then(function (response) {
 				setStep(step + 1);
-				console.log(response);
-				console.log("전송 성공");
 				success();
 			})
 			.catch(function (error) {
-				console.log(error.response);
-				console.log("전송 실패");
 				warning();
 			});
 	};
@@ -128,32 +118,24 @@ export default function Order() {
 	};
 
 	const handleOk = (e) => {
-		console.log(e);
 		setIsVisible(false);
 	};
 
 	const handleCancel = (e) => {
-		console.log(e);
 		setIsVisible(false);
 	};
 	const handleData = (data) => {
-		console.log(data);
 		setPostCode(data.zonecode);
 		setBaseAddress(data.address);
-		console.log("저장된 데이터");
-		console.log(postCode);
-		console.log(baseAddress);
 	};
 	const handleFormChange = (e) => {
 		setForm({
 			...form,
 			[e.target.name]: e.target.value,
 		});
-		console.log(form);
 	};
 	const handleFillContent = (e) => {
 		setForm({ ...form, order: form.receiver, oPhoneNum: form.rPhoneNum });
-		console.log(form);
 	};
 	// const handleRedesginChange = (e) => {
 	// 	if (e.target.name === "redesign1") {

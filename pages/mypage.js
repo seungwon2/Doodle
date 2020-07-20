@@ -29,13 +29,11 @@ export default function Mypage() {
 				form
 			)
 			.then((res) => {
-				console.log(res);
 				if (!res.data[0].order) {
 					<Result title='Your operation has been executed' />;
 				} else return res.data[0];
 			})
 			.catch((err) => {
-				console.log("catch걸림");
 				error();
 				if (!res.data[0].order) {
 					<Result title='Your operation has been executed' />;
@@ -43,8 +41,6 @@ export default function Mypage() {
 			});
 		setUserData(data);
 		setSearch(true);
-		console.log("유저데이터:");
-		console.log(userData);
 	};
 
 	const handleFormChange = (e) => {
@@ -52,7 +48,6 @@ export default function Mypage() {
 			...form,
 			[e.target.name]: e.target.value,
 		});
-		console.log(form);
 	};
 	return (
 		<Wrapper>
