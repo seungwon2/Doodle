@@ -3,7 +3,6 @@
 import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
-import OrderIconActive from "../atoms/svgFolder/makeActive";
 import OrderIcon from "../atoms/svgFolder/make";
 
 export default function Make({ active }) {
