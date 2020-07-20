@@ -15,12 +15,15 @@ export default function Step({
 		console.log("onChange:", redesign);
 		setCurrent(key);
 		if (key == 0) {
+			console.log("2단계");
 			setRedesignExample(ImgURL);
 			setRedesign(key + 1);
 		} else if (key == 1) {
+			console.log("2단계");
 			setRedesignExample("/redesign2.png");
 			setRedesign(key + 1);
 		} else if (key == 2) {
+			console.log("2단계");
 			setRedesignExample("/redesign3.png");
 			setRedesign(key + 1);
 		}
