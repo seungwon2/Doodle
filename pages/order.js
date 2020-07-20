@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Modal, Card, Steps, Divider } from "antd";
+import { Modal, Card, Steps, Message, message } from "antd";
 import DaumPostcode from "react-daum-postcode";
 import axios from "axios";
 
@@ -50,7 +50,27 @@ export default function Order() {
 	const [amount, setAmount] = useState(1);
 	const [redesignExample, setRedesignExample] = useState();
 	const [copy, setCopy] = useState(false);
+	const { Step } = Steps;
+	const [current, setCurrent] = useState(0);
 
+	const success = () => {
+		message.success("계좌번호가 클립보드에 복사되었습니다!");
+	};
+	const warning = () => {
+		message.warning("모든 정보를 입력해주세요!");
+	};
+	const onClick = (key) => {
+		console.log("onChange:", redesign);
+		setCurrent(key);
+		setRedesign(key + 1);
+		if (redesign == "1") {
+			setRedesignExample(ImgURL);
+		} else if (redesign == "2") {
+			setRedesignExample("/redesign2.png");
+		} else if (redesign == "3") {
+			setRedesignExample("/redesign3.png");
+		}
+	};
 	const handleNext = () => {
 		setStep(step + 1);
 		console.log(step);
@@ -82,10 +102,12 @@ export default function Order() {
 				setStep(step + 1);
 				console.log(response);
 				console.log("전송 성공");
+				success();
 			})
 			.catch(function (error) {
 				console.log(error.response);
 				console.log("전송 실패");
+				warning();
 			});
 	};
 
@@ -223,7 +245,14 @@ export default function Order() {
 					<OrderPhantom />
 					<img className='preview' src={redesignExample} width='80%' />
 					<OrderPhantom />
-					<Step redesign={redesign} setRedesign={setRedesign} />
+
+					<StepArea>
+						<Steps current={current} onChange={onClick}>
+							<Step title='1단계' description='원본' />
+							<Step title='2단계' description='선 정리' />
+							<Step title='3단계' description='선 정리 + 색상 추가' />
+						</Steps>
+					</StepArea>
 					<NextButton buttonName='다음으로' handleNext={handleNext} />
 				</Wrapper>
 			)}
@@ -327,7 +356,11 @@ export default function Order() {
 					<FinalPayCheck amount={amount} />
 					<Grey />
 					<PayInfo />
-					<NextButton buttonName='결제하기' handleNext={handleSubmit} />
+					<CopyToClipboard
+						text='신한 110468600859'
+						onCopy={() => setCopy(true)}>
+						<NextButton buttonName='결제하기' handleNext={handleSubmit} />
+					</CopyToClipboard>
 				</Wrapper>
 			)}
 			{step === 4 && (
@@ -345,11 +378,7 @@ export default function Order() {
 							</Text>
 						</Card>
 					</CardArea>
-					<CopyToClipboard
-						text='신한 110468600859'
-						onCopy={() => setCopy(true)}>
-						<button>Copy</button>
-					</CopyToClipboard>
+
 					<GreyButton link='/mypage' buttonName='주문 내역 확인' />
 					<OrangeButton link='/' buttonName='홈으로' />
 				</Wrapper>
@@ -594,4 +623,9 @@ const UserText = styled.label`
 	display: flex;
 	flex-direction: column;
 	align-items: right;
+`;
+
+const StepArea = styled.div`
+	width: 83%;
+	margin-bottom: 5vh;
 `;
