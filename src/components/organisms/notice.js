@@ -25,12 +25,17 @@ export default function Notice() {
 }
 const Wrapper = styled.div`
 	height: content-fit;
-	width: 100%;
 	distplay: flex;
 	flex-direction: column;
 	margin-top: 6vh;
 	margin-bottom: 6vh;
 	padding-left: 5vh;
+	padding-right: 5vh;
+	background: rgb(247, 247, 247);
+	padding-top: 3vh;
+	padding-bottom: 2vh;
+	margin-left: 2.5vh;
+	margin-right: 2.5vh;
 `;
 
 const Text = styled.label`

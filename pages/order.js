@@ -371,7 +371,7 @@ export default function Order() {
 					<OrderExp text='입금 완료시, 카톡으로 확인 메시지가' />
 					<OrderExp text='발송되고 제작이 시작됩니다!' />
 					<CardArea>
-						<Card style={{ width: 500 }}>
+						<Card style={{ width: 400 }}>
 							<Text>
 								<p>신한 110-468-600859 (두들)</p>
 								<p>{amount * 14},000원</p>
@@ -578,8 +578,8 @@ const FindButton = styled.button`
 const Text = styled.label`
 	align-items: center;
 	text-align: center;
-	margin-left: 6vh;
 	margin-top: 3vh;
+	font-size: 1.5rem;
 `;
 const CardArea = styled.div`
 	margin-top: 10vh;
