@@ -2,8 +2,9 @@
 
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Input } from "antd";
+import { Input, message, Result } from "antd";
 import axios from "axios";
+import Link from "next/link";
 
 import FAQ from "../src/components/organisms/FAQ";
 import NormalText from "../src/components/atoms/normalText";
@@ -17,7 +18,9 @@ export default function Mypage() {
 	const [form, setForm] = useState({ order: "", o_phone_num: "" });
 	const [search, setSearch] = useState(false);
 	const [userData, setUserData] = useState(null);
-
+	const error = () => {
+		message.error("올바른 정보를 입력해주세요!");
+	};
 	const handleOnClick = async () => {
 		const data = await axios
 			.get(
@@ -27,9 +30,17 @@ export default function Mypage() {
 			)
 			.then((res) => {
 				console.log(res);
-				return res.data[0];
+				if (!res.data[0].order) {
+					<Result title='Your operation has been executed' />;
+				} else return res.data[0];
 			})
-			.catch((err) => console.log(err));
+			.catch((err) => {
+				console.log("catch걸림");
+				error();
+				if (!res.data[0].order) {
+					<Result title='Your operation has been executed' />;
+				}
+			});
 		setUserData(data);
 		setSearch(true);
 		console.log("유저데이터:");
@@ -92,8 +103,6 @@ export default function Mypage() {
 								<UserInfoText>
 									<br />
 									리디자인
-									<br />
-									단계
 								</UserInfoText>
 								<NormalText text='수량' />
 							</TextColumn>
@@ -128,7 +137,6 @@ export default function Mypage() {
 					</InfoArea>
 				</>
 			)}
-
 			<Phantom />
 			<BottomBar active='mypage' />
 		</Wrapper>

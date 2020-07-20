@@ -6,7 +6,7 @@ import styled from "styled-components";
 export default function Notice() {
 	return (
 		<Wrapper>
-			<Text>확인해주세요!</Text>
+			<Title>확인해주세요!</Title>
 			<Text>
 				-&nbsp;벽, 바닥의 낙서 등 배경과 화질에 상관없이 <br />
 				&nbsp;&nbsp;&nbsp;모두 업로드 가능해요.
@@ -42,4 +42,11 @@ const Text = styled.label`
 	font-size: 1.3rem;
 	margin-bottom: 2vh;
 	width: 100%;
+`;
+
+const Title = styled.label`
+	font-size: 1.3rem;
+	margin-bottom: 2vh;
+	width: 100%;
+	font-weight: 500;
 `;
