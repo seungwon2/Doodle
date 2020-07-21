@@ -876,6 +876,10 @@ html,
           transition: all 0.3s;
           font-size: 1.7rem;
       }
+      .ant-card-body {
+        padding: 24px;
+        text-align: center;
+    }
 `;
 
 export default class Timeline extends App {

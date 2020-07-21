@@ -2,14 +2,13 @@
 
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Input } from "antd";
+import { Input, message, Result } from "antd";
 import axios from "axios";
 
 import FAQ from "../src/components/organisms/FAQ";
 import NormalText from "../src/components/atoms/normalText";
 import Header from "../src/components/organisms/header";
 import BoldText from "../src/components/atoms/boldText";
-import Grey from "../src/components/atoms/grey";
 import BottomBar from "../src/components/organisms/bottomBar";
 import Phantom from "../src/components/organisms/phantom";
 
@@ -17,7 +16,9 @@ export default function Mypage() {
 	const [form, setForm] = useState({ order: "", o_phone_num: "" });
 	const [search, setSearch] = useState(false);
 	const [userData, setUserData] = useState(null);
-
+	const error = () => {
+		message.error("올바른 정보를 입력해주세요!");
+	};
 	const handleOnClick = async () => {
 		const data = await axios
 			.get(
@@ -26,14 +27,18 @@ export default function Mypage() {
 				form
 			)
 			.then((res) => {
-				console.log(res);
-				return res.data[0];
+				if (!res.data[0].order) {
+					<Result title='Your operation has been executed' />;
+				} else return res.data[0];
 			})
-			.catch((err) => console.log(err));
+			.catch((err) => {
+				error();
+				if (!res.data[0].order) {
+					<Result title='Your operation has been executed' />;
+				}
+			});
 		setUserData(data);
 		setSearch(true);
-		console.log("유저데이터:");
-		console.log(userData);
 	};
 
 	const handleFormChange = (e) => {
@@ -41,7 +46,6 @@ export default function Mypage() {
 			...form,
 			[e.target.name]: e.target.value,
 		});
-		console.log(form);
 	};
 	return (
 		<Wrapper>
@@ -73,14 +77,16 @@ export default function Mypage() {
 					<ButtonRow>
 						<Button onClick={handleOnClick}>조회하기</Button>
 					</ButtonRow>
-					<Grey />
 					<FAQ />
 				</>
 			)}
 			{search && (
 				<>
 					<Row>
-						<Text>{userData.order}님의 주문정보</Text>
+						<Title>{userData.order}님의 주문정보</Title>
+					</Row>
+					<Row>
+						<Text>주문 상품</Text>
 					</Row>
 					<OrderInfoCard>
 						<InfoColumn>
@@ -89,22 +95,14 @@ export default function Mypage() {
 						<InfoArea>
 							<TextColumn>
 								<NormalText text='제품명' />
-								<UserInfoText>
-									<br />
-									리디자인
-									<br />
-									단계
-								</UserInfoText>
+								<UserInfoText>리디자인</UserInfoText>
 								<NormalText text='수량' />
 							</TextColumn>
-							<TextColumn>
-								<UserInfoText>
-									우리아이 <br />
-									낙서머그
-								</UserInfoText>
+							<ResultColumn>
+								<UserInfoText>우리아이 낙서머그</UserInfoText>
 								<UserInfoText>{userData.redesign}단계</UserInfoText>
 								<UserInfoText>{userData.amount}개</UserInfoText>
-							</TextColumn>
+							</ResultColumn>
 						</InfoArea>
 					</OrderInfoCard>
 					<Grey />
@@ -128,7 +126,6 @@ export default function Mypage() {
 					</InfoArea>
 				</>
 			)}
-
 			<Phantom />
 			<BottomBar active='mypage' />
 		</Wrapper>
@@ -162,20 +159,17 @@ const Button = styled.button`
 	font-weight: 400;
 	white-space: nowrap;
 	text-align: center;
-	background-image: none;
-	border: 1px solid transparent;
-	box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+	border: 0px;
 	cursor: pointer;
 	transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 	touch-action: manipulation;
 	height: 32px;
-	padding: 4px 15px;
+	padding: 4px 4px;
 	font-size: 0.9rem;
 	border-radius: 2px;
-	color: rgba(0, 0, 0, 0.65);
-	background: #fff;
-	border-color: #d9d9d9;
-	width: 20%;
+	color: rgb(255, 255, 255);
+	background-color: rgb(255, 144, 69);
+	width: 16%;
 `;
 const Text = styled.label`
 	font-size: 1.7rem;
@@ -217,7 +211,27 @@ const TextColumn = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	width: 35%;
+	width: 19%;
 	height: 100%;
 	align-items: flex-start;
+`;
+const Title = styled.label`
+	font-size: 1.8rem;
+	font-weight: 600;
+	margin-bottom: 3vh;
+`;
+const ResultColumn = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	width: 50%;
+	height: 100%;
+	align-items: flex-start;
+`;
+const Grey = styled.div`
+	background-color: rgb(239, 239, 239);
+	width: 100%;
+	margin-top: 3vh;
+	margin-bottom: 3vh;
+	height: 1px;
 `;

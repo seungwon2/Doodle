@@ -32,6 +32,7 @@ import Notice from "../src/components/organisms/notice.js";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 export default function Order() {
+	const { Step } = Steps;
 	const [ImgURL, setImgURL] = useState(null);
 	const [Doodle, setDoodle] = useState("");
 	const [isVisible, setIsVisible] = useState(false);
@@ -46,11 +47,10 @@ export default function Order() {
 	const [postCode, setPostCode] = useState();
 	const [baseAddress, setBaseAddress] = useState();
 	const [step, setStep] = useState(0);
-	const [redesign, setRedesign] = useState(0);
+	const [redesign, setRedesign] = useState(1);
 	const [amount, setAmount] = useState(1);
 	const [redesignExample, setRedesignExample] = useState();
 	const [copy, setCopy] = useState(false);
-	const { Step } = Steps;
 	const [current, setCurrent] = useState(0);
 
 	const success = () => {
@@ -66,14 +66,13 @@ export default function Order() {
 		if (redesign == "1") {
 			setRedesignExample(ImgURL);
 		} else if (redesign == "2") {
-			setRedesignExample("/redesign2.png");
+			setRedesignExample("/redesign/redesign2.png");
 		} else if (redesign == "3") {
-			setRedesignExample("/redesign3.png");
+			setRedesignExample("/redesign/redesign3.png");
 		}
 	};
 	const handleNext = () => {
 		setStep(step + 1);
-		console.log(step);
 	};
 
 	const handleSubmit = () => {
@@ -91,22 +90,13 @@ export default function Order() {
 		form_data.append("email", form.email);
 		form_data.append("detail_address", form.detailAddress);
 
-		console.log(Doodle);
-		console.log("hi");
-		console.log(amount);
-		console.log(form_data);
-
 		axios
 			.post("https://www.doodlehj.com/api/produce/", form_data)
 			.then(function (response) {
 				setStep(step + 1);
-				console.log(response);
-				console.log("전송 성공");
 				success();
 			})
 			.catch(function (error) {
-				console.log(error.response);
-				console.log("전송 실패");
 				warning();
 			});
 	};
@@ -128,32 +118,24 @@ export default function Order() {
 	};
 
 	const handleOk = (e) => {
-		console.log(e);
 		setIsVisible(false);
 	};
 
 	const handleCancel = (e) => {
-		console.log(e);
 		setIsVisible(false);
 	};
 	const handleData = (data) => {
-		console.log(data);
 		setPostCode(data.zonecode);
 		setBaseAddress(data.address);
-		console.log("저장된 데이터");
-		console.log(postCode);
-		console.log(baseAddress);
 	};
 	const handleFormChange = (e) => {
 		setForm({
 			...form,
 			[e.target.name]: e.target.value,
 		});
-		console.log(form);
 	};
 	const handleFillContent = (e) => {
 		setForm({ ...form, order: form.receiver, oPhoneNum: form.rPhoneNum });
-		console.log(form);
 	};
 	// const handleRedesginChange = (e) => {
 	// 	if (e.target.name === "redesign1") {
@@ -371,7 +353,7 @@ export default function Order() {
 					<OrderExp text='입금 완료시, 카톡으로 확인 메시지가' />
 					<OrderExp text='발송되고 제작이 시작됩니다!' />
 					<CardArea>
-						<Card style={{ width: 300 }}>
+						<Card style={{ width: 400 }}>
 							<Text>
 								<p>신한 110-468-600859 (두들)</p>
 								<p>{amount * 14},000원</p>
@@ -578,8 +560,8 @@ const FindButton = styled.button`
 const Text = styled.label`
 	align-items: center;
 	text-align: center;
-	margin-left: 6vh;
 	margin-top: 3vh;
+	font-size: 1.5rem;
 `;
 const CardArea = styled.div`
 	margin-top: 10vh;
