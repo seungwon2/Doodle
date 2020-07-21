@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Input, message, Result } from "antd";
+import { message, Result } from "antd";
 import axios from "axios";
 
 import FAQ from "../src/components/organisms/FAQ";
@@ -132,7 +132,7 @@ export default function Mypage() {
 	);
 }
 const Wrapper = styled.div`
-	width: 100%;
+	min-width: 100%;
 	height: fit-content;
 	display: flex;
 	flex-direction: column;
@@ -163,13 +163,13 @@ const Button = styled.button`
 	cursor: pointer;
 	transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 	touch-action: manipulation;
-	height: 32px;
-	padding: 4px 4px;
-	font-size: 0.9rem;
+	height: fit-content;
+	padding: 8px 8px;
+	font-size: 1.3rem;
 	border-radius: 2px;
 	color: rgb(255, 255, 255);
 	background-color: rgb(255, 144, 69);
-	width: 16%;
+	width: 21%;
 `;
 const Text = styled.label`
 	font-size: 1.7rem;
@@ -191,7 +191,7 @@ const OrderInfoCard = styled.div`
 	flex-direction: row;
 	margin-left: 5vh;
 	margin-right: 5vh;
-	width: 100%;
+	width: 91%;
 `;
 const InfoRow = styled.div`
 	display: flex;
@@ -211,7 +211,7 @@ const TextColumn = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	width: 19%;
+	width: 20%;
 	height: 100%;
 	align-items: flex-start;
 `;
@@ -234,4 +234,23 @@ const Grey = styled.div`
 	margin-top: 3vh;
 	margin-bottom: 3vh;
 	height: 1px;
+`;
+const Input = styled.input`
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-variant: tabular-nums;
+	list-style: none;
+	font-feature-settings: "tnum", "tnum";
+	width: 114%;
+	min-width: 0;
+	padding: 4px 11px;
+	color: rgba(0, 0, 0, 0.65);
+	font-size: 14px;
+	line-height: 2.3;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #d9d9d9;
+	border-radius: 2px;
+	transition: all 0.3s;
 `;

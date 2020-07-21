@@ -39,7 +39,7 @@ const Content = styled.div`
 	text-align: left;
 `;
 const Text = styled.label`
-	font-size: 1rem;
+	font-size: 1.5rem;
 `;
 const ProductPic = styled.div`
 	text-align: left;
@@ -59,10 +59,11 @@ const ProductProfileArea = styled.div`
 	margin-bottom: 5vh;
 `;
 const AmountText = styled.label`
-	font-size: 1.3rem;
-	width: 100%;
+	font-size: 1.5rem;
+	width: 90%;
 	height: fit-content;
 	display: flex;
 	flex-direction: column;
 	align-items: right;
+	margin-right: 1vh;
 `;

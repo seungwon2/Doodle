@@ -121,7 +121,7 @@ export default function Order() {
 		setIsVisible(false);
 	};
 
-	const handleCancel = (e) => {
+	const handleCancel = () => {
 		setIsVisible(false);
 	};
 	const handleData = (data) => {
@@ -134,7 +134,7 @@ export default function Order() {
 			[e.target.name]: e.target.value,
 		});
 	};
-	const handleFillContent = (e) => {
+	const handleFillContent = () => {
 		setForm({ ...form, order: form.receiver, oPhoneNum: form.rPhoneNum });
 	};
 	// const handleRedesginChange = (e) => {
@@ -275,7 +275,7 @@ export default function Order() {
 					</Row>
 					<Row>
 						<UserText>주소</UserText>
-						<PostCodeInput placeholder='우편번호' value={postCode} />{" "}
+						<PostCodeInput placeholder='우편번호' value={postCode} />
 						<FindButton onClick={showModal}>찾기</FindButton>
 						<Modal
 							title='우편번호 찾기'
@@ -360,7 +360,6 @@ export default function Order() {
 							</Text>
 						</Card>
 					</CardArea>
-
 					<GreyButton link='/mypage' buttonName='주문 내역 확인' />
 					<OrangeButton link='/' buttonName='홈으로' />
 				</Wrapper>
@@ -400,10 +399,13 @@ const ButtonName = styled.label`
 	display: flex;
 	justify-content: center;
 	color: rgb(255, 255, 255);
+	font-size: 1.9rem;
+	font-weight: 500;
 	width: 30rem;
 	height: 10vh;
 	margin: auto;
-	font-size: 1.6rem;
+	font-size: 1.9rem;
+	font-weight: 500;
 	line-height: normal;
 	background-color: rgb(255, 144, 69);
 	cursor: pointer;
@@ -421,7 +423,8 @@ const ButtonChoose = styled.label`
 	width: 30rem;
 	height: 10vh;
 	margin: auto;
-	font-size: 1.6rem;
+	font-size: 1.9rem;
+	font-weight: 500;
 	line-height: normal;
 	background-color: rgb(246, 247, 247);
 	cursor: pointer;
@@ -463,7 +466,7 @@ const Input = styled.input`
 	padding: 4px 11px;
 	color: rgba(0, 0, 0, 0.65);
 	font-size: 14px;
-	line-height: 1.5715;
+	line-height: 2.3;
 	background-color: #fff;
 	background-image: none;
 	border: 1px solid #d9d9d9;
@@ -480,7 +483,7 @@ const AddressInput = styled.input`
 	padding: 4px 11px;
 	color: rgba(0, 0, 0, 0.65);
 	font-size: 14px;
-	line-height: 1.5715;
+	line-height: 2.3;
 	background-color: #fff;
 	background-image: none;
 	border: 1px solid #d9d9d9;
@@ -502,8 +505,8 @@ const AutoButton = styled.button`
 	transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 	touch-action: manipulation;
 	height: 32px;
-	padding: 4px 15px;
-	font-size: 0.75rem;
+	padding: 0;
+	font-size: 1.2rem;
 	border-radius: 2px;
 	color: rgba(0, 0, 0, 0.65);
 	background-color: #fff;
@@ -517,13 +520,13 @@ const PostCodeInput = styled.input`
 	font-variant: tabular-nums;
 	list-style: none;
 	font-feature-settings: "tnum", "tnum";
-	width: 80%;
+	width: 77%;
 	margin-right: 2%;
 	min-width: 0;
 	padding: 4px 11px;
 	color: rgba(0, 0, 0, 0.65);
 	font-size: 14px;
-	line-height: 1.5715;
+	line-height: 2.3;
 	background-color: #fff;
 	background-image: none;
 	border: 1px solid #d9d9d9;
@@ -531,7 +534,7 @@ const PostCodeInput = styled.input`
 	transition: all 0.3s;
 `;
 const FindButton = styled.button`
-	line-height: 1.5715;
+	line-height: 2.3;
 	position: relative;
 	display: inline-block;
 	font-weight: 400;
@@ -542,12 +545,8 @@ const FindButton = styled.button`
 	box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
 	cursor: pointer;
 	transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
 	touch-action: manipulation;
-	height: 32px;
+	height: 2.3;
 	padding: 4px 15px;
 	font-size: 0.9rem;
 	border-radius: 2px;
@@ -605,6 +604,7 @@ const UserText = styled.label`
 	display: flex;
 	flex-direction: column;
 	align-items: right;
+	margin-top: auto;
 `;
 
 const StepArea = styled.div`

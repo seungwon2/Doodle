@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Link from "next/link";
 
 export default function NextButton({ buttonName, handleNext }) {
 	return (
@@ -24,7 +23,8 @@ const Button = styled.button`
 	width: 30rem;
 	height: 10vh;
 	margin: auto;
-	font-size: 1.6rem;
+	font-size: 1.9rem;
+	font-weight: 500;
 	line-height: normal;
 	background-color: rgb(255, 144, 69);
 	border: 0px;
