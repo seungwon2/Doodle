@@ -32,6 +32,7 @@ import Notice from "../src/components/organisms/notice.js";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 export default function Order() {
+	const { Step } = Steps;
 	const [ImgURL, setImgURL] = useState(null);
 	const [Doodle, setDoodle] = useState("");
 	const [isVisible, setIsVisible] = useState(false);
@@ -50,7 +51,6 @@ export default function Order() {
 	const [amount, setAmount] = useState(1);
 	const [redesignExample, setRedesignExample] = useState();
 	const [copy, setCopy] = useState(false);
-	const { Step } = Steps;
 	const [current, setCurrent] = useState(0);
 
 	const success = () => {

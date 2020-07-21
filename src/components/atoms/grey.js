@@ -21,6 +21,7 @@ const Wrapper = styled.div`
 	height: 7px;
 	margin-bottom: 3vh;
 	margin-top: 1vh;
+	height: 7px;
 `;
 const Line = styled.div`
 	background-color: rgb(239, 239, 239);

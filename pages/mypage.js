@@ -77,7 +77,6 @@ export default function Mypage() {
 					<ButtonRow>
 						<Button onClick={handleOnClick}>조회하기</Button>
 					</ButtonRow>
-					<Grey />
 					<FAQ />
 				</>
 			)}
@@ -160,20 +159,17 @@ const Button = styled.button`
 	font-weight: 400;
 	white-space: nowrap;
 	text-align: center;
-	background-image: none;
-	border: 1px solid transparent;
-	box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+	border: 0px;
 	cursor: pointer;
 	transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 	touch-action: manipulation;
 	height: 32px;
-	padding: 4px 15px;
+	padding: 4px 4px;
 	font-size: 0.9rem;
 	border-radius: 2px;
-	color: rgba(0, 0, 0, 0.65);
-	background: #fff;
-	border-color: #d9d9d9;
-	width: 20%;
+	color: rgb(255, 255, 255);
+	background-color: rgb(255, 144, 69);
+	width: 16%;
 `;
 const Text = styled.label`
 	font-size: 1.7rem;
@@ -234,7 +230,7 @@ const ResultColumn = styled.div`
 `;
 const Grey = styled.div`
 	background-color: rgb(239, 239, 239);
-	width: 39rem;
+	width: 100%;
 	margin-top: 3vh;
 	margin-bottom: 3vh;
 	height: 1px;
