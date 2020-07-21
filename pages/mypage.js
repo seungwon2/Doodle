@@ -4,13 +4,11 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Input, message, Result } from "antd";
 import axios from "axios";
-import Link from "next/link";
 
 import FAQ from "../src/components/organisms/FAQ";
 import NormalText from "../src/components/atoms/normalText";
 import Header from "../src/components/organisms/header";
 import BoldText from "../src/components/atoms/boldText";
-import Grey from "../src/components/atoms/grey";
 import BottomBar from "../src/components/organisms/bottomBar";
 import Phantom from "../src/components/organisms/phantom";
 
@@ -86,7 +84,10 @@ export default function Mypage() {
 			{search && (
 				<>
 					<Row>
-						<Text>{userData.order}님의 주문정보</Text>
+						<Title>{userData.order}님의 주문정보</Title>
+					</Row>
+					<Row>
+						<Text>주문 상품</Text>
 					</Row>
 					<OrderInfoCard>
 						<InfoColumn>
@@ -95,20 +96,14 @@ export default function Mypage() {
 						<InfoArea>
 							<TextColumn>
 								<NormalText text='제품명' />
-								<UserInfoText>
-									<br />
-									리디자인
-								</UserInfoText>
+								<UserInfoText>리디자인</UserInfoText>
 								<NormalText text='수량' />
 							</TextColumn>
-							<TextColumn>
-								<UserInfoText>
-									우리아이 <br />
-									낙서머그
-								</UserInfoText>
+							<ResultColumn>
+								<UserInfoText>우리아이 낙서머그</UserInfoText>
 								<UserInfoText>{userData.redesign}단계</UserInfoText>
 								<UserInfoText>{userData.amount}개</UserInfoText>
-							</TextColumn>
+							</ResultColumn>
 						</InfoArea>
 					</OrderInfoCard>
 					<Grey />
@@ -220,7 +215,27 @@ const TextColumn = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	width: 35%;
+	width: 19%;
 	height: 100%;
 	align-items: flex-start;
+`;
+const Title = styled.label`
+	font-size: 1.8rem;
+	font-weight: 600;
+	margin-bottom: 3vh;
+`;
+const ResultColumn = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	width: 50%;
+	height: 100%;
+	align-items: flex-start;
+`;
+const Grey = styled.div`
+	background-color: rgb(239, 239, 239);
+	width: 39rem;
+	margin-top: 3vh;
+	margin-bottom: 3vh;
+	height: 1px;
 `;

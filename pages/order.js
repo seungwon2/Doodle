@@ -66,9 +66,9 @@ export default function Order() {
 		if (redesign == "1") {
 			setRedesignExample(ImgURL);
 		} else if (redesign == "2") {
-			setRedesignExample("/redesign2.png");
+			setRedesignExample("/redesign/redesign2.png");
 		} else if (redesign == "3") {
-			setRedesignExample("/redesign3.png");
+			setRedesignExample("/redesign/redesign3.png");
 		}
 	};
 	const handleNext = () => {

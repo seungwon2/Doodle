@@ -9,16 +9,16 @@ export default function ProductSlide() {
 		<Wrapper>
 			<Carousel autoplay>
 				<div>
-					<img src='/banner1.png' width='100%' />
+					<img src='/bannerImage/banner1.png' width='100%' />
 				</div>
 				<div>
-					<img src='/banner2.png' width='100%' />
+					<img src='/bannerImage/banner2.png' width='100%' />
 				</div>
 				<div>
-					<img src='/banner3.png' width='100%' />
+					<img src='/bannerImage/banner3.png' width='100%' />
 				</div>
 				<div>
-					<img src='/example.png' width='100%' />
+					<img src='/bannerImage/banner4.png' width='100%' />
 				</div>
 			</Carousel>
 		</Wrapper>
