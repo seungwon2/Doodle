@@ -51,13 +51,13 @@ const Grey = styled.div`
 	height: 1px;
 `;
 const Question = styled.div`
-	font-size: 1.3rem;
+	font-size: 1.5rem;
 	font-weight: 500;
 	margin-top: 4vh;
 `;
 const Answer = styled.div`
 	background-color: rgb(247, 247, 247);
-	font-size: 1.3rem;
+	font-size: 1.4rem;
 	margin: 4vh;
 	padding: 2vh;
 `;

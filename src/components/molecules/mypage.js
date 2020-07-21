@@ -12,12 +12,12 @@ export default function Mypage({ active }) {
 				<a>
 					{active === "mypage" && (
 						<>
-							<MypageIcon color='#ff9045' width='4vh' height='4vh' />
+							<MypageIcon color='#ff9045' width='3.9vh' height='3.9vh' />
 						</>
 					)}
 					{active != "mypage" && (
 						<>
-							<MypageIcon color='#666' width='4vh' height='4vh' />
+							<MypageIcon color='#666' width='3.9vh' height='3.9vh' />
 						</>
 					)}
 

@@ -8,7 +8,7 @@ export default function ProductInfo() {
 	return (
 		<Wrapper>
 			<Row>
-				<BoldText text='우리아이 낙서 머그' />
+				<Text>우리아이 낙서 머그</Text>
 			</Row>
 			<Row>
 				<LineText>20,000원</LineText>
@@ -27,20 +27,31 @@ const Wrapper = styled.div`
   margin-top: 500%;
 `;
 const Row = styled.div`
-	font-size: 1rem;
 	display: flex;
-	width: 50%;
+	width: 90%;
 	margin-left: 5%;
 `;
 const LineText = styled.label`
 	text-decoration: line-through;
-	margin-right: 4%;
+	margin-right: 6%;
+    font-size: 1.4rem;
+    align-items: center;
+    margin-top: 0.2vh;
+}
 `;
 const OrangeText = styled.label`
 	color: rgb(255, 144, 69);
 	margin-right: 3%;
+	font-size: 1.6rem;
+	font-weight: 600;
 `;
 const ShipText = styled.label`
 	color: rgb(255, 144, 69);
-	font-size: 0.9rem;
+	font-size: 1.6rem;
+	font-weight: 600;
+`;
+const Text = styled.label`
+	font-size: 1.9rem;
+	font-weight: 500;
+	color: rgb(69, 69, 69);
 `;

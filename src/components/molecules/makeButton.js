@@ -32,11 +32,7 @@ const Button = styled.button`
 	border: 0px;
 	box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 6px 0 rgba(0, 0, 0, 0.19);
 	border-radius: 0.375rem;
-	-webkit-transition: background-color 0.2s;
 	transition: background-color 0.2s;
-	-webkit-align-items: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
 	align-items: center;
 	margin-bottom: -2vh;
 	position: fixed;

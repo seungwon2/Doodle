@@ -12,16 +12,15 @@ export default function FinalPayCheck({ amount }) {
 			<BoldText text='최종 결제 금액' />
 			<Box>
 				<Row>
-					<NormalText text='우리아이 낙서 머그' />
-
+					<Text>우리아이 낙서 머그</Text>
 					<CostLabel>{amount * 20},000원</CostLabel>
 				</Row>
 				<Row>
-					<NormalText text='할인 이벤트' />
+					<Text>할인 이벤트</Text>
 					<CostLabel>{amount * -3},000원</CostLabel>
 				</Row>
 				<Row>
-					<NormalText text='배송비 무료 이벤트' />
+					<Text>배송비 무료 이벤트</Text>
 					<CostLabel>{amount * -3},000원</CostLabel>
 				</Row>
 				<Row>
