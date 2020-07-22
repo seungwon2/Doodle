@@ -13,12 +13,12 @@ export default function Kakao() {
 			<KaKaoIcon>
 				<img src='/kakao.png' width='90%' />
 			</KaKaoIcon>
-			<Text>두들 카카오톡 채팅 바로가기</Text>
+			<Text>카카오톡 문의 바로가기</Text>
 		</Wrapper>
 	);
 }
 const Wrapper = styled.a`
-	width: 33vh;
+	width: 40vh;
 	height: fit-content;
 	display: flex;
 	flex-direction: row;
@@ -31,9 +31,11 @@ const Text = styled.label`
 	font-size: 1.5rem;
 	align-items: center;
 	margin-bottom: 0;
+	width: fit-content;
+	margin: auto;
 `;
 const KaKaoIcon = styled.div`
 	width: 5vh;
 	height: 100%;
-	margin-right: 1vh;
+	margin-left: 2.5vh;
 `;

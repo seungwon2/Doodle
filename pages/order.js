@@ -45,7 +45,7 @@ export default function Order() {
 	});
 	const [postCode, setPostCode] = useState();
 	const [baseAddress, setBaseAddress] = useState();
-	const [step, setStep] = useState(4);
+	const [step, setStep] = useState(0);
 	const [redesign, setRedesign] = useState(1);
 	const [amount, setAmount] = useState(1);
 	const [redesignExample, setRedesignExample] = useState();

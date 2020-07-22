@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { message, Result } from "antd";
 import axios from "axios";
@@ -11,12 +11,13 @@ import Header from "../src/components/organisms/header";
 import BoldText from "../src/components/atoms/boldText";
 import BottomBar from "../src/components/organisms/bottomBar";
 import Phantom from "../src/components/organisms/phantom";
+import ShipData from "../src/components/organisms/shipData";
 
 export default function Mypage() {
 	const [form, setForm] = useState({ order: "", o_phone_num: "" });
 	const [search, setSearch] = useState(false);
 	const [userData, setUserData] = useState(null);
-	const [response, setResponse] = useState([]);
+	const [response, setResponse] = useState();
 	const error = () => {
 		message.error("올바른 정보를 입력해주세요!");
 	};
@@ -28,23 +29,19 @@ export default function Mypage() {
 				form
 			)
 			.then((res) => {
+				console.log(res);
 				if (!res.data[0].order) {
 					<Result title='Your operation has been executed' />;
 				} else {
 					console.log(res.data);
-					setResponse(res.data);
-					return res.data[0];
+					return res.data;
 				}
 			})
-			.catch((err) => {
-				error();
-				if (!res.data[0].order) {
-					<Result title='Your operation has been executed' />;
-				}
-			});
+			.catch((err) => console.log(err));
+
 		setUserData(data);
 		setSearch(true);
-		console.log("response", response);
+		console.log("response", userData);
 	};
 
 	const handleFormChange = (e) => {
@@ -91,45 +88,10 @@ export default function Mypage() {
 					<Row>
 						<Title>{userData.order}님의 주문정보</Title>
 					</Row>
-					<Row>
-						<Text>주문 상품</Text>
-					</Row>
-					<OrderInfoCard>
-						<InfoColumn>
-							<img src={userData.doodle} width='100%' height='100%' />
-						</InfoColumn>
-						<InfoArea>
-							<TextColumn>
-								<NormalText text='제품명' />
-								<UserInfoText>리디자인</UserInfoText>
-								<NormalText text='수량' />
-							</TextColumn>
-							<ResultColumn>
-								<UserInfoText>우리아이 낙서머그</UserInfoText>
-								<UserInfoText>{userData.redesign}단계</UserInfoText>
-								<UserInfoText>{userData.amount}개</UserInfoText>
-							</ResultColumn>
-						</InfoArea>
-					</OrderInfoCard>
-					<Grey />
-					<Row>
-						<Text>배송지 정보</Text>
-					</Row>
-					<InfoArea>
-						<InfoRow>
-							<NormalText text='수령인' />
-							<NormalText text='연락처' />
-							<NormalText text='배송지' />
-						</InfoRow>
-						<InfoRow>
-							<UserInfoText>{userData.receiver}</UserInfoText>
-							<UserInfoText>{userData.r_phone_num}</UserInfoText>
-							<UserInfoText>
-								({userData.post_code}) {userData.base_address}
-							</UserInfoText>
-							<UserInfoText> {userData.detail_address}</UserInfoText>
-						</InfoRow>
-					</InfoArea>
+					{/* {userData&&userData.map((singleuserData) => (
+						<ShipData key={singleuserData.id} userData={singleuserData} />
+					))} */}
+					<ShipData userData={userData} />
 				</>
 			)}
 			<Phantom />
@@ -196,7 +158,6 @@ const OrderInfoCard = styled.div`
 	display: flex;
 	flex-direction: row;
 	margin-left: 5vh;
-	margin-right: 5vh;
 	width: 91%;
 `;
 const InfoRow = styled.div`
@@ -217,7 +178,7 @@ const TextColumn = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	width: 20%;
+	width: 22%;
 	height: 100%;
 	align-items: flex-start;
 `;
