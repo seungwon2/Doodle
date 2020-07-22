@@ -18,7 +18,7 @@ export default function Step({
 		setCurrent(key);
 		if (key === 0) {
 			console.log("0단계");
-			setRedesignExample(ImgURL);
+			setRedesignExample("/redesign/redesign1.png");
 			setRedesign(key + 1);
 		} else if (key === 1) {
 			console.log("1단계");

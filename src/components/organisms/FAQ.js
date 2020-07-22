@@ -4,6 +4,7 @@ import React from "react";
 import styled from "styled-components";
 import { Collapse } from "antd";
 import Questions from "../atoms/questions";
+import Ask from "./Ask";
 
 export default function FAQ() {
 	const { Panel } = Collapse;
@@ -19,7 +20,7 @@ export default function FAQ() {
 				expandIconPosition='right'
 				width='90%'>
 				<Panel header='문의하기' key='1'>
-					<p>text</p>
+					<Ask />
 				</Panel>
 				<Grey />
 				<Panel header='자주 묻는 질문들' key='2'>

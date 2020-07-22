@@ -16,6 +16,7 @@ export default function Mypage() {
 	const [form, setForm] = useState({ order: "", o_phone_num: "" });
 	const [search, setSearch] = useState(false);
 	const [userData, setUserData] = useState(null);
+	const [response, setResponse] = useState([]);
 	const error = () => {
 		message.error("올바른 정보를 입력해주세요!");
 	};
@@ -29,7 +30,11 @@ export default function Mypage() {
 			.then((res) => {
 				if (!res.data[0].order) {
 					<Result title='Your operation has been executed' />;
-				} else return res.data[0];
+				} else {
+					console.log(res.data);
+					setResponse(res.data);
+					return res.data[0];
+				}
 			})
 			.catch((err) => {
 				error();
@@ -39,6 +44,7 @@ export default function Mypage() {
 			});
 		setUserData(data);
 		setSearch(true);
+		console.log("response", response);
 	};
 
 	const handleFormChange = (e) => {

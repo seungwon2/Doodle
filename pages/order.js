@@ -93,6 +93,7 @@ export default function Order() {
 			.post("https://www.doodlehj.com/api/produce/", form_data)
 			.then(function (response) {
 				setStep(step + 1);
+				setCopy(true);
 				success();
 			})
 			.catch(function (error) {
@@ -136,22 +137,6 @@ export default function Order() {
 	const handleFillContent = () => {
 		setForm({ ...form, order: form.receiver, oPhoneNum: form.rPhoneNum });
 	};
-	// const handleRedesginChange = (e) => {
-	// 	if (e.target.name === "redesign1") {
-	// 		console.log("1단계");
-	// 		setRedesignExample(ImgURL);
-	// 		setRedesign(1);
-	// 		console.log(ImgURL);
-	// 	} else if (e.target.name === "redesign2") {
-	// 		setRedesignExample("/redesign2.png");
-	// 		setRedesign(2);
-	// 		console.log("2단계");
-	// 	} else {
-	// 		console.log("3단계");
-	// 		setRedesignExample("/redesign3.png");
-	// 		setRedesign(3);
-	// 	}
-	// };
 	const handleCopy = () => {
 		setCopy(true);
 	};
@@ -164,7 +149,6 @@ export default function Order() {
 					<ProductInfo />
 					<Grey />
 					<ProductInfoPic />
-					{/* <Review /> */}
 					<MakeButton buttonName='낙서머그 제작하기' handleNext={handleNext} />
 					<Phantom />
 					<BottomBar active='make' />
@@ -350,7 +334,7 @@ export default function Order() {
 					<OrderExp text='입금 완료시, 카톡으로 확인 메시지가' />
 					<OrderExp text='발송되고 제작이 시작됩니다!' />
 					<CardArea>
-						<Card style={{ width: 400 }}>
+						<Card>
 							<Text>
 								<p>신한 110-468-600859 (두들)</p>
 								<p>{amount * 14},000원</p>
@@ -563,6 +547,7 @@ const CardArea = styled.div`
 	margin-top: 10vh;
 	z-index: 5;
 	box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 6px 0 rgba(0, 0, 0, 0.19);
+	width: 47vh;
 `;
 const OrderPhantom = styled.div`
 	margin-bottom: 10vh;
