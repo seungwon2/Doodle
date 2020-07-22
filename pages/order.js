@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Modal, Card, Steps, Message, message } from "antd";
+import { Modal, Card, message } from "antd";
 import DaumPostcode from "react-daum-postcode";
 import axios from "axios";
 
@@ -32,7 +32,6 @@ import Notice from "../src/components/organisms/notice.js";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 export default function Order() {
-	const { Step } = Steps;
 	const [ImgURL, setImgURL] = useState(null);
 	const [Doodle, setDoodle] = useState("");
 	const [isVisible, setIsVisible] = useState(false);
@@ -46,7 +45,7 @@ export default function Order() {
 	});
 	const [postCode, setPostCode] = useState();
 	const [baseAddress, setBaseAddress] = useState();
-	const [step, setStep] = useState(0);
+	const [step, setStep] = useState(4);
 	const [redesign, setRedesign] = useState(1);
 	const [amount, setAmount] = useState(1);
 	const [redesignExample, setRedesignExample] = useState();
@@ -94,7 +93,6 @@ export default function Order() {
 			.post("https://www.doodlehj.com/api/produce/", form_data)
 			.then(function (response) {
 				setStep(step + 1);
-				success();
 			})
 			.catch(function (error) {
 				warning();
@@ -137,24 +135,8 @@ export default function Order() {
 	const handleFillContent = () => {
 		setForm({ ...form, order: form.receiver, oPhoneNum: form.rPhoneNum });
 	};
-	// const handleRedesginChange = (e) => {
-	// 	if (e.target.name === "redesign1") {
-	// 		console.log("1단계");
-	// 		setRedesignExample(ImgURL);
-	// 		setRedesign(1);
-	// 		console.log(ImgURL);
-	// 	} else if (e.target.name === "redesign2") {
-	// 		setRedesignExample("/redesign2.png");
-	// 		setRedesign(2);
-	// 		console.log("2단계");
-	// 	} else {
-	// 		console.log("3단계");
-	// 		setRedesignExample("/redesign3.png");
-	// 		setRedesign(3);
-	// 	}
-	// };
-	const handleCopy = () => {
-		setCopy(true);
+	const onClickCopyButton = () => {
+		success();
 	};
 	return (
 		<div>
@@ -165,7 +147,6 @@ export default function Order() {
 					<ProductInfo />
 					<Grey />
 					<ProductInfoPic />
-					{/* <Review /> */}
 					<MakeButton buttonName='낙서머그 제작하기' handleNext={handleNext} />
 					<Phantom />
 					<BottomBar active='make' />
@@ -227,14 +208,12 @@ export default function Order() {
 					<OrderPhantom />
 					<img className='preview' src={redesignExample} width='80%' />
 					<OrderPhantom />
-
-					<StepArea>
-						<Steps current={current} onChange={onClick}>
-							<Step title='1단계' description='원본' />
-							<Step title='2단계' description='선 정리' />
-							<Step title='3단계' description='선 정리 + 색상 추가' />
-						</Steps>
-					</StepArea>
+					<Step
+						redesign={redesign}
+						setRedesign={setRedesign}
+						setRedesignExample={setRedesignExample}
+						ImgURL={ImgURL}
+					/>
 					<NextButton buttonName='다음으로' handleNext={handleNext} />
 				</Wrapper>
 			)}
@@ -353,13 +332,22 @@ export default function Order() {
 					<OrderExp text='입금 완료시, 카톡으로 확인 메시지가' />
 					<OrderExp text='발송되고 제작이 시작됩니다!' />
 					<CardArea>
-						<Card style={{ width: 400 }}>
+						<Card>
 							<Text>
 								<p>신한 110-468-600859 (두들)</p>
 								<p>{amount * 14},000원</p>
 							</Text>
 						</Card>
 					</CardArea>
+					<CopyButtonWrapper>
+						<CopyToClipboard
+							text='신한 110468600859'
+							onCopy={() => setCopy(true)}>
+							<Copybutton onClick={onClickCopyButton}>
+								계좌번호 복사하기
+							</Copybutton>
+						</CopyToClipboard>
+					</CopyButtonWrapper>
 					<GreyButton link='/mypage' buttonName='주문 내역 확인' />
 					<OrangeButton link='/' buttonName='홈으로' />
 				</Wrapper>
@@ -565,7 +553,8 @@ const Text = styled.label`
 const CardArea = styled.div`
 	margin-top: 10vh;
 	z-index: 5;
-	box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 6px 0 rgba(0, 0, 0, 0.19);
+	border: 0;
+	width: 40vh;
 `;
 const OrderPhantom = styled.div`
 	margin-bottom: 10vh;
@@ -610,4 +599,26 @@ const UserText = styled.label`
 const StepArea = styled.div`
 	width: 83%;
 	margin-bottom: 5vh;
+`;
+
+const Copybutton = styled.button`
+	font-weight: 400;
+	text-align: center;
+	border: 0px;
+	height: fit-content;
+	padding: 10px;
+	font-size: 1.2rem;
+	border-radius: 7px;
+	color: rgba(0, 0, 0, 0.65);
+	background-color: #fff;
+	border-color: rgba(0, 0, 0, 0.16);
+	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+	margin-top: 2vh;
+`;
+const CopyButtonWrapper = styled.div`
+	display: block;
+	align-item: center;
+	margin-top: 1vh;
+	text-align: center;
+	width: 40vh;
 `;
