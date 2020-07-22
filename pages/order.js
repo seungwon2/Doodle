@@ -45,7 +45,7 @@ export default function Order() {
 	});
 	const [postCode, setPostCode] = useState();
 	const [baseAddress, setBaseAddress] = useState();
-	const [step, setStep] = useState(0);
+	const [step, setStep] = useState(4);
 	const [redesign, setRedesign] = useState(1);
 	const [amount, setAmount] = useState(1);
 	const [redesignExample, setRedesignExample] = useState();
@@ -93,8 +93,6 @@ export default function Order() {
 			.post("https://www.doodlehj.com/api/produce/", form_data)
 			.then(function (response) {
 				setStep(step + 1);
-				setCopy(true);
-				success();
 			})
 			.catch(function (error) {
 				warning();
@@ -137,8 +135,8 @@ export default function Order() {
 	const handleFillContent = () => {
 		setForm({ ...form, order: form.receiver, oPhoneNum: form.rPhoneNum });
 	};
-	const handleCopy = () => {
-		setCopy(true);
+	const onClickCopyButton = () => {
+		success();
 	};
 	return (
 		<div>
@@ -341,6 +339,15 @@ export default function Order() {
 							</Text>
 						</Card>
 					</CardArea>
+					<CopyButtonWrapper>
+						<CopyToClipboard
+							text='신한 110468600859'
+							onCopy={() => setCopy(true)}>
+							<Copybutton onClick={onClickCopyButton}>
+								계좌번호 복사하기
+							</Copybutton>
+						</CopyToClipboard>
+					</CopyButtonWrapper>
 					<GreyButton link='/mypage' buttonName='주문 내역 확인' />
 					<OrangeButton link='/' buttonName='홈으로' />
 				</Wrapper>
@@ -546,8 +553,8 @@ const Text = styled.label`
 const CardArea = styled.div`
 	margin-top: 10vh;
 	z-index: 5;
-	box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 6px 0 rgba(0, 0, 0, 0.19);
-	width: 47vh;
+	border: 0;
+	width: 40vh;
 `;
 const OrderPhantom = styled.div`
 	margin-bottom: 10vh;
@@ -592,4 +599,26 @@ const UserText = styled.label`
 const StepArea = styled.div`
 	width: 83%;
 	margin-bottom: 5vh;
+`;
+
+const Copybutton = styled.button`
+	font-weight: 400;
+	text-align: center;
+	border: 0px;
+	height: fit-content;
+	padding: 10px;
+	font-size: 1.2rem;
+	border-radius: 7px;
+	color: rgba(0, 0, 0, 0.65);
+	background-color: #fff;
+	border-color: rgba(0, 0, 0, 0.16);
+	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+	margin-top: 2vh;
+`;
+const CopyButtonWrapper = styled.div`
+	display: block;
+	align-item: center;
+	margin-top: 1vh;
+	text-align: center;
+	width: 40vh;
 `;

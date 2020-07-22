@@ -876,10 +876,11 @@ html,
           transition: all 0.3s;
           font-size: 1.7rem;
       }
-      .ant-card-body {
-        padding: 24px;
-        text-align: center;
-    }
+    .ant-card-body {
+      padding: 24px;
+      text-align: center;
+      background: rgb(244,244,244);
+  }
 `;
 
 export default class Timeline extends App {
