@@ -1,8 +1,8 @@
 /** @format */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { Steps, Divider } from "antd";
+import { Steps } from "antd";
 export default function Step({
 	redesign,
 	setRedesign,
@@ -13,18 +13,20 @@ export default function Step({
 	const [current, setCurrent] = useState(0);
 	const onClick = (key) => {
 		console.log("onChange:", redesign);
+		console.log("Ddd");
+		console.log("키값", key);
 		setCurrent(key);
-		if (key == 0) {
-			console.log("2단계");
+		if (key === 0) {
+			console.log("0단계");
 			setRedesignExample(ImgURL);
 			setRedesign(key + 1);
-		} else if (key == 1) {
-			console.log("2단계");
-			setRedesignExample("/redesign2.png");
+		} else if (key === 1) {
+			console.log("1단계");
+			setRedesignExample("/redesign/redesign2.png");
 			setRedesign(key + 1);
-		} else if (key == 2) {
+		} else if (key === 2) {
 			console.log("2단계");
-			setRedesignExample("/redesign3.png");
+			setRedesignExample("/redesign/redesign3.png");
 			setRedesign(key + 1);
 		}
 	};

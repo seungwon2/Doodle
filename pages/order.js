@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Modal, Card, Steps, Message, message } from "antd";
+import { Modal, Card, message } from "antd";
 import DaumPostcode from "react-daum-postcode";
 import axios from "axios";
 
@@ -32,7 +32,6 @@ import Notice from "../src/components/organisms/notice.js";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 export default function Order() {
-	const { Step } = Steps;
 	const [ImgURL, setImgURL] = useState(null);
 	const [Doodle, setDoodle] = useState("");
 	const [isVisible, setIsVisible] = useState(false);
@@ -227,14 +226,12 @@ export default function Order() {
 					<OrderPhantom />
 					<img className='preview' src={redesignExample} width='80%' />
 					<OrderPhantom />
-
-					<StepArea>
-						<Steps current={current} onChange={onClick}>
-							<Step title='1단계' description='원본' />
-							<Step title='2단계' description='선 정리' />
-							<Step title='3단계' description='선 정리 + 색상 추가' />
-						</Steps>
-					</StepArea>
+					<Step
+						redesign={redesign}
+						setRedesign={setRedesign}
+						setRedesignExample={setRedesignExample}
+						ImgURL={ImgURL}
+					/>
 					<NextButton buttonName='다음으로' handleNext={handleNext} />
 				</Wrapper>
 			)}
