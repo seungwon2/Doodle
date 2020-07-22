@@ -100,9 +100,9 @@ export default function Mypage() {
 						</InfoColumn>
 						<InfoArea>
 							<TextColumn>
-								<NormalText text='제품명' />
+								<UserInfoText>제품명</UserInfoText>
 								<UserInfoText>리디자인</UserInfoText>
-								<NormalText text='수량' />
+								<UserInfoText>수량</UserInfoText>
 							</TextColumn>
 							<ResultColumn>
 								<UserInfoText>우리아이 낙서머그</UserInfoText>
@@ -117,9 +117,9 @@ export default function Mypage() {
 					</Row>
 					<InfoArea>
 						<InfoRow>
-							<NormalText text='수령인' />
-							<NormalText text='연락처' />
-							<NormalText text='배송지' />
+							<UserInfoText>수령인</UserInfoText>
+							<UserInfoText>연락처</UserInfoText>
+							<UserInfoText>배송지</UserInfoText>
 						</InfoRow>
 						<InfoRow>
 							<UserInfoText>{userData.receiver}</UserInfoText>
@@ -196,7 +196,6 @@ const OrderInfoCard = styled.div`
 	display: flex;
 	flex-direction: row;
 	margin-left: 5vh;
-	margin-right: 5vh;
 	width: 91%;
 `;
 const InfoRow = styled.div`
@@ -217,7 +216,7 @@ const TextColumn = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	width: 20%;
+	width: 22%;
 	height: 100%;
 	align-items: flex-start;
 `;
