@@ -15,5 +15,5 @@ https://doodle.ceos.vercel.app
 ## 사용 스택
 
 - 프론트엔드 프레임워크 React.js 사용
-- 서버사이스 랜더링 Next.js 사용
+- 서버사이 랜더링 Next.js 사용
 - javascript 사용
