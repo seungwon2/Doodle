@@ -1,6 +1,6 @@
 <!-- @format -->
 
-## 아이의 상상을 현실로, Doodle
+## 아이의 상상을 현실로, Doodle🖍
 
 신촌 IT 연합 창업동아리 CEOS 11기 창업팀 Doodle의 web client repository 입니다.
 
