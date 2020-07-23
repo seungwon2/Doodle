@@ -1,0 +1,10 @@
+{
+	"version": 2,
+	"public": true,
+	"builds": [{ "src": "next.config.js", "use": "@now/next" }],
+	"build": {
+		"env": {
+			"GA_APP_ID": "@doodle-ga-app-id"
+		}
+	}
+}

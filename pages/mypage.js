@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { message, Result } from "antd";
 import axios from "axios";
@@ -17,12 +17,11 @@ export default function Mypage() {
 	const [form, setForm] = useState({ order: "", o_phone_num: "" });
 	const [search, setSearch] = useState(false);
 	const [userData, setUserData] = useState([]);
-	const [response, setResponse] = useState();
+
 	const error = () => {
 		message.error("올바른 정보를 입력해주세요!");
 	};
 	const handleOnClick = async () => {
-		// const data =
 		await axios
 			.get(
 				"https://www.doodlehj.com/api/produce/" +
@@ -30,17 +29,19 @@ export default function Mypage() {
 				form
 			)
 			.then(({ data }) => {
-				if (!data) {
+				if (!data[0].order) {
 					error();
 					<Result title='Your operation has been executed' />;
 				} else {
 					setUserData(data);
+					setSearch(true);
 				}
 			})
-			.catch((err) => console.log(err));
-
-		setSearch(true);
-		console.log("배열", userData);
+			.catch((err) => {
+				error();
+				<Result title='Your operation has been executed' />;
+				console.log(err);
+			});
 	};
 
 	const handleFormChange = (e) => {
@@ -82,7 +83,7 @@ export default function Mypage() {
 					<FAQ />
 				</>
 			)}
-			{userData && search && (
+			{userData[0] && search && (
 				<>
 					<Row>
 						<Title>{userData[0].order}님의 주문정보</Title>
@@ -91,6 +92,11 @@ export default function Mypage() {
 						userData.map((singleUserData) => (
 							<ShipData key={singleUserData.id} userData={singleUserData} />
 						))}
+				</>
+			)}
+			{!userData[0] && search && (
+				<>
+					<Result title='올바른 로그인 정보를 입력해주세요!' />
 				</>
 			)}
 			<Phantom />
@@ -138,62 +144,13 @@ const Button = styled.button`
 	background-color: rgb(255, 144, 69);
 	width: 21%;
 `;
-const Text = styled.label`
-	font-size: 1.7rem;
-	font-weight: 500;
-	color: rgb(69, 69, 69);
-`;
-const InfoArea = styled.div`
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	align-items: flex-start;
-	width: 100%;
-`;
-const UserInfoText = styled.label`
-	font-size: 1.3rem;
-`;
-const OrderInfoCard = styled.div`
-	display: flex;
-	flex-direction: row;
-	margin-left: 5vh;
-	width: 91%;
-`;
-const InfoRow = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: flex-start;
-`;
-const InfoColumn = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	width: 35%;
-	height: 100%;
-	align-items: flex-start;
-`;
-const TextColumn = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	width: 22%;
-	height: 100%;
-	align-items: flex-start;
-`;
+
 const Title = styled.label`
 	font-size: 1.8rem;
 	font-weight: 600;
 	margin-bottom: 3vh;
 `;
-const ResultColumn = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	width: 50%;
-	height: 100%;
-	align-items: flex-start;
-`;
+
 const Grey = styled.div`
 	background-color: rgb(239, 239, 239);
 	width: 100%;

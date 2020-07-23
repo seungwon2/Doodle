@@ -4,7 +4,6 @@ import React from "react";
 import styled from "styled-components";
 
 import BoldText from "../atoms/boldText";
-import NormalText from "../atoms/normalText";
 
 export default function FinalPayCheck({ amount }) {
 	return (
@@ -17,15 +16,15 @@ export default function FinalPayCheck({ amount }) {
 				</Row>
 				<Row>
 					<Text>할인 이벤트</Text>
-					<CostLabel>{amount * -3},000원</CostLabel>
+					<CostLabel>{amount * -6},000원</CostLabel>
 				</Row>
 				<Row>
 					<Text>배송비 무료 이벤트</Text>
-					<CostLabel>{amount * -3},000원</CostLabel>
+					<CostLabel>무료</CostLabel>
 				</Row>
 				<Row>
 					<Text>최종 결제 금액</Text>
-					<Cost>{amount * 14000}</Cost>
+					<Cost>{amount * 14000}원</Cost>
 				</Row>
 			</Box>
 		</Wrapper>
