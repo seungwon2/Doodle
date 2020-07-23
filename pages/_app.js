@@ -878,6 +878,18 @@ html,
           transition: all 0.3s;
           font-size: 1.7rem;
       }
+      .anticon {
+        display: inline-block;
+        color: inherit;
+        font-style: normal;
+        line-height: 0;
+        text-align: center;
+        text-transform: none;
+        vertical-align: 0;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
 `;
 
 export default class Timeline extends App {

@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { Collapse } from "antd";
 import Questions from "../atoms/questions";
 import Ask from "./Ask";
+import { RightOutlined } from "@ant-design/icons";
 
 export default function FAQ() {
 	const { Panel } = Collapse;
@@ -18,6 +19,9 @@ export default function FAQ() {
 				onChange={callback}
 				ghost
 				expandIconPosition='right'
+				expandIcon={({ isActive }) => (
+					<RightOutlined rotate={isActive ? 270 : 90} />
+				)}
 				width='90%'>
 				<Panel header='문의하기' key='1'>
 					<Ask />

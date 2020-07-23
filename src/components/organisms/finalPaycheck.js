@@ -33,9 +33,6 @@ export default function FinalPayCheck({ amount }) {
 const Wrapper = styled.div`
 	width: 83%;
 `;
-const Content = styled.div`
-	text-align: center;
-`;
 const Text = styled.label`
 	font-size: 1.5rem;
 	width: 100%;
@@ -55,7 +52,9 @@ const Cost = styled.label`
 	width: 100%;
 	text-align: right;
 `;
-const Box = styled.div``;
+const Box = styled.div`
+	margin-top: 1.5vh;
+`;
 const Row = styled.div`
 	display: flex;
 	flex-direction: row;

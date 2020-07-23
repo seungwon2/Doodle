@@ -307,11 +307,7 @@ export default function Order() {
 					<FinalPayCheck amount={amount} />
 					<Grey />
 					<PayInfo />
-					<CopyToClipboard
-						text='신한 110468600859'
-						onCopy={() => setCopy(true)}>
-						<NextButton buttonName='결제하기' handleNext={handleSubmit} />
-					</CopyToClipboard>
+					<NextButton buttonName='결제하기' handleNext={handleSubmit} />
 				</Wrapper>
 			)}
 			{step === 4 && (
