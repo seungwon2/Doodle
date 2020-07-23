@@ -1,30 +1,19 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app).
+<!-- @format -->
 
-## Getting Started
+## 아이의 상상을 현실로, Doodle
 
-First, run the development server:
+신촌 IT 연합 창업동아리 CEOS 11기 창업팀 Doodle의 web client repository 입니다.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Doodle은 아이의 낙서를 디자이너가 리디자인하여 이용자 맞춤 굿즈로 만드는 디자이너-고객 연결 서비스입니다.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 웹 사이트 링크
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+아래 링크로 페이지에 바로 접속하실 수 있습니다.
 
-## Learn More
+https://doodle.ceos.vercel.app
 
-To learn more about Next.js, take a look at the following resources:
+## 사용 스택
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/zeit/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- 프론트엔드 프레임워크 React.js 사용
+- 서버사이스 랜더링 Next.js 사용
+- javascript 사용
