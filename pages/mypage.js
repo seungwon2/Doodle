@@ -16,32 +16,31 @@ import ShipData from "../src/components/organisms/shipData";
 export default function Mypage() {
 	const [form, setForm] = useState({ order: "", o_phone_num: "" });
 	const [search, setSearch] = useState(false);
-	const [userData, setUserData] = useState(null);
+	const [userData, setUserData] = useState([]);
 	const [response, setResponse] = useState();
 	const error = () => {
 		message.error("올바른 정보를 입력해주세요!");
 	};
 	const handleOnClick = async () => {
-		const data = await axios
+		// const data =
+		await axios
 			.get(
 				"https://www.doodlehj.com/api/produce/" +
 					`?order=${form.order}&o_phone_num=${form.o_phone_num}`,
 				form
 			)
-			.then((res) => {
-				console.log(res);
-				if (!res.data[0].order) {
+			.then(({ data }) => {
+				if (!data) {
+					error();
 					<Result title='Your operation has been executed' />;
 				} else {
-					console.log(res.data);
-					return res.data;
+					setUserData(data);
 				}
 			})
 			.catch((err) => console.log(err));
 
-		setUserData(data);
 		setSearch(true);
-		console.log("response", userData);
+		console.log("배열", userData);
 	};
 
 	const handleFormChange = (e) => {
@@ -83,15 +82,15 @@ export default function Mypage() {
 					<FAQ />
 				</>
 			)}
-			{search && (
+			{userData && search && (
 				<>
 					<Row>
-						<Title>{userData.order}님의 주문정보</Title>
+						<Title>{userData[0].order}님의 주문정보</Title>
 					</Row>
-					{/* {userData&&userData.map((singleuserData) => (
-						<ShipData key={singleuserData.id} userData={singleuserData} />
-					))} */}
-					<ShipData userData={userData} />
+					{userData &&
+						userData.map((singleUserData) => (
+							<ShipData key={singleUserData.id} userData={singleUserData} />
+						))}
 				</>
 			)}
 			<Phantom />
