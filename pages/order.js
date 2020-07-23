@@ -48,7 +48,9 @@ export default function Order() {
 	const [step, setStep] = useState(0);
 	const [redesign, setRedesign] = useState(1);
 	const [amount, setAmount] = useState(1);
-	const [redesignExample, setRedesignExample] = useState();
+	const [redesignExample, setRedesignExample] = useState(
+		"/redesign/redesign1.png"
+	);
 	const [copy, setCopy] = useState(false);
 	const [current, setCurrent] = useState(0);
 
@@ -57,18 +59,6 @@ export default function Order() {
 	};
 	const warning = () => {
 		message.warning("모든 정보를 입력해주세요!");
-	};
-	const onClick = (key) => {
-		console.log("onChange:", redesign);
-		setCurrent(key);
-		setRedesign(key + 1);
-		if (redesign == "1") {
-			setRedesignExample(ImgURL);
-		} else if (redesign == "2") {
-			setRedesignExample("/redesign/redesign2.png");
-		} else if (redesign == "3") {
-			setRedesignExample("/redesign/redesign3.png");
-		}
 	};
 	const handleNext = () => {
 		setStep(step + 1);
@@ -106,7 +96,6 @@ export default function Order() {
 		reader.onloadend = () => {
 			setDoodle(file);
 			setImgURL(reader.result);
-			setRedesignExample(reader.result);
 		};
 		reader.readAsDataURL(file);
 	};
@@ -252,18 +241,20 @@ export default function Order() {
 							placeholder="'-' 없이 번호만 입력"
 						/>
 					</Row>
-					<Row>
-						<UserText>주소</UserText>
-						<PostCodeInput placeholder='우편번호' value={postCode} />
-						<FindButton onClick={showModal}>찾기</FindButton>
-						<Modal
-							title='우편번호 찾기'
-							visible={isVisible}
-							onOk={handleOk}
-							onCancel={handleCancel}>
-							<DaumPostcode onComplete={handleData} />
-						</Modal>
-					</Row>
+					<PostCodeRow>
+						<PostCodeText>주소</PostCodeText>
+						<PostCodeSection>
+							<PostCodeInput placeholder='우편번호' value={postCode} />
+							<FindButton onClick={showModal}>찾기</FindButton>
+							<Modal
+								title='우편번호 찾기'
+								visible={isVisible}
+								onOk={handleOk}
+								onCancel={handleCancel}>
+								<DaumPostcode onComplete={handleData} />
+							</Modal>
+						</PostCodeSection>
+					</PostCodeRow>
 					<AddressRow>
 						<AddressInput placeholder='기본주소' value={baseAddress} />
 					</AddressRow>
@@ -334,14 +325,15 @@ export default function Order() {
 					<CardArea>
 						<Card>
 							<Text>
-								<p>신한 110-468-600859 (두들)</p>
+								<p>카카오뱅크 7979-22-38271</p>
+								<p>(이호정)</p>
 								<p>{amount * 14},000원</p>
 							</Text>
 						</Card>
 					</CardArea>
 					<CopyButtonWrapper>
 						<CopyToClipboard
-							text='신한 110468600859'
+							text='카카오뱅크 79792238271'
 							onCopy={() => setCopy(true)}>
 							<Copybutton onClick={onClickCopyButton}>
 								계좌번호 복사하기
@@ -508,7 +500,7 @@ const PostCodeInput = styled.input`
 	font-variant: tabular-nums;
 	list-style: none;
 	font-feature-settings: "tnum", "tnum";
-	width: 77%;
+	width: 70%;
 	margin-right: 2%;
 	min-width: 0;
 	padding: 4px 11px;
@@ -526,22 +518,16 @@ const FindButton = styled.button`
 	position: relative;
 	display: inline-block;
 	font-weight: 400;
-	white-space: nowrap;
 	text-align: center;
-	background-image: none;
 	border: 1px solid transparent;
 	box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
-	cursor: pointer;
-	transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-	touch-action: manipulation;
-	height: 2.3;
-	padding: 4px 15px;
-	font-size: 0.9rem;
+	padding: 4px 4px;
+	font-size: 14px;
 	border-radius: 2px;
 	color: rgba(0, 0, 0, 0.65);
 	background: #fff;
 	border-color: #d9d9d9;
-	width: 20%;
+	width: 28%;
 `;
 
 const Text = styled.label`
@@ -621,4 +607,23 @@ const CopyButtonWrapper = styled.div`
 	margin-top: 1vh;
 	text-align: center;
 	width: 40vh;
+`;
+const PostCodeText = styled.div`
+	width: 45%;
+	font-size: 1.5rem;
+	height: fit-content;
+	align-items: right;
+	margin-top: auto;
+	margin-bottom: auto;
+`;
+const PostCodeSection = styled.div`
+	width: 55%;
+`;
+const PostCodeRow = styled.div`
+	display: flex;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-top: 1vh;
+	margin-bottom: 1vh;
+	width: 83%;
 `;

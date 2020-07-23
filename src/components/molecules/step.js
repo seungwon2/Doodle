@@ -1,14 +1,9 @@
 /** @format */
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Steps } from "antd";
-export default function Step({
-	redesign,
-	setRedesign,
-	setRedesignExample,
-	ImgURL,
-}) {
+export default function Step({ redesign, setRedesign, setRedesignExample }) {
 	const { Step } = Steps;
 	const [current, setCurrent] = useState(0);
 	const onClick = (key) => {

@@ -24,6 +24,7 @@ const Wrapper = styled.div`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	justify-content: flex-end;
 `;
 const RightButton = styled.button`
 	border: 0.3px solid rgb(122, 122, 122);
