@@ -89,9 +89,13 @@ export default function Mypage() {
 						<Title>{userData[0].order}님의 주문정보</Title>
 					</Row>
 					{userData &&
-						userData.map((singleUserData) => (
-							<ShipData key={singleUserData.id} userData={singleUserData} />
-						))}
+						userData
+							.sort((a, b) => {
+								return b.id - a.id;
+							})
+							.map((singleUserData) => (
+								<ShipData key={singleUserData.id} userData={singleUserData} />
+							))}
 				</>
 			)}
 			{!userData[0] && search && (
@@ -105,7 +109,8 @@ export default function Mypage() {
 	);
 }
 const Wrapper = styled.div`
-	min-width: 100%;
+	max-width: 38rem;
+	width: 100%;
 	height: fit-content;
 	display: flex;
 	flex-direction: column;
@@ -149,6 +154,7 @@ const Title = styled.label`
 	font-size: 1.8rem;
 	font-weight: 600;
 	margin-bottom: 3vh;
+	width: 80%;
 `;
 
 const Grey = styled.div`
@@ -157,6 +163,7 @@ const Grey = styled.div`
 	margin-top: 3vh;
 	margin-bottom: 3vh;
 	height: 1px;
+	max-width: 38rem;
 `;
 const Input = styled.input`
 	box-sizing: border-box;

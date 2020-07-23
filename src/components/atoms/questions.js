@@ -46,7 +46,7 @@ const QuestionCard = styled.div`
 `;
 const Grey = styled.div`
 	background-color: rgb(239, 239, 239);
-	width: 39rem;
+	width: 38rem;
 	margin: 0;
 	height: 1px;
 `;
@@ -58,6 +58,6 @@ const Question = styled.div`
 const Answer = styled.div`
 	background-color: rgb(247, 247, 247);
 	font-size: 1.4rem;
-	margin: 4vh;
+	margin: 2vh;
 	padding: 2vh;
 `;

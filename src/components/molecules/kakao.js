@@ -18,13 +18,13 @@ export default function Kakao() {
 	);
 }
 const Wrapper = styled.a`
-	width: 40vh;
+	width: 75%;
 	height: fit-content;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	padding: 3vh;
-	background-color: rgba (0, 0, 0, 0.16);
+	background-color: rgb(247, 247, 247);
 	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 `;
 const Text = styled.label`

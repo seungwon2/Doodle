@@ -26,7 +26,6 @@ export default function ShipData({ userData }) {
 					</ResultColumn>
 				</InfoArea>
 			</OrderInfoCard>
-			<Grey />
 			<Row>
 				<Text>배송지 정보</Text>
 			</Row>
@@ -45,14 +44,16 @@ export default function ShipData({ userData }) {
 					<UserInfoText> {userData.detail_address}</UserInfoText>
 				</InfoRow>
 			</InfoArea>
+			<Grey />
 		</Wrapper>
 	);
 }
 const Wrapper = styled.div`
-	min-width: 100%;
+	width: 98%;
 	height: fit-content;
 	display: flex;
 	flex-direction: column;
+	max-width: 38rem;
 `;
 const Row = styled.div`
 	display: flex;
@@ -83,6 +84,7 @@ const OrderInfoCard = styled.div`
 	flex-direction: row;
 	margin-left: 5vh;
 	width: 91%;
+	margin-bottom: 1.6%;
 `;
 const InfoRow = styled.div`
 	display: flex;
@@ -120,6 +122,7 @@ const Grey = styled.div`
 	margin-top: 3vh;
 	margin-bottom: 3vh;
 	height: 1px;
+	max-width: 38rem;
 `;
 const Input = styled.input`
 	box-sizing: border-box;
