@@ -16,10 +16,6 @@ export default function Notice() {
 				&nbsp;&nbsp;&nbsp;카카오톡 채널(ID:doodle_official), <br />
 				&nbsp;&nbsp;&nbsp;doodle.offical20@gmail.com로 문의바랍니다.
 			</Text>
-			{/* <Text>
-				머그컵에 리디자인 될 <br />
-				아이의 소중한 낙서를 업로드 해주세요.
-			</Text> */}
 		</Wrapper>
 	);
 }
@@ -29,8 +25,8 @@ const Wrapper = styled.div`
 	flex-direction: column;
 	margin-top: 6vh;
 	margin-bottom: 6vh;
-	padding-left: 5vh;
-	padding-right: 5vh;
+	padding-left: 4vh;
+	padding-right: 4vh;
 	background: rgb(247, 247, 247);
 	padding-top: 3vh;
 	padding-bottom: 2vh;
@@ -39,13 +35,13 @@ const Wrapper = styled.div`
 `;
 
 const Text = styled.label`
-	font-size: 1.3rem;
+	font-size: 1.4rem;
 	margin-bottom: 2vh;
 	width: 100%;
 `;
 
 const Title = styled.label`
-	font-size: 1.3rem;
+	font-size: 1.4rem;
 	margin-bottom: 2vh;
 	width: 100%;
 	font-weight: 500;

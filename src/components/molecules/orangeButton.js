@@ -26,8 +26,9 @@ const Button = styled.button`
 	width: 30rem;
 	height: 10vh;
 	margin: auto;
-	font-size: 1.6rem;
+	font-size: 1.9rem;
 	line-height: normal;
+	font-weight: 500;
 	background-color: rgb(255, 144, 69);
 	border: 0px;
 	box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 6px 0 rgba(0, 0, 0, 0.19);
