@@ -17,10 +17,9 @@ const Wrapper = styled.div`
 	flex-direction: column;
 	align-items: center;
 	background-color: rgb(239, 239, 239);
-	width: 100%;
 	height: 7px;
 	margin-bottom: 3vh;
-	margin-top: 1vh;
+	margin-top: 3vh;
 	height: 7px;
 `;
 const Line = styled.div`
