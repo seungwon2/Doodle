@@ -1,0 +1,9 @@
+{
+	"version": 2,
+	"public": true,
+	"build": {
+		"env": {
+			"GA_APP_ID": "@doodle-ga-app-id"
+		}
+	}
+}

@@ -3,9 +3,11 @@
 import React from "react";
 import App from "next/app";
 import Head from "next/head";
+import Router from "next/router";
 
 import styled, { createGlobalStyle } from "styled-components";
 import "antd/dist/antd.css";
+import initGA from "../src/lib/ga";
 
 import Doodle from "../src/components/atoms/doodle";
 
@@ -876,14 +878,12 @@ html,
           transition: all 0.3s;
           font-size: 1.7rem;
       }
-    .ant-card-body {
-      padding: 24px;
-      text-align: center;
-      background: rgb(244,244,244);
-  }
 `;
 
 export default class Timeline extends App {
+	componentDidMount() {
+		initGA(process.env.GA_APP_ID, Router);
+	}
 	render() {
 		const { Component, pageProps } = this.props;
 		return (

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Modal, Card, message } from "antd";
+import { Modal, message } from "antd";
 import DaumPostcode from "react-daum-postcode";
 import axios from "axios";
 
@@ -52,7 +52,6 @@ export default function Order() {
 		"/redesign/redesign1.png"
 	);
 	const [copy, setCopy] = useState(false);
-	const [current, setCurrent] = useState(0);
 
 	const success = () => {
 		message.success("계좌번호가 클립보드에 복사되었습니다!");
@@ -81,10 +80,10 @@ export default function Order() {
 
 		axios
 			.post("https://www.doodlehj.com/api/produce/", form_data)
-			.then(function (response) {
+			.then(function () {
 				setStep(step + 1);
 			})
-			.catch(function (error) {
+			.catch(function () {
 				warning();
 			});
 	};
@@ -325,9 +324,9 @@ export default function Order() {
 					<CardArea>
 						<Card>
 							<Text>
-								<p>카카오뱅크 7979-22-38271</p>
-								<p>(이호정)</p>
-								<p>{amount * 14},000원</p>
+								카카오뱅크 7979-22-38271 (이호정)
+								<br />
+								{amount * 14},000원
 							</Text>
 						</Card>
 					</CardArea>
@@ -534,13 +533,15 @@ const Text = styled.label`
 	align-items: center;
 	text-align: center;
 	margin-top: 3vh;
-	font-size: 1.5rem;
+	font-size: 1.8rem;
 `;
 const CardArea = styled.div`
 	margin-top: 10vh;
+	margin-bottom: 1vh;
 	z-index: 5;
 	border: 0;
-	width: 40vh;
+	width: 100%;
+	text-align: center;
 `;
 const OrderPhantom = styled.div`
 	margin-bottom: 10vh;
@@ -592,14 +593,15 @@ const Copybutton = styled.button`
 	text-align: center;
 	border: 0px;
 	height: fit-content;
-	padding: 10px;
-	font-size: 1.2rem;
+	padding: 1.2rem;
+	font-size: 1.5rem;
 	border-radius: 7px;
 	color: rgba(0, 0, 0, 0.65);
 	background-color: #fff;
 	border-color: rgba(0, 0, 0, 0.16);
 	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 	margin-top: 2vh;
+	width: fit-content;
 `;
 const CopyButtonWrapper = styled.div`
 	display: block;
@@ -626,4 +628,15 @@ const PostCodeRow = styled.div`
 	margin-top: 1vh;
 	margin-bottom: 1vh;
 	width: 83%;
+`;
+const Card = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgb(244, 244, 244);
+	width: 90%;
+	height: content-fit;
+	padding-top: 3vh;
+	padding-bottom: 3vh;
+	margin: auto;
 `;
