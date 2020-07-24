@@ -33,7 +33,7 @@ const Row = styled.div`
 `;
 const LineText = styled.label`
 	text-decoration: line-through;
-	margin-right: 6%;
+	margin-right: 2.3%;
     font-size: 1.4rem;
     align-items: center;
     margin-top: 0.2vh;
