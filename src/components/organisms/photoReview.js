@@ -23,6 +23,13 @@ export default function PhotoReview() {
 
 				<img src='/photoReview/photoreview6.png' width='30%' height='30%' />
 			</Row>
+			<Row>
+				<img src='/photoReview/photoreview7.png' width='30%' height='30%' />
+
+				<img src='/photoReview/photoreview8.png' width='30%' height='30%' />
+
+				<img src='/photoReview/photoreview9.png' width='30%' height='30%' />
+			</Row>
 		</Wrapper>
 	);
 }
