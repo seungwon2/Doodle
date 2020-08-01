@@ -2,7 +2,7 @@
 
 ## ✏️아이의 상상을 현실로, Doodle🖍
 
-신촌 IT 연합 창업동아리 CEOS 11기 창업팀 Doodle의 web client repository 입니다.
+신촌 IT 연합 창업동아리 CEOS 11기 창업팀 Doodle의 client repository 입니다.
 
 Doodle은 아이의 낙서를 디자이너가 리디자인하여 이용자 맞춤 굿즈로 만드는 디자이너-고객 연결 서비스입니다.
 
